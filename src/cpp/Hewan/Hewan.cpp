@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Hewan.hpp"
+#include "src/header/Hewan/Hewan.hpp"
 #include <string>
 using namespace std;
 
@@ -29,6 +29,6 @@ int Hewan::get_actualweight() const{
     return this -> actualweight;
 }
 
-void Hewan::KasihMakan(){
+// void Hewan::KasihMakan(){
 
-}
+// }

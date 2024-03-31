@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Hewan.hpp"
-#include "Karnivora.hpp"
+#include "src/header/Hewan/Hewan.hpp"
+#include "src/header/Hewan/Karnivora.hpp"
 #include <string>
 using namespace std;
 
@@ -11,8 +11,8 @@ Karnivora::~Karnivora(){
     
 }
 
-void Karnivora::KasihMakan(Produk makanan){
-    // if (makanan.type = "ANIMAL_PRODUCT"){
-    //     throw NoAnimalFood();
-    // }
-}
+// void Karnivora::KasihMakan(Produk makanan){
+//     // if (makanan.type = "ANIMAL_PRODUCT"){
+//     //     throw NoAnimalFood();
+//     // }
+// }

@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Game.hpp"
+#include "src/header/Game/Game.hpp"
+
 using namespace std;
 Game::Game(int currentturn):NUM_OF_PLAYER(0){
     this -> currentturn = 0;
