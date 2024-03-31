@@ -17,6 +17,13 @@ class NoAnimalFood : public Exception {
         }
 };
 
+class CannotEat : public Exception {
+    public:
+        string what() override {
+            return "Tidak bisa makan itu, silakan pilih makanan yang lain.";
+        }
+};
+
 class NoMoney : public Exception {
     public:
         string what() override {
@@ -36,6 +43,14 @@ class DupeName : public Exception{
     public:
     string what() override {
         return "Nama tersebut sudah ada, silakan ulangi masukan.";
+    }
+};
+
+// Exception nama pemain kosong
+class EmptyName : public Exception{
+    public:
+    string what() override {
+        return "Nama tidak boleh string kosong, silakan ulangi masukan.";
     }
 };
 
