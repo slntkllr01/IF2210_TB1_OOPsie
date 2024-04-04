@@ -1,8 +1,11 @@
 #ifndef _PEMAIN_HPP
 #define _PEMAIN_HPP
-using namespace std;
+
 #include <iostream>
+using namespace std;
+
 #include "Grid/Inventory.hpp"
+#include "Produk/Produk.hpp"
 
 class Pemain {
     protected:
@@ -13,11 +16,18 @@ class Pemain {
         int beratBadan;
 
     public:
+        /* Default Constructor */
         Pemain();
+        /* User-Defined Constructor */
         Pemain(string username, string peran, Inventory inventory, int uang, int beratBadan);
+        /* Destructor */
         virtual ~Pemain();
-        virtual void hitungPajak() = 0;
+        /* Getter */
         string getUsername();
+        /* Menghitung pajak yang harus dibayar oleh pemain */
+        virtual void hitungPajak() = 0;
+        /* Makan */
+        void makan(Produk produk);
 };
 
 #endif

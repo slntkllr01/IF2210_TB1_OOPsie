@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-class product {
+class Produk {
     private:
         int id;
         string kodeHuruf;
@@ -14,14 +14,15 @@ class product {
         int addedWeight;
         int price;
     public:
+        Produk();
+        int getAddedWeight();
+};
+
+class produkHewan : public Produk {
 
 };
 
-class produkHewan : public product {
-
-};
-
-class produkTumbuhan : public product {
+class produkTumbuhan : public Produk {
     
 };
 
