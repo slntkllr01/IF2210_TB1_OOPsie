@@ -5,11 +5,24 @@
 using namespace std;
 
 #include "Pemain.hpp"
+#include "Grid/Ladang.hpp"
 
 class Petani : public Pemain {
+    private:
+        Ladang ladang;
     public:
+        /* Default Constructor */
         Petani();
-        Petani(string username, string peran, Inventory inventory, int uang, int beratBadan);
+        /* User-Defined Constructor */
+        Petani(string username, string peran);
+        /* Destructor */
         ~Petani();
-        void hitungPajak();
+        /* Menghitung pajak yang harus dibayar oleh petani */
+        int hitungPajak() override;
+        /* Menanam tanaman di ladang */
+        void tanam();
+        /* Memanen tanaman yang ada di ladang */
+        void panenTanaman();
 };
+
+#endif

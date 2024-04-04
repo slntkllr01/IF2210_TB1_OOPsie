@@ -19,13 +19,15 @@ class Pemain {
         /* Default Constructor */
         Pemain();
         /* User-Defined Constructor */
-        Pemain(string username, string peran, Inventory inventory, int uang, int beratBadan);
+        Pemain(string username, string peran);
         /* Destructor */
         virtual ~Pemain();
         /* Getter */
         string getUsername();
+        /* Menghitung kekayaan pemain */
+        virtual int hitungKekayaan();
         /* Menghitung pajak yang harus dibayar oleh pemain */
-        virtual void hitungPajak() = 0;
+        virtual int hitungPajak() = 0;
         /* Makan */
         void makan(Produk produk);
 };

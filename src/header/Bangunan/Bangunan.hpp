@@ -11,6 +11,7 @@ class Bangunan {
         int ID;
         string nama;
         vector<int> listOfResep;
+        int price;
     public:
         Bangunan(int ID, string nama);
 };
