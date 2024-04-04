@@ -24,10 +24,6 @@ class Pemain {
         virtual ~Pemain();
         /* Getter */
         string getUsername();
-        /* Menghitung kekayaan pemain */
-        virtual int hitungKekayaan();
-        /* Menghitung pajak yang harus dibayar oleh pemain */
-        virtual int hitungPajak() = 0;
         /* Makan */
         void makan(Produk produk);
 };

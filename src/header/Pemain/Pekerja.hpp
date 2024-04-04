@@ -11,7 +11,7 @@ class Pekerja : public Pemain {
         int KTKP;
     public:
         /* User-Defined Constructor */
-        Pekerja(string username, string peran);
+        Pekerja(string username, string peran, int KTKP);
         /* Destructor */
         virtual ~Pekerja();
         /* Menghitung KKP */
