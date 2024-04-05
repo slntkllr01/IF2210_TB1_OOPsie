@@ -23,7 +23,7 @@ class Pemain {
         /* Destructor */
         virtual ~Pemain();
         /* Getter */
-        string getUsername();
+        string getUsername() const;
         /* Makan */
         void makan(Produk produk);
 };

@@ -10,7 +10,7 @@ Pemain::Pemain(string username, string peran) : username(username), peran(peran)
 Pemain::~Pemain() {}
 
 /* Getter */
-string Pemain::getUsername(){
+string Pemain::getUsername() const{
     return username;
 }
 
