@@ -7,16 +7,15 @@ ListPemain::ListPemain(){}
 
 ListPemain::~ListPemain(){}
 
+bool ListPemain::compareNames(const Pemain& a, const Pemain& b) {
+    return a.getUsername() < b.getUsername();
+}
 
 // !!!add Pemain tidak include exception gulden kurang untuk walikota
 void ListPemain::add_Pemain(Pemain pemain){
     check_Dupe(pemain.getUsername());
-    if (pemain.getUsername() > ArrPemain.front().getUsername()){
-        ArrPemain.push_back(pemain);
-    }
-    else{
-        ArrPemain.insert(ArrPemain.begin(),pemain);
-    }
+    ArrPemain.push_back(pemain);
+    sort(ArrPemain.begin(), ArrPemain.end(), compareNames);
     cout << "Pemain baru ditambahkan!" << endl;
     cout << "Selamat datang \"" << pemain.getUsername() << "\" di kota ini!" << endl;
 
