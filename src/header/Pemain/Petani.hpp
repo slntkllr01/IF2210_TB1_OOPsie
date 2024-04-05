@@ -4,10 +4,10 @@
 #include <iostream>
 using namespace std;
 
-#include "Pemain.hpp"
+#include "Pekerja.hpp"
 #include "Grid/Ladang.hpp"
 
-class Petani : public Pemain {
+class Petani : public Pekerja {
     private:
         Ladang ladang;
     public:
@@ -17,8 +17,8 @@ class Petani : public Pemain {
         Petani(string username, string peran);
         /* Destructor */
         ~Petani();
-        /* Menghitung pajak yang harus dibayar oleh petani */
-        int hitungPajak() override;
+        /* Menghitung kekayaan petani */
+        int hitungKekayaan();
         /* Menanam tanaman di ladang */
         void tanam();
         /* Memanen tanaman yang ada di ladang */
