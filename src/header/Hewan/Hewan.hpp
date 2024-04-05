@@ -15,19 +15,19 @@ private:
     int harvestweight;
     int actualweight;   // tambahan berat hewan sebenarnya
     int price;
+    int age;
 // <ID> <KODE_HURUF> <NAME> <TYPE> <WEIGHT_TO_HARVEST> <PRICE>
 public:
-    static int totalHewan;
-
+    static int DEADAGE;
     Hewan(int ID, string code, string name, string type, int harvestweight, int price);
     ~Hewan();
     void set_actualweight(int actualweight);
     int get_price() const;
     int get_actualweight() const;
-    
-    virtual void KasihMakan(Produk makanan) = 0;
-    void PanenHewan(int ID, string code);
-
+    bool siapPanen();
+    bool is_Dead();
+    virtual bool CanEat(string tipe) = 0;
+    void printInfo();
     // batal panen?
     // batal kasih makan? tp keknya gausah bs sih
 };

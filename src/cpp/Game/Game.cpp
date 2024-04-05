@@ -2,7 +2,7 @@
 #include "src/header/Game/Game.hpp"
 
 using namespace std;
-Game::Game(int currentturn):NUM_OF_PLAYER(0){
+Game::Game(int currentturn):{
     this -> currentturn = 0;
 }
 
@@ -10,22 +10,42 @@ void Game::set_currentturn(int currentturn){
     this -> currentturn = currentturn;
 }
 
-void Game::orderturn(){
-    // TODO
+void Game::set_currentpemainname(string currentpemainname){
+    this -> currentpemainname = currentpemainname;
 }
 
 void Game::check_win(){
     // TODO
 }
 
-void Game::get_whoseturn(){
-    // return 
+
+
+// int Game::get_idxinalist(string x, vector <Pemain> ArrPemain){
+//     for (int i = 0; i<(ArrPemain.size()); i++){
+//         if (ArrPemain[i].nama == x){
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+
+string Game::get_whoseturn(int idx){
+    // return ArrPemain[idx].getname(); 
 }
 
 int Game::get_currentturn(){
     return currentturn;
 }
 
-int Game::get_numofplayer(){
-    return NUM_OF_PLAYER;
+void Game::next_turn(){
+    // cek menang
+    // nambah umur semuanya
+    // cek mati
+    
+    // orderturn(ArrPemain);   // ngurutin dulu
+    int x = get_idxinalist(currentpemainname,ArrPemain);    // tahu idx baru si pemain lama tadi sblm next turn
+    cout << "Pemain " << ArrPemain[x].getUsername() << " mengakhiri giliran~" << endl;
+    if x+1 > ArrPemain.size();
+    cout << "Sekarang giliran " << ArrPemain[x+1].getUsername() << "!" << endl; // handle idx lebih << "!" << endl;
+    set_currentpemainname(ArrPemain[x+1].getUsername());        // jangan lupa setter currentplayername ke next
 }

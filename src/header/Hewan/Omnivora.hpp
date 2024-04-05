@@ -8,7 +8,7 @@ class Omnivora: public Hewan
 public:
     Omnivora(int ID, string code, string name, string type, int harvestweight, int price);
     ~Omnivora();
-    void KasihMakan(Produk makanan);
+    bool CanEat(string tipe);
 };
 
 #endif

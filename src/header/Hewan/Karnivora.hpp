@@ -7,7 +7,7 @@ class Karnivora: public Hewan
 public:
     Karnivora(int ID, string code, string name, string type, int harvestweight, int price);
     ~Karnivora();
-    void KasihMakan(Produk makanan);
+    bool CanEat(string tipe);
 };
 
 #endif

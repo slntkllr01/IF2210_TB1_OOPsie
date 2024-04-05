@@ -10,3 +10,13 @@ Omnivora::Omnivora(int ID, string code, string name, string type, int harvestwei
 Omnivora::~Omnivora(){
     
 }
+
+bool Omnivora::CanEat(string tipe){
+    if (tipe == "PRODUCT_MATERIAL_PLANT"){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+

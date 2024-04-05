@@ -8,11 +8,13 @@ Herbivora::Herbivora(int ID, string code, string name, string type, int harvestw
 }
 
 Herbivora::~Herbivora(){
-    
 }
 
-void Herbivora::KasihMakan(Produk makanan){
-    // if (makanan.type = "ANIMAL_PRODUCT"){
-    //     throw NoAnimalFood();
-    // }
+bool Herbivora::CanEat(string tipe){
+    if (tipe == "PRODUCT_FRUIT_PLANT"){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

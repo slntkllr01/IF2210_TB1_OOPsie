@@ -1,6 +1,7 @@
 #ifndef _HERBIVORA_HPP
 #define _HERBIVORA_HPP
 #include <string>
+#include "Produk.hpp"
 using namespace std;
 class Herbivora: public Hewan
 {

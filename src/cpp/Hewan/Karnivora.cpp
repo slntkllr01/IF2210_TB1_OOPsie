@@ -11,8 +11,11 @@ Karnivora::~Karnivora(){
     
 }
 
-// void Karnivora::KasihMakan(Produk makanan){
-//     // if (makanan.type = "ANIMAL_PRODUCT"){
-//     //     throw NoAnimalFood();
-//     // }
-// }
+bool Karnivora::CanEat(string tipe){
+    if (tipe == "PRODUCT_ANIMAL"){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
