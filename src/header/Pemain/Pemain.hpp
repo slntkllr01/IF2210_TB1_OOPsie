@@ -24,8 +24,10 @@ class Pemain {
         virtual ~Pemain();
         /* Getter */
         string getUsername() const;
+        string getPeran() const;
         /* Makan */
         void makan(Produk produk);
+
 };
 
 #endif

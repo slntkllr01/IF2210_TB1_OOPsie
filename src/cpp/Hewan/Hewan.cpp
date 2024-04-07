@@ -56,6 +56,7 @@ void Hewan::printInfo(){
 
 bool Hewan::is_Dead(){
     if (age == DEADAGE){
-
+        return true;
     }
+    return false;
 }

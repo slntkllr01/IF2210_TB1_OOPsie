@@ -11,7 +11,6 @@ bool ListPemain::compareNames(const Pemain& a, const Pemain& b) {
     return a.getUsername() < b.getUsername();
 }
 
-// !!!add Pemain tidak include exception gulden kurang untuk walikota
 void ListPemain::add_Pemain(Pemain pemain){
     check_Dupe(pemain.getUsername());
     ArrPemain.push_back(pemain);
@@ -41,4 +40,8 @@ void ListPemain::print_AllPemain(){
     for (int i = 0; i<sz; i++){
         cout << "Pemain ke-" << i+1 << ": " << ArrPemain[i].getUsername() << endl;
     }
+}
+
+vector<Pemain> ListPemain::get_ArrPemain(){
+    return ArrPemain;
 }

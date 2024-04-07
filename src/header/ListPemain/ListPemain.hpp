@@ -13,6 +13,7 @@ class ListPemain{
         void add_Pemain(Pemain pemain);     // add new pemain and sort it's order
         void check_Dupe(string nama);       // check if there is a dupe name
         void print_AllPemain();
+        vector<Pemain> get_ArrPemain();
         bool compareNames(const Pemain& a, const Pemain& b);
 };
 

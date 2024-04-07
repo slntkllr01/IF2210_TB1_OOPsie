@@ -13,6 +13,9 @@ Pemain::~Pemain() {}
 string Pemain::getUsername() const{
     return username;
 }
+string Pemain::getPeran() const{
+    return peran;
+}
 
 /* Makan */
 void Pemain::makan(Produk produk){

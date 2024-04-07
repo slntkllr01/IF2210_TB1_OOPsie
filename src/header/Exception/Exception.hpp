@@ -77,6 +77,12 @@ class InvalidFileInput : public Exception {
         }
 };
 
+class InvalidRole : public Exception {
+    public:
+        string what() override {
+            return "Peranmu tidak bisa menggunakan command ini.";
+        }
+};
 // Add more or edit as you please
 
 #endif

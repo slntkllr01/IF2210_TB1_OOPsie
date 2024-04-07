@@ -7,18 +7,20 @@ using namespace std;
 class Game{
     protected:
         int currentturn;
-        string currentpemainname;
+        Pemain currentpemain;
         ListPemain ListPemain;
+        static int totalTurn;
     public:
         Game(int currentturn);
         void set_currentturn(int currentturn);
-        void set_currentpemainname(string currentpemainname);
-        void check_win();                   //check if player had met the requirements for winning
-        int get_idxinalist(string x, vector<Pemain> ArrPemain);
-        string get_whoseturn(int idx);               //get whose turn is it (name)
+        void set_currentpemain(Pemain p);                //check if player had met the requirements for winning
         int get_currentturn();
-        void next_turn();
+        string get_currentpemainname();
+        int get_idxinalist(string x);
+        void check_turn();
 
+        void next_turn();
+        void start_game();
 
 };
 
