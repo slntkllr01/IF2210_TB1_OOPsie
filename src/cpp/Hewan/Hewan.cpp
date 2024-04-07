@@ -7,6 +7,7 @@ int Hewan::DEADAGE = 20;
 Hewan::Hewan(int ID, string code, string name, string type, int harvestweight, int price){
     this -> ID = ID;
     this -> code = code;
+    this -> name = name;
     this -> type = type;
     this -> harvestweight = harvestweight;
     this -> actualweight = 0;
@@ -19,6 +20,10 @@ Hewan::~Hewan(){
 
 void Hewan::set_actualweight(int actualweight){
     this -> actualweight = actualweight;
+}
+
+string Hewan::get_name() const{
+    return this -> name;
 }
 
 int Hewan::get_price() const{

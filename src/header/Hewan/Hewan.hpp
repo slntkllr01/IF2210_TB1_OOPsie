@@ -22,6 +22,7 @@ public:
     Hewan(int ID, string code, string name, string type, int harvestweight, int price);
     ~Hewan();
     void set_actualweight(int actualweight);
+    string get_name() const;
     int get_price() const;
     int get_actualweight() const;
     bool siapPanen();
