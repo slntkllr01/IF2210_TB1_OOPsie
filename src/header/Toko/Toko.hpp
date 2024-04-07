@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <vector>
-#include <map>
 #include "header/Pemain/Pemain.hpp"
+#include "src/header/Loader/Loader.hpp"
 
 using namespace std;
 
@@ -16,6 +16,7 @@ class Toko {
         int InvLength() const;
         void terbeli(string namaBarang);
         void dijual();
+        void showInventory(Loader config);
         Toko& operator+=(const Barang& barang);
         Toko& operator-=(const string& namaBarang);
 };
