@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/header/Game/Game.hpp"
+#include "../../header/Game/Game.hpp"
 
 using namespace std;
 Game::Game(int currentturn):{

@@ -5,7 +5,7 @@
 using namespace std;
 
 #include "Pekerja.hpp"
-#include "Grid/Ladang.hpp"
+#include "../Grid/Ladang.hpp"
 
 class Petani : public Pekerja {
     private:

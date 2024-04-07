@@ -2,7 +2,7 @@
 #define _GAME_HPP
 #include <iostream>
 #include <vector>
-#include "ListPemain.hpp"
+#include "../ListPemain/ListPemain.hpp"
 using namespace std;
 class Game{
     protected:

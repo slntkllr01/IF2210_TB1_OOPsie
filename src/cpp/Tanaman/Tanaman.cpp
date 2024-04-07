@@ -1,9 +1,9 @@
 #include <iostream>
-#include "src/header/Tanaman/Tanaman.hpp"
+#include "../../header/Tanaman/Tanaman.hpp"
 #include <string>
 using namespace std;
 
-Tanaman::Tanaman() : id(id), kodeHuruf(kodeHuruf), name(name), type(type), durationToHarvest(durationToHarvest), price(price) {}
+Tanaman::Tanaman(int id, string kodeHuruf, string name, string type, int durationToHarvest, int price) : id(id), kodeHuruf(kodeHuruf), name(name), type(type), durationToHarvest(durationToHarvest), price(price) {}
 
 Tanaman::~Tanaman() {}
 

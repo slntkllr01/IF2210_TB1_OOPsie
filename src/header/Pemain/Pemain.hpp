@@ -4,8 +4,8 @@
 #include <iostream>
 using namespace std;
 
-#include "Grid/Inventory.hpp"
-#include "Produk/Produk.hpp"
+#include "../Grid/Inventory.hpp"
+#include "../Produk/Produk.hpp"
 
 class Pemain {
     protected:

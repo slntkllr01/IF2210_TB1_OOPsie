@@ -1,8 +1,8 @@
 #ifndef _HEWAN_HPP
 #define _HEWAN_HPP
 #include <string>
-#include "Exception.hpp"
-#include "Produk.hpp"
+#include "../Exception/Exception.hpp"
+#include "../Produk/Produk.hpp"
 using namespace std;
 
 class Hewan

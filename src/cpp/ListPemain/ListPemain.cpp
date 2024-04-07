@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
-#include "ListPemain.hpp"
-#include "Exception.hpp"
+#include "../../header/ListPemain/ListPemain.hpp"
+#include "../../header/Exception/Exception.hpp"
 #include <algorithm>
 ListPemain::ListPemain(){}
 

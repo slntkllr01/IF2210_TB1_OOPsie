@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "Tanaman.hpp"
-#include "Inventory.hpp"
+#include "../header/Tanaman/Tanaman.hpp"
+#include "../header/Grid/Inventory.hpp"
 using namespace std;
 void tanam(){
     string slotinv;

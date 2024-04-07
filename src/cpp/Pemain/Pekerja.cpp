@@ -1,4 +1,4 @@
-#include "Pekerja.hpp"
+#include "../../header/Pemain/Pekerja.hpp"
 
 /* User-Defined Constructor */
 Pekerja::Pekerja(string username, string peran, int KTKP) : Pemain(username, peran), KTKP(KTKP) {}

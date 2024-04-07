@@ -1,4 +1,4 @@
-#include "Petani.hpp"
+#include "../../header/Pemain/Petani.hpp"
 
 /* Static variable */
 int Petani::ktkp = 13;

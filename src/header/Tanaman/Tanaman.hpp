@@ -25,6 +25,6 @@ class Tanaman {
         int get_umur();
         void add_umur();
         bool siapPanen();
-}
+};
 
 #endif

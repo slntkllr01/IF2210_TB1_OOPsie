@@ -1,4 +1,4 @@
-#include "Pemain.hpp"
+#include "../../header/Pemain/Pemain.hpp"
 
 /* Default Constructor */
 Pemain::Pemain() : username(""), peran(""), inventory(Inventory()), uang(50), beratBadan(40) {}

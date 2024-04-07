@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Hewan.hpp"
-#include "Herbivora.hpp"
+#include "../../header/Hewan/Hewan.hpp"
+#include "../../header/Hewan/Herbivora.hpp"
 #include <string>
 using namespace std;
 
