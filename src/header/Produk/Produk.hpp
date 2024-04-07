@@ -15,6 +15,7 @@ class Produk {
         int price;
     public:
         Produk();
+        Produk(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price);
         int getAddedWeight();
 };
 

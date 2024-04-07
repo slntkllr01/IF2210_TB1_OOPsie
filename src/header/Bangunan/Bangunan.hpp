@@ -2,18 +2,19 @@
 #define BANGUNAN_HPP
 
 #include <string>
-#include <vector>
+#include <map>
 
 using namespace std;
 
 class Bangunan {
     private:
         int ID;
+        string kode;
         string nama;
-        vector<int> listOfResep;
+        map<string, int> listOfResep; // ganti jadi map > kuantitas!
         int price;
     public:
-        Bangunan(int ID, string nama);
+        Bangunan(int ID, string kode, string nama, int price);
 };
 
 #endif

@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-Omnivora::Omnivora(int ID, string code, string name, string type, int harvestweight, int price):Hewan(ID,code,name,type,harvestweight,price){
+Omnivora::Omnivora(int ID, string code, string name, int harvestweight, int price):Hewan(ID,code,name,"OMNIVORE",harvestweight,price){
 }
 
 Omnivora::~Omnivora(){
