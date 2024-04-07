@@ -1,11 +1,35 @@
 #ifndef _INVENTORY_HPP
 #define _INVENTORY_HPP
-class Inventory {
+#include "GridMap.hpp"
+#include "../../header/Produk/Produk.hpp"
+class Inventory: public Grid<Produk>{
+    private:
+        int baris;
+        int kolom;
     public:
         // Constructor
-        Inventory();
+        Inventory(int, int);
 
-    private:
+        ~Inventory();
+
+        void SimpanBarang(); //Auto
+
+        void SimpanBarang(string); //Input Manual
+
+        Produk AmbilBarang(string); //Delete
+
+        void Makan(string); 
+
+        void CetakPenyimpanan();
+
+        int SlotTersisa(); //Untuk diprint setelah cetak penyimpanan
+
+        bool isFull(); //Mengecek apakah penyimpanan sudah penuh atau belum
+
+        bool isEmpty();
+
+        bool isThereMakanan(); //Mengecek apakah ada makanan
+
 };
 
 #endif
