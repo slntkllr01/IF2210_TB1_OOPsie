@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-Herbivora::Herbivora(int ID, string code, string name, string type, int harvestweight, int price):Hewan(ID,code,name,type,harvestweight,price){
+Herbivora::Herbivora(int ID, string code, string name, int harvestweight, int price):Hewan(ID,code,name,"HERBIVORE",harvestweight,price){
 }
 
 Herbivora::~Herbivora(){
