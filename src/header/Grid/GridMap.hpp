@@ -34,6 +34,11 @@ class Grid{
             }
         }
 
+        T value(string k){
+            auto it = element.find(k);
+            return it->second;
+        }
+
         void add(string k, T val){
             auto it = element.find(k);
             if(it==element.end()){
@@ -64,6 +69,10 @@ class Grid{
            else{
                 element.erase(it);
            }
+        }
+
+        int howMuchElement(){
+            return this->numOfEl;
         }
 };  
 

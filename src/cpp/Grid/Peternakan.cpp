@@ -32,7 +32,7 @@ void Peternakan::BeriMakan(Produk){
 
 }
 
-bool Peternakan::isSiapPanen(Hewan h){
+bool Peternakan::isSiapPanen(Hewan* h){
 
 } //Mengecek apakah suatu hewan siap panen atau tidak
 

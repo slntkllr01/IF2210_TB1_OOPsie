@@ -3,10 +3,16 @@
 #include "GridMap.hpp"
 #include "../../header/Produk/Produk.hpp"
 #include "../../header/Tanaman/Tanaman.hpp"
-class Ladang: public Grid<Tanaman>{
+#include <iostream>
+class Ladang{
     private:
         int baris;
         int kolom;
+        Grid<Tanaman> kotak;
+        int charBarisMaksimal;
+        int charKolomMaksimal;
+        //49 = 1
+        //65 = A
         
     public:
         // Constructor
@@ -14,7 +20,8 @@ class Ladang: public Grid<Tanaman>{
 
         ~Ladang();
 
-        void Tanam(string); //Menambahkan tanaman ke slot lahan
+        bool isLokasiValid(string);
+        void Tanam(string, Tanaman); //Menambahkan tanaman ke slot lahan
 
         void Panen(string); //Memanen tanaman dengan kode yang sama dengan inputan
         void CetakLadang();
@@ -23,7 +30,7 @@ class Ladang: public Grid<Tanaman>{
 
         bool isEmpty(); //Mengecek apakah ladang kosong atau tidak
 
-        bool isSiapPanen(Tanaman); //Mengecek apakah tanaman siap dipanen
+        //bool isSiapPanen(Tanaman); //Mengecek apakah tanaman siap dipanen
 
 };
 

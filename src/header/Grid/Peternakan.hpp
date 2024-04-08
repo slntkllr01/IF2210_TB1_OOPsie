@@ -25,7 +25,7 @@ class Peternakan: public Grid<Hewan>{
 
         void BeriMakan(Produk);
 
-        bool isSiapPanen(Hewan); //Mengecek apakah suatu hewan siap panen atau tidak
+        bool isSiapPanen(Hewan*); //Mengecek apakah suatu hewan siap panen atau tidak
 };
 
 #endif
