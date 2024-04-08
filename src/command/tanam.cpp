@@ -4,8 +4,8 @@
 #include "../header/Tanaman/Tanaman.hpp"
 #include "../header/Pemain/Petani.hpp"
 using namespace std;
-void tanam(Pemain p){
-    if (p.getPeran() !="PETANI"){
+void tanam(Pemain* p){
+    if (p->getPeran() !="PETANI"){
         throw InvalidRole();
     }
     string slotinv;

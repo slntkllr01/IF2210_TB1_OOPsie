@@ -7,16 +7,16 @@ ListPemain::ListPemain(){}
 
 ListPemain::~ListPemain(){}
 
-bool ListPemain::compareNames(const Pemain& a, const Pemain& b) {
-    return a.getUsername() < b.getUsername();
+bool ListPemain::compareNames(const Pemain* a, const Pemain* b) {
+    return a->getUsername() < b->getUsername();
 }
 
-void ListPemain::add_Pemain(Pemain pemain){
-    check_Dupe(pemain.getUsername());
+void ListPemain::add_Pemain(Pemain* pemain){
+    check_Dupe(pemain->getUsername());
     ArrPemain.push_back(pemain);
     sort(ArrPemain.begin(), ArrPemain.end(), compareNames);
     cout << "Pemain baru ditambahkan!" << endl;
-    cout << "Selamat datang \"" << pemain.getUsername() << "\" di kota ini!" << endl;
+    cout << "Selamat datang \"" << pemain->getUsername() << "\" di kota ini!" << endl;
 
 }
 
@@ -27,7 +27,7 @@ void ListPemain::check_Dupe(string nama){
 	else{
         int sz = ArrPemain.size();
         for (int i = 0; i<sz; i++){
-            if (ArrPemain[i].getUsername() == nama){
+            if (ArrPemain[i]->getUsername() == nama){
                 throw DupeName();
             }
         }
@@ -38,10 +38,10 @@ void ListPemain::print_AllPemain(){
     cout << "Daftar Pemain: " << endl;
     int sz = ArrPemain.size();
     for (int i = 0; i<sz; i++){
-        cout << "Pemain ke-" << i+1 << ": " << ArrPemain[i].getUsername() << endl;
+        cout << "Pemain ke-" << i+1 << ": " << ArrPemain[i]->getUsername() << endl;
     }
 }
 
-vector<Pemain> ListPemain::get_ArrPemain(){
+vector<Pemain*> ListPemain::get_ArrPemain(){
     return ArrPemain;
 }

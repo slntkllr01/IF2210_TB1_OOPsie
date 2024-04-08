@@ -6,14 +6,14 @@
 using namespace std;
 class Game{
     protected:
-        int currentturn;
-        Pemain currentpemain;
-        ListPemain ListPemain;
+        int currentturn;        //indeks currentpemain berada di ListPemain
+        Pemain* currentpemain;
+        ListPemain listPemain;
         static int totalTurn;
     public:
-        Game(int currentturn);
+        Game(int currentturn, ListPemain ListPemain);
         void set_currentturn(int currentturn);
-        void set_currentpemain(Pemain p);                //check if player had met the requirements for winning
+        void set_currentpemain(Pemain* p);                //check if player had met the requirements for winning
         int get_currentturn();
         string get_currentpemainname();
         int get_idxinalist(string x);

@@ -23,6 +23,8 @@ class Petani : public Pekerja {
         void tanam();
         /* Memanen tanaman yang ada di ladang */
         void panenTanaman();
+        /* Getter */
+        Ladang getLadang();
 };
 
 #endif

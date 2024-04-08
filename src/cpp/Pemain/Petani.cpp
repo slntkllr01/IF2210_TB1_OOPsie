@@ -15,3 +15,7 @@ Petani::~Petani() {}
 /* Menghitung pajak yang harus dibayar oleh petani */
 int Petani::hitungPajak(){   
 }
+
+Ladang Petani::getLadang(){
+    return ladang;
+}

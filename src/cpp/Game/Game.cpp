@@ -2,18 +2,20 @@
 #include "../../header/Game/Game.hpp"
 #include "../header/Exception/Exception.hpp"
 #include "../../command/tanam.cpp"
-#include <algorithm>
+#include "../../command/ternak.cpp"
 using namespace std;
 int Game::totalTurn = 0;
-Game::Game(int currentturn){
+Game::Game(int currentturn, ListPemain ListPemain){
     this -> currentturn = 0;
+    this -> listPemain = ListPemain;
+    this -> currentpemain = (listPemain.get_ArrPemain().front());
 }
 
 void Game::set_currentturn(int currentturn){
     this -> currentturn = currentturn;
 }
 
-void Game::set_currentpemain(Pemain p){
+void Game::set_currentpemain(Pemain* p){
     this -> currentpemain = p;
 }
 
@@ -22,16 +24,15 @@ int Game::get_currentturn(){
 }
 
 string Game::get_currentpemainname(){
-    vector<Pemain> pemain = ListPemain.get_ArrPemain();
-    return pemain[currentturn].getUsername();
+    return (listPemain.get_ArrPemain())[currentturn]->getUsername();
 }
 
 // mengembalikan indeks dimana nama pemain x berada di dalam list pemain
 int Game::get_idxinalist(string x){
-    vector<Pemain> pemain = ListPemain.get_ArrPemain();
+    vector<Pemain*> pemain = listPemain.get_ArrPemain();
 
     for (int i = 0; i<(pemain.size()); i++){
-        if (pemain[i].getUsername() == x){
+        if (pemain[i]->getUsername() == x){
             return i;
         }
     }
@@ -47,26 +48,30 @@ void Game::check_turn(){
 
 void Game::next_turn(){
     // nambah umur semuanya sambil cek mati
-    int sz = ListPemain.get_ArrPemain().size();
-    // for (int i = 0; i < sz ; i++){
-    //     if (currentpemain.)
-    // }
+    int sz = listPemain.get_ArrPemain().size();
+    for (int i = 0; i < sz ; i++){
+        if ((listPemain.get_ArrPemain())[i]->getPeran()=="PETANI"){
+            Petani* petani = dynamic_cast<Petani*>((listPemain.get_ArrPemain())[i]);
+            // add age here
+            petani->getLadang();
+            delete petani;
+        }
+    }
     
     // ngurutin dulu
-    int x = get_idxinalist(currentpemain.getUsername());    // tahu idx baru si pemain lama tadi sblm next turn
-    cout << "Pemain " << (ListPemain.get_ArrPemain())[x].getUsername() << " mengakhiri giliran~" << endl;
-        
-    cout << "Sekarang giliran " << (ListPemain.get_ArrPemain())[x+1].getUsername() << "!" << endl; // handle idx lebih << "!" << endl;
+    cout << "Pemain " << get_currentpemainname() << " mengakhiri giliran~" << endl;
+    
+    set_currentturn((get_idxinalist(currentpemain->getUsername())+1) % listPemain.get_ArrPemain().size());
+    cout << "Sekarang giliran " << (listPemain.get_ArrPemain())[currentturn]->getUsername() << "!" << endl; // handle idx lebih << "!" << endl;
     // ini blm handle yang round robin queue apalah itu
-    set_currentturn(currentturn+1);
-    set_currentpemain((ListPemain.get_ArrPemain())[x+1]);
+    set_currentpemain((listPemain.get_ArrPemain())[currentturn]);
     totalTurn++;
 }
 
 void Game::start_game(){
-
+    bool finish = false;
     // game will loop continuously
-    while (true){
+    while (!finish){
         // loop asking for command until NEXT command
         while (true){
             string command;
@@ -93,7 +98,7 @@ void Game::start_game(){
                 tanam(currentpemain);
             }
             else if (command == "TERNAK"){
-
+                // ternak(currentpemain);
             }
             else if (command == "BANGUN"){
 
@@ -113,9 +118,9 @@ void Game::start_game(){
             else if (command == "PANEN"){
                 // dibedain jadi petani dan peternak
             }
-            else if (command == "MUAT"){
-                // HANYA DPT DILAKUKAN DI AWAL MAIN!
-            }
+            // else if (command == "MUAT"){
+            //     // HANYA DPT DILAKUKAN DI AWAL MAIN!
+            // }
             else if (command == "SIMPAN"){
 
             }
@@ -128,6 +133,7 @@ void Game::start_game(){
             // checkwin di sini
             // if (checkwin){
                 // cout << "Selamat!!! player " << get_currentpemainname() << " telah memenangkan permainan~" << endl;
+                // finish = true;
                 // break;
             // }
         }

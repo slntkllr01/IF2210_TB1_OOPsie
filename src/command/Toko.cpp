@@ -12,7 +12,7 @@ void beli(Loader config, Toko toko) {
     // Pusyenk 7 keliling
 }
 
-void jual() {
+void jual(Pemain* p) {
     // Butuh Inventory
 
     // Alur :

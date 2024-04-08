@@ -29,8 +29,7 @@ public:
     bool is_Dead();
     virtual bool CanEat(string tipe) = 0;
     void printInfo();
-    // batal panen?
-    // batal kasih makan? tp keknya gausah bs sih
+
 };
 
 #endif

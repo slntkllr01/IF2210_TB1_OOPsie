@@ -6,15 +6,15 @@ using namespace std;
 #include <vector>
 class ListPemain{
     private:
-        vector<Pemain> ArrPemain;
+        vector<Pemain*> ArrPemain;
     public:
         ListPemain();
         ~ListPemain();
-        void add_Pemain(Pemain pemain);     // add new pemain and sort it's order
+        void add_Pemain(Pemain* pemain);     // add new pemain and sort it's order
         void check_Dupe(string nama);       // check if there is a dupe name
         void print_AllPemain();
-        vector<Pemain> get_ArrPemain();
-        bool compareNames(const Pemain& a, const Pemain& b);
+        vector<Pemain*> get_ArrPemain();
+        bool compareNames(const Pemain* a, const Pemain* b);
 };
 
 #endif
