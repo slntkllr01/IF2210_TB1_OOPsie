@@ -4,7 +4,7 @@
 Petani::Petani() : Pekerja("", "Petani", 13), ladang(Ladang()) {}
 
 /* User-Defined Constructor */
-Petani::Petani(string username, string peran) : Pekerja(username, peran, 13), ladang(Ladang()) {}
+Petani::Petani(string username) : Pekerja(username, "Petani", 13), ladang(Ladang()) {}
 
 /* Destructor */
 Petani::~Petani() {}

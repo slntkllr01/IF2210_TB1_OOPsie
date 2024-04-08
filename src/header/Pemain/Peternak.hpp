@@ -5,8 +5,8 @@
 using namespace std;
 
 #include "Pekerja.hpp"
-#include "Grid/Peternakan.hpp"
-#include "Hewan/Hewan.hpp"
+#include "../Grid/Peternakan.hpp"
+#include "../Hewan/Hewan.hpp"
 
 class Peternak : public Pekerja {
     private:
@@ -15,7 +15,7 @@ class Peternak : public Pekerja {
         /* Default Constructor */
         Peternak();
         /* User-Defined Constructor */
-        Peternak(string username, string peran);
+        Peternak(string username);
         /* Destructor */
         ~Peternak();
         /* Getter */

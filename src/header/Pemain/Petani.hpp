@@ -15,7 +15,7 @@ class Petani : public Pekerja {
         /* Default Constructor */
         Petani();
         /* User-Defined Constructor */
-        Petani(string username, string peran);
+        Petani(string username);
         /* Destructor */
         ~Petani();
         /* Getter */
