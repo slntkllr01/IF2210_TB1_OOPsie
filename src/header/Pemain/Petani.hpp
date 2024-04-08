@@ -6,6 +6,7 @@ using namespace std;
 
 #include "Pekerja.hpp"
 #include "../Grid/Ladang.hpp"
+#include "../Tanaman/Tanaman.hpp"
 
 class Petani : public Pekerja {
     private:
@@ -17,14 +18,14 @@ class Petani : public Pekerja {
         Petani(string username, string peran);
         /* Destructor */
         ~Petani();
+        /* Getter */
+        Ladang getLadang();
         /* Menghitung kekayaan petani */
         int hitungKekayaan();
         /* Menanam tanaman di ladang */
-        void tanam();
+        void tanam(int x, int y);
         /* Memanen tanaman yang ada di ladang */
-        void panenTanaman();
-        /* Getter */
-        Ladang getLadang();
+        void panenTanaman(int x, int y);
 };
 
 #endif

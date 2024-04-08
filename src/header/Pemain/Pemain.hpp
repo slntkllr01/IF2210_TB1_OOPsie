@@ -25,9 +25,17 @@ class Pemain {
         /* Getter */
         string getUsername() const;
         string getPeran() const;
+        Inventory getInventory() const;
+        int getUang() const;
+        int getBeratBadan() const;
         /* Makan */
         void makan(Produk produk);
-
+        /* Menjual barang */
+        void jual(int x, int y);
+        /* Membeli barang */
+        void beli(int x, int y);
+        /* Mengecek apakah pemain memenuhi kondisi menang */
+        bool isMenang();
 };
 
 #endif

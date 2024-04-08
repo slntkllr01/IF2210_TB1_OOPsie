@@ -1,21 +1,33 @@
 #include "../../header/Pemain/Petani.hpp"
 
-/* Static variable */
-int Petani::ktkp = 13;
-
 /* Default Constructor */
-Petani::Petani() : Pemain("", "Petani"), ladang(Ladang()) {}
+Petani::Petani() : Pekerja("", "Petani", 13), ladang(Ladang()) {}
 
 /* User-Defined Constructor */
-Petani::Petani(string username, string peran) : Pemain(username, peran), ladang(Ladang()) {}
+Petani::Petani(string username, string peran) : Pekerja(username, peran, 13), ladang(Ladang()) {}
 
 /* Destructor */
 Petani::~Petani() {}
 
-/* Menghitung pajak yang harus dibayar oleh petani */
-int Petani::hitungPajak(){   
-}
-
+/* Getter */
 Ladang Petani::getLadang(){
     return ladang;
+}
+
+/* Menghitung kekayaan petani */
+int Petani::hitungKekayaan(){
+    // Kekayaan dari inventory
+    int kekayaan_inventory = Pekerja::hitungKekayaan();
+    // Kekayaan dari ladang
+    return 0;
+}
+
+/* Menanam tanaman di ladang */
+void Petani::tanam(int x, int y){
+
+}
+
+/* Memanen tanaman yang ada di ladang */
+void Petani::panenTanaman(int x, int y){
+
 }
