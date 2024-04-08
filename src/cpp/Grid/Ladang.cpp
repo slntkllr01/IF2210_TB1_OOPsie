@@ -47,30 +47,45 @@ void Ladang::Panen(string lokasi){
     kotak.del(lokasi);
 } //Memanen tanaman dengan kode yang sama dengan inputan
 
+void Ladang::CetakLadangHelper(){
+    cout<<"   +";
+    for(int i=0; i<this->kolom; i++){
+        cout<<"-----+";
+    }
+    cout<<endl;
+}
 void Ladang::CetakLadang(){
-    cout<< "+-----+-----+-----+-----+-----+-----+-----+-----+" <<endl;
+    cout<<"   ";
+    for(int i = 0; i<this->kolom; i++){
+        cout<<"   "<<char(65+i)<<"  ";
+    }
+    cout<<endl;
+
+    Ladang::CetakLadangHelper();
     int charRow = 49; //Ascii dari 1
     int charColumn;
-    string k;
+    string k, cr, cc;
+
     for (int i = 0; i < this->baris; i++) {
+        cout<<"0"<<i+1<<" ";
+        cr = char(charRow);
         charColumn = 65; //Ascii dari A
-        cout << "| ";
-        for (int j = 0; j < 8; j++) {
-            charColumn = j + 1;
-            k = char(charRow) + "0" + char(charColumn);
-            cout<<"Ini k-nya: "<<k;
+        cout << "|";
+        for (int j = 0; j < this->kolom; j++) {
+            cc = char(charColumn);
+            k = cc + "0" + cr;
             if(kotak.isPresent(k)){
-                cout<<" "<<kotak.value(k).get_kodeHuruf()<<"  ";                
+                cout<<" "<<(kotak.value(k)).get_kodeHuruf()<<" |";                
             }
             else{
-                cout<<" "<<"   "<<"  ";
+                cout<<" "<<"   "<<" |";
             }
             charColumn++;
         }
-        std::cout << "|" << endl;
+        std::cout <<endl;
+        Ladang::CetakLadangHelper();
         charRow++;
     }
-    cout << "+-----+-----+-----+-----+-----+-----+-----+-----+" << endl;
 }
 
 bool Ladang::isFull(){

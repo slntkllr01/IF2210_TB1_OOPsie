@@ -24,6 +24,7 @@ class Ladang{
         void Tanam(string, Tanaman); //Menambahkan tanaman ke slot lahan
 
         void Panen(string); //Memanen tanaman dengan kode yang sama dengan inputan
+        void CetakLadangHelper();
         void CetakLadang();
 
         bool isFull(); //Mengecek apakah ladang sudah penuh atau belum
