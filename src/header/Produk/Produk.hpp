@@ -14,17 +14,23 @@ class Produk {
         int addedWeight;
         int price;
     public:
-        Produk();
         Produk(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price);
-        int getAddedWeight();
+        virtual bool isEdibleBy(string animalType) = 0;
+        virtual int getAddedWeight() const;
+        virtual string getType() const;
+
 };
 
 class produkHewan : public Produk {
-
+    public:
+        produkHewan(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price);
+        bool isEdibleBy(string animalType) override;
 };
 
 class produkTumbuhan : public Produk {
-    
+    public:
+        produkTumbuhan(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price);
+        bool isEdibleBy(string animalType) override;
 };
 
 #endif
