@@ -7,11 +7,10 @@ using namespace std;
 
 class Item {
     private:
-        string type;
+        string itemType;
     public:
         Item(string type);
-        string getType();
-        void setType(string type);
+        string getItemType();
 };
 
 #endif

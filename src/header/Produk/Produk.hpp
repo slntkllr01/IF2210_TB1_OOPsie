@@ -2,9 +2,10 @@
 #define PRODUK_HPP
 
 #include <string>
+#include "../Item/Item.hpp"
 using namespace std;
 
-class Produk {
+class Produk : public Item {
     private:
         int id;
         string kodeHuruf;

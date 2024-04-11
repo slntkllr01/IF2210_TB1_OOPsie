@@ -2,9 +2,10 @@
 #define TANAMAN_HPP
 
 #include <string>
+#include "../Item/Item.hpp"
 using namespace std;
 
-class Tanaman {
+class Tanaman : public Item {
     private:
         int id;
         string kodeHuruf;

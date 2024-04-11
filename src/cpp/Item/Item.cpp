@@ -3,13 +3,9 @@
 using namespace std;
 
 Item::Item(string type) {
-    this->type = type;
+    this->itemType = type;
 }
 
-string Item::getType() {
-    return this->type;
-}
-
-void Item::setType(string type) {
-    this->type = type;
+string Item::getItemType() {
+    return this->itemType;
 }

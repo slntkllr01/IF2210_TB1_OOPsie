@@ -3,10 +3,10 @@
 
 #include <string>
 #include <map>
-#include "src/header/Pemain/Pemain.hpp"
+#include "../Item/Item.hpp"
 using namespace std;
 
-class Bangunan {
+class Bangunan : public Item {
     private:
         int ID;
         string kode;

@@ -3,9 +3,10 @@
 #include <string>
 #include "../Exception/Exception.hpp"
 #include "../Produk/Produk.hpp"
+#include "../Item/Item.hpp"
 using namespace std;
 
-class Hewan
+class Hewan : public Item
 {
 private:
     int ID;             
