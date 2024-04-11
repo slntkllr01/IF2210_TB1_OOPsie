@@ -22,6 +22,9 @@ void Hewan::set_actualweight(int actualweight){
     this -> actualweight = actualweight;
 }
 
+string Hewan::get_code() const{
+    return this -> code;
+}
 string Hewan::get_name() const{
     return this -> name;
 }

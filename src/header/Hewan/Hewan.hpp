@@ -23,6 +23,7 @@ public:
     ~Hewan();
     void set_actualweight(int actualweight);
     string get_name() const;
+    string get_code() const;
     int get_price() const;
     int get_actualweight() const;
     bool siapPanen();
