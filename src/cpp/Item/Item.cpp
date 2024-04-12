@@ -2,8 +2,10 @@
 
 using namespace std;
 
-Item::Item(string type) {
-    this->itemType = type;
+Item::Item(string itemType, int id, string code, string name, int price) : itemType(itemType), id(id), code(code), name(name), price(price) {
+}
+
+Item::~Item() {
 }
 
 string Item::getItemType() const {
@@ -20,4 +22,8 @@ string Item::getName() const {
 
 int Item::getprice() const {
     return this->price;
+}
+
+bool Item::operator<(const Item& rhs) const {
+    return name < rhs.name;
 }

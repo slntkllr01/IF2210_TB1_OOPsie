@@ -19,6 +19,7 @@ class Item {
         string getCode() const;
         string getName() const;
         int getprice() const;
+        bool operator<(const Item& rhs) const;
 };
 
 #endif

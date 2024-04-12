@@ -4,39 +4,22 @@
 #include <iostream>
 #include <vector>
 #include "header/Pemain/Pemain.hpp"
-#include "src/header/Loader/Loader.hpp"
+#include "header/Item/Item.hpp"
+#include "src/header/Loader/ConfigLoader.hpp"
 
 using namespace std;
 
 class Toko {
     private:
-        vector<Barang> inventory; // map<Item, int>
+        map<Item, int> inventory; // map<Item, int>
     public:
-        vector<Barang> getInventory() const;
+        map<Item, int> getInventory() const;
         int InvLength() const;
-        void terbeli(string namaBarang);
-        void dijual();
-        void showInventory(Loader config);
-        Toko& operator+=(const Barang& barang);
-        Toko& operator-=(const string& namaBarang);
-};
-
-// HAPUSSS
-class Barang {
-    private:
-        int id;
-        string nama; // dari Item
-        double harga;
-        string tipe; // dari Item
-        int stok;
-    public:
-        Barang(int id, string nama, double harga, string tipe, int stok);
-        int getStok() const;
-        void tambahStok(int num);
-        void kurangiStok(int num);
-        double getHarga() const;
-        string getNama() const;
-        ~Barang();
+        void transaksiBeli();
+        void transaksiJual();
+        void showInventory(Loader config); // SOON mo beli makan dl
+        Toko& operator+=(const Item& barang); // aga kurang srek si gue (revisi soon)
+        Toko& operator-=(const Item& barang);// aga kurang srek si gue (revisi soon)
 };
 
 #endif
