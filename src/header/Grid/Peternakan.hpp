@@ -7,9 +7,11 @@ class Peternakan{
     private:
         int baris;
         int kolom;
-        Grid<Hewan> kotak;
+        Grid<Hewan*> kotak;
         int charBarisMaksimal;
         int charKolomMaksimal;
+        //49 = 1
+        //65 = A
         
     public:
         // Constructor
@@ -21,6 +23,7 @@ class Peternakan{
         void Ternak(string, Hewan*); //Menambahkan ternak ke slot lahan
 
         void Panen(string); //Memanen hewan dengan kode yang sama dengan inputan
+        void CetakPeternakanHelper();
         void CetakPeternakan();
 
         bool isFull(); //Mengecek apakah penyimpanan sudah penuh atau belum

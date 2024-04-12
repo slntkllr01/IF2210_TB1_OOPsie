@@ -40,16 +40,7 @@ class Grid{
         }
 
         void add(string k, T val){
-            auto it = element.find(k);
-            if(it==element.end()){
-                element.insert({k, val});
-                cout<<"Kini petak "<<k<<" sudah memiliki isi"<<endl;
-                numOfEl ++;
-            }
-            else{
-                cout<<"Sudah ada element di petak "<<k<<endl;
-            }
-            
+            element.insert({k, val});
         }
 
         auto firstptr(){
@@ -62,13 +53,7 @@ class Grid{
 
         void del(string k){
            auto it = element.find(k);
-           if(it == element.end()){
-                cout<<"Tidak ada elemen di petak" << k << endl;
-                numOfEl--;
-           }
-           else{
-                element.erase(it);
-           }
+           element.erase(it);
         }
 
         int howMuchElement(){
