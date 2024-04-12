@@ -3,21 +3,10 @@
 #include <string>
 using namespace std;
 
-Tanaman::Tanaman(int id, string kodeHuruf, string name, string type, int durationToHarvest, int price) : id(id), kodeHuruf(kodeHuruf), name(name), type(type), durationToHarvest(durationToHarvest), price(price) {}
+Tanaman::Tanaman(int id, string kodeHuruf, string name, string type, int durationToHarvest, int price) : Item("Tanaman", id, kodeHuruf, name, price), type(type), durationToHarvest(durationToHarvest) {
+}
 
 Tanaman::~Tanaman() {}
-
-int Tanaman::get_id() {
-    return this->id;
-}
-
-string Tanaman::get_kodeHuruf() {
-    return this->kodeHuruf;
-}
-
-string Tanaman::get_name() {
-    return this->name;
-}
 
 string Tanaman::get_type() {
     return this->type;
@@ -25,10 +14,6 @@ string Tanaman::get_type() {
 
 int Tanaman::get_durationToHarvest() {
     return this->durationToHarvest;
-}
-
-int Tanaman::get_price() {
-    return this->price;
 }
 
 int Tanaman::get_umur() {

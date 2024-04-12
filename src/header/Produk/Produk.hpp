@@ -7,13 +7,9 @@ using namespace std;
 
 class Produk : public Item {
     private:
-        int id;
-        string kodeHuruf;
-        string nama;
         string tipe;
         string origin;
         int addedWeight;
-        int price;
     public:
         Produk(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price);
         virtual bool isEdibleBy(string animalType) = 0;

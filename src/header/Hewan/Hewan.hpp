@@ -8,14 +8,10 @@ using namespace std;
 
 class Hewan : public Item
 {
-private:
-    int ID;             
-    // string code;
-    string name;
+private:       
     string type;
     int harvestweight;
     int actualweight;   // tambahan berat hewan sebenarnya
-    int price;
     int age;
 // <ID> <KODE_HURUF> <NAME> <TYPE> <WEIGHT_TO_HARVEST> <PRICE>
 public:
@@ -23,9 +19,6 @@ public:
     Hewan(int ID, string code, string name, string type, int harvestweight, int price);
     ~Hewan();
     void set_actualweight(int actualweight);
-    string get_name() const;
-    // string get_code() const;
-    int get_price() const;
     int get_actualweight() const;
     bool siapPanen();
     bool is_Dead();

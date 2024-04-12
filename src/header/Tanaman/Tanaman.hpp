@@ -7,12 +7,8 @@ using namespace std;
 
 class Tanaman : public Item {
     private:
-        int id;
-        string kodeHuruf;
-        string name;
         string type;
         int durationToHarvest;
-        int price;
         int umur;
     public:
         Tanaman(int id, string kodeHuruf, string name, string type, int durationToHarvest, int price);
