@@ -1,13 +1,16 @@
 #ifndef _INVENTORY_HPP
 #define _INVENTORY_HPP
 #include "GridMap.hpp"
-#include "../../header/Produk/Produk.hpp"
+#include "../Produk/Produk.hpp"
+#include "../Loader/Loader.hpp"
 class Inventory: public Grid<Produk>{
     private:
         int baris;
         int kolom;
     public:
         // Constructor
+        Inventory();
+
         Inventory(int, int);
 
         ~Inventory();

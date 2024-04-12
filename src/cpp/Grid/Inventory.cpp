@@ -1,6 +1,12 @@
 #include "../../header/Grid/Inventory.hpp"
 
 // Constructor
+Inventory::Inventory(){
+    Loader& loader = Loader::getInstance();
+    baris = loader.ukuranInventory.first;
+    kolom = loader.ukuranInventory.second;
+}
+
 Inventory::Inventory(int b, int k){
 
 }

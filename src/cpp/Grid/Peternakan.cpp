@@ -104,7 +104,7 @@ void Peternakan::CetakPeternakan(){
             cc = char(charColumn);
             k = cc + "0" + cr;
             if(kotak.isPresent(k)){
-                cout<<" "<<(kotak.value(k))->get_code()<<" |";                
+                cout<<" "<<(kotak.value(k))->getCode()<<" |";                
             }
             else{
                 cout<<" "<<"   "<<" |";

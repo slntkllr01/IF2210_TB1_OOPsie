@@ -10,7 +10,7 @@ using namespace std;
 
 class Toko {
     private:
-        vector<Barang> inventory;
+        vector<Barang> inventory; // map<Item, int>
     public:
         vector<Barang> getInventory() const;
         int InvLength() const;
@@ -21,12 +21,13 @@ class Toko {
         Toko& operator-=(const string& namaBarang);
 };
 
+// HAPUSSS
 class Barang {
     private:
         int id;
-        string nama;
+        string nama; // dari Item
         double harga;
-        string tipe;
+        string tipe; // dari Item
         int stok;
     public:
         Barang(int id, string nama, double harga, string tipe, int stok);
