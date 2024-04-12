@@ -6,6 +6,7 @@ using namespace std;
 
 #include "../Grid/Inventory.hpp"
 #include "../Produk/Produk.hpp"
+#include "../Item/Item.hpp"
 
 class Pemain {
     protected:
@@ -31,9 +32,9 @@ class Pemain {
         /* Makan */
         void makan(Produk produk);
         /* Menjual barang */
-        void jual(int x, int y);
+        void jual(Item item, int kuantitas);
         /* Membeli barang */
-        void beli(int x, int y);
+        void beli(Item item, int kuantitas);
         /* Mengecek apakah pemain memenuhi kondisi menang */
         bool isMenang();
 };

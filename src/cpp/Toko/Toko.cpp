@@ -10,52 +10,57 @@ int Toko::InvLength() const {
     return this->inventory.size();
 }
 
-void transaksiBeli() {
-    // TO-DO
-}
-
-void transaksiJual() {
-    // TO-DO
-}
-
-Toko& Toko::operator+=(const Item& barang) {
-    // Cek jika barang sudah ada dalam inventory
-    auto iter = inventory.find(barang);
-    if (iter != inventory.end()) {
-        iter->second++; // Asumsi getprice() memberikan stok yang akan ditambahkan
-    } else {
-        inventory[barang]++; // Asumsi getprice() mengembalikan stok awal
-    }
-    return *this;
-}
-
-
-
-Toko& Toko::operator-=(const Item& barang) {
-    for (auto it = inventory.begin(); it != inventory.end(); ++it) {
-        if (it->first.getName() == barang.getName()) {
-            inventory.erase(it);
-            break;
+void Toko::transaksiBeli(Pemain pemain, Item item, int kuantitas) {
+    if (item.getItemType() != "Hewan" || item.getItemType() != "Tanaman") {
+        for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
+            if (itr->first.getName() == item.getName()) {
+                if (itr->second - kuantitas > 0) {
+                    itr->second -= kuantitas;
+                } else {
+                    inventory.erase(itr);
+                }
+            }
         }
     }
-    return *this;
+    // Asumsikan sudah terimplementasi
+    pemain.beli(item, kuantitas);
 }
 
-void Toko::showInventory(Loader config) { // SOON gue revisi
+void Toko::transaksiJual(Pemain pemain, Item item, int kuantitas) {
+    if (item.getItemType() != "Hewan" || item.getItemType() != "Tanaman") {
+        bool found = false;
+
+        for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
+            if (itr->first.getName() == item.getName()) {
+                itr->second += kuantitas;
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            inventory.insert({item, 0});
+        }   
+    }
+    // Asumsikan sudah terimplementasi
+    pemain.jual(item, kuantitas);
+}
+
+void Toko::showInventory(ConfigLoader config) {
     cout << "-- LIMITED STOCK --" << endl;
-    for (size_t i = 0; i < inventory.size(); i++) {
-        cout << i + 1 << ". " << inventory[i].getNama() << " - " << inventory[i].getPrice() << " (" << inventory[i].getStok() << ")" << endl;
+    int i = 0;
+    for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
+        cout << i + 1 << ". " << itr->first.getName() << " - " << itr->first.getPrice() << " (" << itr->second << ")" << endl;
     }
     cout << endl;
     cout << "-- UNLIMITED STOCK --" << endl;
     cout << endl;
     cout << "-- Hewan --" << endl;
-    for (size_t i = 0; i < config.configHewan.size(); i++) {
-        cout << i + 1 << ". " << config.configHewan[i]->get_name() << " - " << config.configHewan[i]->get_price() << endl;
+    for (auto itr = config.hewanConfigs.begin(); itr != config.hewanConfigs.begin(); ++itr) {
+        cout << itr->first << ". " << itr->second.name << " - " << itr->second.price << endl;
     }
     cout << endl;
-    cout << "-- Tumbuhan --" << endl;
-    for (size_t i = 0; i < config.configTanaman.size(); i++) {
-        cout << i + 1 << ". " << config.configTanaman[i].get_name() << " - " << config.configTanaman[i].get_price() << endl;
+    for (auto itr = config.tanamanConfigs.begin(); itr != config.tanamanConfigs.begin(); ++itr) {
+        cout << itr->first << ". " << itr->second.name << " - " << itr->second.price << endl;
     }
 }

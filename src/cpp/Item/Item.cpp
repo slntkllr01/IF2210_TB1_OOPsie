@@ -20,10 +20,10 @@ string Item::getName() const {
     return this->name;
 }
 
-int Item::getprice() const {
+int Item::getPrice() const {
     return this->price;
 }
 
-bool Item::operator<(const Item& rhs) const {
-    return name < rhs.name;
+bool Item::operator<(const Item& other) const {
+    return name < other.name;
 }
