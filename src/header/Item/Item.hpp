@@ -14,7 +14,7 @@ class Item {
         int price;
     public:
         Item(string itemType, int id, string code, string name, int price);
-        ~Item();
+        virtual ~Item();
         string getItemType() const;
         void setItemType(string itemType);
         string getCode() const;

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void ternak(){
+void ternak(Pemain* p){
     string slot_inventory, slot_ladang;
 
     cout << "Pilih hewan dari penyimpanan" << endl;

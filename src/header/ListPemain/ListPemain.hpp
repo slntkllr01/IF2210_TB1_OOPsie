@@ -2,9 +2,6 @@
 #define _LIST_PEMAIN_HPP
 using namespace std;
 #include "../Pemain/Pemain.hpp"
-#include "../Pemain/Petani.hpp"
-#include "../Pemain/Peternak.hpp"
-#include "../Pemain/Walikota.hpp"
 #include <iostream>
 #include <vector>
 class ListPemain{
@@ -17,7 +14,7 @@ class ListPemain{
         void check_Dupe(string nama);       // check if there is a dupe name
         void print_AllPemain();
         vector<Pemain*> get_ArrPemain();
-        bool compareNames(const Pemain* a, const Pemain* b);
+        static bool compareNames(const Pemain* a, const Pemain* b);
 };
 
 #endif

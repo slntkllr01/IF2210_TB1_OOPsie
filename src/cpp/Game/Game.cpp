@@ -3,6 +3,10 @@
 #include "../../header/Exception/Exception.hpp"
 #include "../../command/tanam.cpp"
 #include "../../command/ternak.cpp"
+#include "../../command/Toko.cpp"
+#include "../../header/Toko/Toko.hpp"
+#include "../../header/Pemain/Petani.hpp"
+#include "../../header/Pemain/Peternak.hpp"
 // #include "../../command/Toko.cpp" //bro wtf ini knp eror trs??!?
 using namespace std;
 int Game::totalTurn = 0;
@@ -69,14 +73,34 @@ void Game::next_turn(){
     totalTurn++;
 }
 
+void Game::print_listofcommands(){
+    cout << "Pilihan command~" << endl;
+    cout << "1. NEXT: mengakhiri giliran" << endl;
+    cout << "2. CETAK_PENYIMPANAN: print isi inventory" << endl;
+    cout << "3. PUNGUT_PAJAK: melakukan pemungutan pajak (Walikota)" << endl;
+    cout << "4. CETAK_LADANG: print isi ladang (petani)" << endl;
+    cout << "5. CETAK_PETERNAKAN: print isi peternakan (peternak)" << endl;
+    cout << "6. TANAM: menanam tanaman dari inventory ke ladang (petani)" << endl;
+    cout << "7. TERNAK: memindahkan ternak dari inventory ke ladang (peternak)" << endl;
+    cout << "8. BANGUN: membangun bangunan sesuai resep (walikota)" << endl;
+    cout << "9. MAKAN: makan makanan di inventory" << endl;
+    cout << "10. KASIH_MAKAN: memberi makan ternak (peternak)" << endl;
+    cout << "11. BELI: beli item di toko" << endl;
+    cout << "12. JUAL: jual item di toko biar dapet cuan" << endl;
+    cout << "13. PANEN: panen hewan atau tanaman (petani & peternak)" << endl;
+    cout << "14. SIMPAN: simpan state game ke berkas" << endl;
+    cout << "15. TAMBAH PEMAIN: tambah pemain (walikota)" << endl;
+}
+
 void Game::start_game(){
-    
+    Toko toko;
     bool finish = false;
     // game will loop continuously
     while (!finish){
         // loop asking for command until NEXT command
         while (true){
             string command;
+            print_listofcommands();
             cout << "Masukkan command " << endl;
             cout << "> ";
             cin >> command;
@@ -140,17 +164,14 @@ void Game::start_game(){
 
             }
             else if (command == "BELI"){
-                // beli(currentpemain);
+                // beli(toko);
             }
             else if (command == "JUAL"){
-                // jual(currentpemain);
+                jual(currentpemain);
             }
             else if (command == "PANEN"){
                 // dibedain jadi petani dan peternak
             }
-            // else if (command == "MUAT"){
-            //     // HANYA DPT DILAKUKAN DI AWAL MAIN!
-            // }
             else if (command == "SIMPAN"){
 
             }
@@ -158,7 +179,7 @@ void Game::start_game(){
 
             }
             else {
-                throw InvalidInput();
+                cout << "Masukan tidak valid, silakan ulangi lagi." << endl;
             }
             // checkwin di sini
             // if (checkwin){

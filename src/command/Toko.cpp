@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void beli(Loader config, Toko toko) {
+void beli(ConfigLoader config, Toko toko) {
     cout << "Selamat datang di toko!!" << endl;
     cout << "Berikut merupakan hal yang dapat Anda Beli" << endl;
     cout << endl;

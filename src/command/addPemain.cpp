@@ -43,4 +43,5 @@ void addPemain(ListPemain listPemain, Pemain* p){
     }
     Walikota* walikota = dynamic_cast<Walikota*>(p);
     walikota->tambahPemain(username,peran,listPemain);
+    delete walikota;
 }

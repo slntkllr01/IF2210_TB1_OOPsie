@@ -9,7 +9,10 @@ void tanam(Pemain* p){
     if (p->getPeran() !="Petani"){
         throw InvalidRole();
     }
-    if (p->getInventory().isFull()){
+
+    Petani* petani = dynamic_cast<Petani*>(p);
+    // Ladang Full
+    if (petani->getLadang().isFull()){
         throw LadangFull();
     }
 
@@ -17,22 +20,46 @@ void tanam(Pemain* p){
     if (!(p->getInventory().isThereTanaman())){
         throw noTanamaninInv();
     }
-    // try catch
     string slotinv;
     string slotladang;
-    cout << "Pilih tanaman dari penyimpanan." << endl;
+    string namatanaman;
+    Item* item;
+    cout << "Pilih tanaman dari penyimpanan" << endl;
     p->getInventory().CetakPenyimpanan();
-
-    cout << "Slot: ";
-    cin >> slotinv;
-    // cout << "Kamu memilih " << getter item << endl;
-
-    Petani* petani = dynamic_cast<Petani*>(p);
+    while (true){
+        cout << "Slot: ";
+        cin >> slotinv;
+        // perlu cek islokasivalid???
+        // make sure if the slot contains a plant and not empty
+        if(p->getInventory().isPresent(slotinv) && p->getInventory().CekJenis(slotinv) == "Tanaman"){          
+            item = p->ambilItem(slotinv);
+            namatanaman = item->getName();
+            cout << "Kamu memilih " << namatanaman << endl;
+            break;
+        }
+        else{
+            cout << "Isi petak tidak valid/kosong, silakan ulangi masukan." << endl;
+        }
+    }
     cout << "Pilih petak yang akan ditanami" << endl;
-    // printladang
-    cout << "Petak tanah: ";
-    cin >> slotladang;
-    // tanam
+    petani->getLadang().CetakLadang();
+    Tanaman* tanaman = dynamic_cast<Tanaman*>(item);
+    while (true){
+        cout << "Petak tanah: ";
+        cin >> slotladang;
+        // harus cek petak ladang kosong
+        if(petani->getLadang().isLokasiValid(slotladang) && petani->getLadang().getKotak().isPresent(slotladang)){
+            Tanaman actualTanaman = *tanaman;
+            petani->getLadang().Tanam(slotladang,actualTanaman);
+            break;
+        }
+        else{
+            cout << "Slot ladang tidak valid/ada tanaman lain, silakan ulangi masukan." << endl;
+        }
+    }
+    
     cout << "Cangkul-cangkul yang dalam~!" << endl;
-    // cout << getter item << " berhasil ditanam!" << endl;
+    cout << namatanaman << " berhasil ditanam!" << endl;
+    delete petani;
+    delete tanaman;
 }

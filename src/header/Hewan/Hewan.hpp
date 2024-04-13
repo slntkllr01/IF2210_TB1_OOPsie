@@ -17,6 +17,10 @@ public:
     static int DEADAGE;
     Hewan(int id);
     ~Hewan();
+    void set_type(string type);
+    string get_type();
+    void set_age(int age);
+    int get_age();
     void set_harvestweight(int harvestweight);
     int get_harvestweight() const;
     void set_actualweight(int actualweight);

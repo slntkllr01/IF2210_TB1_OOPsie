@@ -25,6 +25,22 @@ Hewan::Hewan(int id) : Item("Hewan", id, "", "", 0) {
 Hewan::~Hewan(){
 }
 
+void Hewan::set_type(string type){
+    this -> type = type;
+}
+
+string Hewan::get_type(){
+    return type;
+}
+
+void Hewan::set_age(int age){
+    this -> age = age;
+}
+
+int Hewan::get_age(){
+    return age;
+}
+
 void Hewan::set_harvestweight(int harvestweight){
     this -> harvestweight = harvestweight;
 }

@@ -75,7 +75,7 @@ void Ladang::CetakLadang(){
             cc = char(charColumn);
             k = cc + "0" + cr;
             if(kotak.isPresent(k)){
-                cout<<" "<<(kotak.value(k)).get_kodeHuruf()<<" |";                
+                cout<<" "<<(kotak.value(k)).getCode()<<" |";                
             }
             else{
                 cout<<" "<<"   "<<" |";

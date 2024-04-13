@@ -54,3 +54,5 @@ bool Inventory::isThereMakanan(){
 bool Inventory::isThereTanaman(){
     
 }
+
+string Inventory::CekJenis(string){}

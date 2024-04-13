@@ -2,7 +2,6 @@
 #define _FRUIT_HPP
 
 #include <string>
-#include "../Tanaman.hpp"
 #include "../Produk/Produk.hpp"
 
 using namespace std;

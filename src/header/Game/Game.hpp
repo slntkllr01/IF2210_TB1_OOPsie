@@ -19,6 +19,7 @@ class Game{
         int get_idxinalist(Pemain* x);
         void check_turn();
         void next_turn();
+        void print_listofcommands();
         void start_game();
 
 };
