@@ -13,7 +13,7 @@ private:
 // <ID> <KODE_HURUF> <NAME> <TYPE> <WEIGHT_TO_HARVEST> <PRICE>
 public:
     static int DEADAGE;
-    Hewan(string itemType, int id, string code, string name, int price, int harvestweight, int actualweight, int age);
+    Hewan(int id, string code, string name, int price, int harvestweight, int actualweight, int age);
     ~Hewan();
     void set_harvestweight(int harvestweight);
     int get_harvestweight() const;

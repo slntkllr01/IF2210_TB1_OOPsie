@@ -5,7 +5,7 @@ using namespace std;
 
 int Hewan::DEADAGE = 20;
 
-Hewan::Hewan(string itemType, int id, string code, string name, int price, int harvestweight, int actualweight, int age) : Item(itemType, id, code, name, price), harvestweight(harvestweight), actualweight(actualweight), age(age) {}
+Hewan::Hewan(int id, string code, string name, int price, int harvestweight, int actualweight, int age) : Item("Hewan", id, code, name, price), harvestweight(harvestweight), actualweight(actualweight), age(age) {}
 
 Hewan::~Hewan(){
 }
