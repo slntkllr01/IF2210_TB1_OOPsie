@@ -19,9 +19,9 @@ class Inventory: public Grid<Item>{
 
         void SimpanBarang(); //Auto
 
-        void SimpanBarang(string); //Input Manual
+        void SimpanBarang(Item*, string); //Input Manual
 
-        Produk AmbilBarang(string); //Delete
+        Item* AmbilBarang(string); //Delete
 
         void Makan(string); 
 

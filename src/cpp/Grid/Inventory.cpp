@@ -2,7 +2,7 @@
 
 // Constructor
 Inventory::Inventory(){
-    Loader& loader = Loader::getInstance();
+    ConfigLoader& loader = ConfigLoader::getInstance();
     baris = loader.ukuranInventory.first;
     kolom = loader.ukuranInventory.second;
 }
@@ -19,11 +19,11 @@ void Inventory::SimpanBarang(){
 
 } //Auto
 
-void Inventory::SimpanBarang(string){
+void Inventory::SimpanBarang(Item*, string){
 
 } //Input Manual
 
-Produk Inventory::AmbilBarang(string){
+Item* Inventory::AmbilBarang(string){
 
 } //Delete
 
