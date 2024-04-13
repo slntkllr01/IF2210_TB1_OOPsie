@@ -6,6 +6,7 @@ using namespace std;
 
 #include "Pekerja.hpp"
 #include "../Grid/Peternakan.hpp"
+#include "../Produk/Produk.hpp"
 #include "../Hewan/Hewan.hpp"
 
 class Peternak : public Pekerja {
@@ -16,18 +17,19 @@ class Peternak : public Pekerja {
         Peternak();
         /* User-Defined Constructor */
         Peternak(string username);
+        Peternak(string username, int uang, int beratBadan);
         /* Destructor */
         ~Peternak();
         /* Getter */
-        Peternakan getPeternakan();
+        Peternakan getPeternakan() const;
         /* Menghitung kekayaan Peternak */
         int hitungKekayaan();
         /* Meletakkan hewan di peternakan */
-        void taruhHewan(int x, int y);
+        void ternak(Hewan* hewan, string lokasi);
         /* Memberi makan hewan */
-        void beriMakanHewan(int x, int y);
+        void beriMakanHewan(Hewan* hewan, Produk* makanan);
         /* Memanen hewan */
-        void panenHewan(int x, int y);
+        void panenHewan(string lokasi);
 };
 
 #endif

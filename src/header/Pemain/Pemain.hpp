@@ -4,9 +4,9 @@
 #include <iostream>
 using namespace std;
 
-#include "../Grid/Inventory.hpp"
-#include "../Produk/Produk.hpp"
 #include "../Item/Item.hpp"
+#include "../Produk/Produk.hpp"
+#include "../Grid/Inventory.hpp"
 
 class Pemain {
     protected:
@@ -15,26 +15,38 @@ class Pemain {
         Inventory inventory;
         int uang;
         int beratBadan;
-
     public:
         /* Default Constructor */
         Pemain();
         /* User-Defined Constructor */
         Pemain(string username, string peran);
+        Pemain(string username, string peran, int uang, int beratBadan);
         /* Destructor */
         virtual ~Pemain();
+        /* Operator == */
+        bool operator==(const Pemain& pemain);
         /* Getter */
         string getUsername() const;
         string getPeran() const;
         Inventory getInventory() const;
         int getUang() const;
         int getBeratBadan() const;
+        /* Setter */
+        void setUsername(string username);
+        void setPeran(string peran);
+        void setInventory(Inventory inventory);
+        void setUang(int uang);
+        void setBeratBadan(int beratBadan);
+        /* Menyimpan item ke inventory */
+        void simpanItem(Item* item, string lokasi);
+        /* Mengambil item dari inventory */
+        void ambilItem(Item* item, string lokasi);
         /* Makan */
-        void makan(Produk produk);
-        /* Menjual barang */
-        void jual(Item item, int kuantitas);
+        void makan(Produk* produk);
         /* Membeli barang */
-        void beli(Item item, int kuantitas);
+        virtual void beli(Item* item, int kuantitas);
+        /* Menjual barang */
+        virtual void jual(Item* item, int kuantitas);
         /* Mengecek apakah pemain memenuhi kondisi menang */
         bool isMenang();
 };

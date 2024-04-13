@@ -16,16 +16,17 @@ class Petani : public Pekerja {
         Petani();
         /* User-Defined Constructor */
         Petani(string username);
+        Petani(string username, int uang, int beratBadan);
         /* Destructor */
         ~Petani();
         /* Getter */
-        Ladang getLadang();
+        Ladang getLadang() const;
         /* Menghitung kekayaan petani */
         int hitungKekayaan();
         /* Menanam tanaman di ladang */
-        void tanam(int x, int y);
+        void tanam(Tanaman tanaman, string lokasi);
         /* Memanen tanaman yang ada di ladang */
-        void panenTanaman(int x, int y);
+        void panenTanaman(string lokasi);
 };
 
 #endif
