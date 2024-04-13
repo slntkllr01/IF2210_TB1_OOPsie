@@ -40,7 +40,7 @@ class Pemain {
         /* Menyimpan item ke inventory */
         void simpanItem(Item* item, string lokasi);
         /* Mengambil item dari inventory */
-        void ambilItem(Item* item, string lokasi);
+        Item* ambilItem(string lokasi);
         /* Makan */
         void makan(Produk* produk);
         /* Membeli barang */
@@ -49,7 +49,7 @@ class Pemain {
         virtual void jual(Item* item, int kuantitas);
         /* Mengecek apakah pemain memenuhi kondisi menang */
         bool isMenang();
-        /* Op overloading untuk membandingkan pointer pemain*/
+        /* Operator == untuk membandingkan pointer pemain */
         bool operator==(const Pemain* other) const;
 };
 

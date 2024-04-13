@@ -5,28 +5,61 @@ Pemain::Pemain() : username(""), peran(""), inventory(Inventory()), uang(50), be
 
 /* User-Defined Constructor */
 Pemain::Pemain(string username, string peran) : username(username), peran(peran), inventory(Inventory()), uang(50), beratBadan(40) {}
+Pemain::Pemain(string username, string peran, int uang, int beratBadan) : username(username), peran(peran), inventory(Inventory()), uang(uang), beratBadan(beratBadan) {}
 
 /* Destructor */
 Pemain::~Pemain() {}
 
 /* Getter */
-string Pemain::getUsername() const{
+string Pemain::getUsername() const {
     return username;
 }
-string Pemain::getPeran() const{
+
+string Pemain::getPeran() const {
     return peran;
 }
 
-Inventory Pemain::getInventory() const{
+Inventory Pemain::getInventory() const {
     return inventory;
 }
 
-int Pemain::getUang() const{
+int Pemain::getUang() const {
     return uang;
 }
 
-int Pemain::getBeratBadan() const{
+int Pemain::getBeratBadan() const {
     return beratBadan;
+}
+
+/* Setter */
+void Pemain::setUsername(string username){
+    this->username = username;
+}
+
+void Pemain::setPeran(string peran){
+    this->peran = peran;
+}
+
+void Pemain::setInventory(Inventory inventory){
+    this->inventory = inventory;
+}
+
+void Pemain::setUang(int uang){
+    this->uang = uang;
+}
+
+void Pemain::setBeratBadan(int beratBadan){
+    this->beratBadan = beratBadan;
+}
+
+/* Menyimpan item ke inventory */
+void Pemain::simpanItem(Item* item, string lokasi){
+    inventory.SimpanBarang(item, lokasi);
+}
+
+/* Mengambil item dari inventory */
+Item* Pemain::ambilItem(string lokasi){
+    inventory.AmbilBarang(lokasi);
 }
 
 /* Makan */
@@ -34,19 +67,27 @@ void Pemain::makan(Produk* produk){
     beratBadan += produk->getAddedWeight();
 }
 
-// JUAL
-void Pemain::jual(Item* item, int kuantitas){}
+/* Membeli barang */
+void Pemain::beli(Item* item, int kuantitas){
+    uang -= item->getPrice() * kuantitas;
+}
 
-// IS MENANG
-bool Pemain::isMenang(){}
+/* Menjual barang */
+void Pemain::jual(Item* item, int kuantitas){
+    uang += item->getPrice() * kuantitas;
+}
 
+/* Mengecek apakah pemain memenuhi kondisi menang */
+bool Pemain::isMenang(){
+    
+}
 
+/* Operator == untuk membandingkan pointer pemain */
 bool Pemain::operator==(const Pemain* other) const{
-    if((this -> username == other->getUsername()) && (this -> peran == other -> getPeran())){
+    if((this->username == other->getUsername()) && (this->peran == other->getPeran())){
         return true;
     }
     else{
         return false;
     }
 }
-
