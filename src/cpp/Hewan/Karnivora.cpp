@@ -4,7 +4,8 @@
 #include <string>
 using namespace std;
 
-Karnivora::Karnivora(int id, string code, string name, int price, int harvestweight, int actualweight, int age) : Hewan(id, code, name, price, harvestweight, actualweight, age) {}
+Karnivora::Karnivora(int id) : Hewan(id) {
+}
 
 Karnivora::~Karnivora(){
     

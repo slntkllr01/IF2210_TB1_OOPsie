@@ -5,7 +5,24 @@ using namespace std;
 
 int Hewan::DEADAGE = 20;
 
-Hewan::Hewan(int id, string code, string name, int price, int harvestweight, int actualweight, int age) : Item("Hewan", id, code, name, price), harvestweight(harvestweight), actualweight(actualweight), age(age) {}
+Hewan::Hewan(int id) : Item("Hewan", id, "", "", 0) {
+    ConfigLoader& loader = ConfigLoader::getInstance();
+    auto it = loader.hewanConfigs.find(id);
+    if (it != loader.hewanConfigs.end()) {
+        const HewanConfig& config = it->second;
+
+        itemType = "Hewan";
+        this->id = id;
+        code = config.code;
+        name = config.name;
+        price = config.price;
+        setType(config.type);
+        set_harvestweight(config.weight);
+
+    } else {
+        throw std::runtime_error("Invalid animal ID");
+    }
+}
 
 Hewan::~Hewan(){
 }

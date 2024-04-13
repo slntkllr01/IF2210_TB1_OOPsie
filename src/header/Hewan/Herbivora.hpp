@@ -6,7 +6,7 @@ using namespace std;
 class Herbivora: public Hewan
 {
 public:
-    Herbivora(int id, string code, string name, int price, int harvestweight, int actualweight, int age);
+    Herbivora(int id);
     ~Herbivora();
     bool CanEat(Produk* makanan);
 };

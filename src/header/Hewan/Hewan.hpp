@@ -3,17 +3,19 @@
 #include <string>
 #include "../Exception/Exception.hpp"
 #include "../Produk/Produk.hpp"
+#include "../Loader/ConfigLoader.hpp"
 using namespace std;
 
 class Hewan : public Item {
-private:           
+private:        
+    string type;
     int harvestweight;
     int actualweight;   // tambahan berat hewan sebenarnya
     int age;
 // <ID> <KODE_HURUF> <NAME> <TYPE> <WEIGHT_TO_HARVEST> <PRICE>
 public:
     static int DEADAGE;
-    Hewan(int id, string code, string name, int price, int harvestweight, int actualweight, int age);
+    Hewan(int id);
     ~Hewan();
     void set_harvestweight(int harvestweight);
     int get_harvestweight() const;
@@ -21,6 +23,8 @@ public:
     int get_actualweight() const;
     bool siapPanen();
     bool is_Dead();
+    string getType() const;
+    void setType(string type);
     virtual bool CanEat(Produk* makanan) = 0;
 };
 
