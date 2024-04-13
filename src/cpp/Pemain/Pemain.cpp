@@ -1,4 +1,5 @@
 #include "../../header/Pemain/Pemain.hpp"
+#include "../../header/Loader/ConfigLoader.hpp"
 
 /* Default Constructor */
 Pemain::Pemain() : username(""), peran(""), inventory(Inventory()), uang(50), beratBadan(40) {}
@@ -79,15 +80,13 @@ void Pemain::jual(Item* item, int kuantitas){
 
 /* Mengecek apakah pemain memenuhi kondisi menang */
 bool Pemain::isMenang(){
-    
+    ConfigLoader& config = ConfigLoader::getInstance();
+    int uangMenang = config.uangMenang;
+    int beratBadanMenang = config.beratMenang;
+    return uang >= uangMenang && beratBadan >= beratBadanMenang;
 }
 
 /* Operator == untuk membandingkan pointer pemain */
-bool Pemain::operator==(const Pemain* other) const{
-    if((this->username == other->getUsername()) && (this->peran == other->getPeran())){
-        return true;
-    }
-    else{
-        return false;
-    }
+bool Pemain::operator==(const Pemain* other) const {
+    return this->username == other->username;
 }
