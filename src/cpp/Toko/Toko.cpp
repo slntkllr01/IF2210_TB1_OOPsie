@@ -2,6 +2,10 @@
 
 using namespace std;
 
+Toko::Toko() {}
+
+Toko::~Toko() {}
+
 map<Item, int> Toko::getInventory() const {
     return this->inventory;
 }

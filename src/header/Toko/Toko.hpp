@@ -13,6 +13,8 @@ class Toko {
     private:
         map<Item, int> inventory;
     public:
+        Toko();
+        ~Toko();
         map<Item, int> getInventory() const;
         int InvLength() const;
         void transaksiBeli(Pemain pemain, Item item, int kuantitas);
