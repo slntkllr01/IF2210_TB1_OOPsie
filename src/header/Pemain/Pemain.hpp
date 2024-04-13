@@ -43,10 +43,14 @@ class Pemain {
         Item* ambilItem(string lokasi);
         /* Makan */
         void makan(Produk* produk);
+        /* Mengecek apakah pemain bisa membeli barang */
+        virtual bool bisaBeli(Item* item);
+        /* Mengecek apakah pemain bisa menjual barang */
+        virtual bool bisaJual(Item* item);
         /* Membeli barang */
-        virtual void beli(Item* item, int kuantitas);
+        void beli(Item* item, int kuantitas);
         /* Menjual barang */
-        virtual void jual(Item* item, int kuantitas);
+        void jual(Item* item, int kuantitas);
         /* Mengecek apakah pemain memenuhi kondisi menang */
         bool isMenang();
         /* Operator == untuk membandingkan pointer pemain */

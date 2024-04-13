@@ -21,8 +21,8 @@ class Walikota : public Pemain {
         static Walikota* getInstance(string username);
         /* Destructor */
         ~Walikota();
-        /* Menjual barang */
-        void jual(Item* item, int kuantitas);
+        /* Mengecek apakah pemain bisa membeli barang */
+        bool bisaBeli(Item* item) override;
         /* Menagih pajak */
         void tagihPajak(ListPemain list_pemain);
         /* Membangun bangunan */

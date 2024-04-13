@@ -17,8 +17,10 @@ class Pekerja : public Pemain {
         virtual ~Pekerja();
         /* Getter */
         int getKTKP() const;
-        /* Membeli barang */
-        void beli(Item* item, int kuantitas);
+        /* Setter */
+        void setKTKP(int KTKP);
+        /* Mengecek apakah pemain bisa menjual barang */
+        bool bisaJual(Item* item) override;
         /* Menghitung KKP */
         int getKKP(int kekayaan);
         /* Menghitung kekayaan pemain */
