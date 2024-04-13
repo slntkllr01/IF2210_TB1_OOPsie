@@ -19,11 +19,11 @@ int main(){
         string ans;
         while (!stop){
             cout << "Pilih metode untuk inisialisasi:" << endl;
-            cout << "1. File Konfigurasi" << endl;
-            cout << "2. Nonkonfigurasi" << endl;
+            cout << "1. Load state" << endl;
+            cout << "2. Nonload, use template" << endl;
             cout << "> ";
             cin >> method;
-            if (method == 1){   //baca config
+            if (method == 1){   //muat state
                 bool stop1 = false;
                 while(!stop1){
                     cout << "Apakah Anda ingin memuat state? (y/n)";
@@ -49,7 +49,7 @@ int main(){
                 }
 
             }
-            else if (method == 2){     //nonconfig
+            else if (method == 2){     //nonload
                 stop = true;
                 Petani* newPetani1 = new Petani("Petani1");
                 listPemain.add_Pemain(newPetani1);
