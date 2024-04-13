@@ -60,6 +60,7 @@ void Toko::showInventory(ConfigLoader config) {
         cout << itr->first << ". " << itr->second.name << " - " << itr->second.price << endl;
     }
     cout << endl;
+    cout << "-- Tanaman --" << endl;
     for (auto itr = config.tanamanConfigs.begin(); itr != config.tanamanConfigs.begin(); ++itr) {
         cout << itr->first << ". " << itr->second.name << " - " << itr->second.price << endl;
     }
