@@ -21,14 +21,14 @@ class Pekerja : public Pemain {
         void setKTKP(int KTKP);
         /* Mengecek apakah pemain bisa menjual barang */
         bool bisaJual(Item* item) override;
-        /* Menghitung KKP */
-        int getKKP(int kekayaan);
         /* Menghitung kekayaan pemain */
         virtual int hitungKekayaan();
+        /* Menghitung KKP */
+        int getKKP();
         /* Menghitung pajak yang harus dibayar oleh pemain */
-        int hitungPajak(int KKP);
+        int hitungPajak();
         /* Membayar pajak */
-        void bayarPajak(int pajak);
+        void bayarPajak();
 };
 
 #endif

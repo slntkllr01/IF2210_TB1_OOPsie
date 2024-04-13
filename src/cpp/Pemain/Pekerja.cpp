@@ -1,14 +1,26 @@
 #include "../../header/Pemain/Pekerja.hpp"
+#include "../../header/Bangunan/Bangunan.hpp"
 
 /* User-Defined Constructor */
 Pekerja::Pekerja(string username, string peran, int KTKP) : Pemain(username, peran), KTKP(KTKP) {}
+Pekerja::Pekerja(string username, string peran, int uang, int beratBadan, int KTKP) : Pemain(username, peran, uang, beratBadan), KTKP(KTKP) {}
 
 /* Destructor */
 Pekerja::~Pekerja() {}
 
-/* Menghitung KKP */
-int Pekerja::getKKP(int kekayaan){
-    return kekayaan - KTKP;
+/* Getter */
+int Pekerja::getKTKP() const {
+    return KTKP;
+}
+
+/* Setter */
+void Pekerja::setKTKP(int KTKP){
+    this->KTKP = KTKP;
+}
+
+/* Mengecek apakah pemain bisa menjual barang */
+bool Pekerja::bisaJual(Item* item){
+    return !(dynamic_cast<Bangunan*>(item)); 
 }
 
 /* Menghitung kekayaan pemain */
@@ -17,8 +29,15 @@ int Pekerja::hitungKekayaan(){
     return 0;
 }
 
+/* Menghitung KKP */
+int Pekerja::getKKP(){
+    int kekayaan = hitungKekayaan();
+    return kekayaan - KTKP;
+}
+
 /* Menghitung pajak yang harus dibayar oleh pemain */
-int Pekerja::hitungPajak(int KKP){
+int Pekerja::hitungPajak(){
+    int KKP = getKKP();
     if (KKP <= 0){
         return 0;
     } else if (KKP <= 6){
@@ -32,4 +51,10 @@ int Pekerja::hitungPajak(int KKP){
     } else{
         return 0.35 * KKP;
     }
+}
+
+/* Membayar pajak */
+void Pekerja::bayarPajak(){
+    int pajak = hitungPajak();
+    uang -= pajak;
 }
