@@ -9,12 +9,14 @@ using namespace std;
 
 int main(){
     int method;
+    // bool valid = false;
     bool stop=false;
     try{
         ConfigLoader& loader = ConfigLoader::getInstance();
         loader.initConfig("tanaman.txt","hewan.txt","product.txt","recipe.txt","misc.txt");
         cout << "Selamat datang di Harvest Moon~" << endl;
         ListPemain listPemain;
+        string ans;
         while (!stop){
             cout << "Pilih metode untuk inisialisasi:" << endl;
             cout << "1. File Konfigurasi" << endl;
@@ -22,8 +24,29 @@ int main(){
             cout << "> ";
             cin >> method;
             if (method == 1){   //baca config
-                stop = true;
-                
+                bool stop1 = false;
+                while(!stop1){
+                    cout << "Apakah Anda ingin memuat state? (y/n)";
+                    cin >> ans;
+                    if (ans == "y"){
+                        stop = true;
+                        stop1 = true;
+                        string dir;
+                        // while (!valid){
+                            cout << "Masukkan lokasi berkas state: ";
+                            cin >> dir;
+                        // }
+                        // checkvalidasi muat?
+                        // muat state
+                    }
+                    else if (ans =="n"){
+                        cout << "Muat state dibatalkan." << endl;
+                        stop1 = true;
+                    }
+                    else{
+                        cout << "Masukan tidak valid." << endl;
+                    }
+                }
 
             }
             else if (method == 2){     //nonconfig
