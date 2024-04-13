@@ -2,6 +2,7 @@
 #define TANAMAN_HPP
 
 #include <string>
+#include "../Produk/Produk.hpp"
 #include "../Item/Item.hpp"
 using namespace std;
 
@@ -11,17 +12,16 @@ class Tanaman : public Item {
         int durationToHarvest;
         int umur;
     public:
-        Tanaman(int id, string kodeHuruf, string name, string type, int durationToHarvest, int price);
+        Tanaman(int ID);
         ~Tanaman();
-        int get_id();
-        string get_kodeHuruf();
-        string get_name();
         string get_type();
         int get_durationToHarvest();
-        int get_price();
         int get_umur();
         void add_umur();
         bool siapPanen();
+        virtual bool CanEat(Produk* makanan);
 };
+
+
 
 #endif
