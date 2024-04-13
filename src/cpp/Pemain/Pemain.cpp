@@ -35,7 +35,7 @@ void Pemain::makan(Produk* produk){
 }
 
 // JUAL
-void Pemain::jual(Item item, int kuantitas){}
+void Pemain::jual(Item* item, int kuantitas){}
 
 // IS MENANG
 bool Pemain::isMenang(){}
