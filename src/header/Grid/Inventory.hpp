@@ -2,8 +2,10 @@
 #define _INVENTORY_HPP
 #include "GridMap.hpp"
 #include "../Produk/Produk.hpp"
+#include "../Item/Item.hpp"
 #include "../Loader/ConfigLoader.hpp"
-class Inventory: public Grid<Produk>{
+
+class Inventory: public Grid<Item>{
     private:
         int baris;
         int kolom;
