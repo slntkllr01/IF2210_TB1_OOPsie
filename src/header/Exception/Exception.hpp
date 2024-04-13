@@ -3,6 +3,10 @@
 #include <string>
 using namespace std;
 
+// IMPORTANT!!
+// EXCEPTION IS ONLY USED WHEN IT'S A COMPLETE DEADEND
+// EVERY OTHER INPUT WILL STILL LEAD TO A DEADEND
+
 // ABC Exception
 class Exception {
     public:
@@ -37,22 +41,6 @@ class DupeName : public Exception{
     string what() override {
         return "Nama tersebut sudah ada.";
     }
-};
-
-// Exception untuk segala pemilihan opsi
-// Exception untuk PANEN, cek petak dan ID
-class InvalidInput : public Exception {
-    public:
-        string what() override {
-            return "Masukan tidak valid, silakan ulangi masukan.";
-        }
-};
-
-class InvalidFileInput : public Exception {
-    public:
-	string what() override {
-            return "File input invalid.";
-        }
 };
 
 class InvalidRole : public Exception {
