@@ -33,6 +33,9 @@ class Ladang{
 
         Grid<Tanaman> getLadang() const;
         
+        // getter
+        Grid<Tanaman> getKotak() const;
+        
         //bool isSiapPanen(Tanaman); //Mengecek apakah tanaman siap dipanen
 
 };
