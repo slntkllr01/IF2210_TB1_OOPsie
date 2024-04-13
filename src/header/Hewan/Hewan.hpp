@@ -5,16 +5,15 @@
 #include "../Produk/Produk.hpp"
 using namespace std;
 
-class Hewan {
-private:
-    int ID;             
+class Hewan : public Item {
+private:           
     int harvestweight;
     int actualweight;   // tambahan berat hewan sebenarnya
     int age;
 // <ID> <KODE_HURUF> <NAME> <TYPE> <WEIGHT_TO_HARVEST> <PRICE>
 public:
     static int DEADAGE;
-    Hewan(int ID);
+    Hewan(string itemType, int id, string code, string name, int price, int harvestweight, int actualweight, int age);
     ~Hewan();
     void set_harvestweight(int harvestweight);
     int get_harvestweight() const;
