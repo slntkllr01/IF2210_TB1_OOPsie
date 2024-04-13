@@ -27,3 +27,23 @@ int Item::getPrice() const {
 bool Item::operator<(const Item& other) const {
     return name < other.name;
 }
+
+void Item::setItemType(string itemType) {
+    this->itemType = itemType;
+}
+
+void Item::setCode(string code) {
+    this->code = code;
+}
+
+void Item::setName(string name) {
+    this->name = name;
+}
+
+void Item::setPrice(int price){
+    this->price = price;
+}
+
+void Item::setID(int id) {
+    this->id = id;
+}

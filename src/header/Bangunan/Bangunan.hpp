@@ -4,13 +4,16 @@
 #include <string>
 #include <map>
 #include "../Item/Item.hpp"
+#include "../Loader/ConfigLoader.hpp"
+
 using namespace std;
 
 class Bangunan : public Item {
     private:
         map<string, int> listOfResep;
     public:
-        Bangunan(int ID, string kode, string nama, map<string, int> listOfResep, int price);
+        Bangunan(int ID);
+        void setResep(map<string, int> resep);
 };
 
 #endif

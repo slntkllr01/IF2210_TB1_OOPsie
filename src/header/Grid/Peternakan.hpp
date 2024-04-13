@@ -32,6 +32,8 @@ class Peternakan{
 
         void BeriMakan(Produk*);
 
+        Grid<Hewan*> getPeternakan() const;
+
         bool isSiapPanen(Hewan*); //Mengecek apakah suatu hewan siap panen atau tidak
 };
 

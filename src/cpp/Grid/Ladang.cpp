@@ -110,3 +110,6 @@ bool Ladang::isEmpty(){
 
 //bool Ladang::isSiapPanen(){} //Mengecek apakah tanaman siap dipanen
 
+Grid<Tanaman> Ladang::getLadang() const {
+    return this->kotak;
+}

@@ -10,7 +10,7 @@ Petani::Petani(string username) : Pekerja(username, "Petani", 13), ladang(Ladang
 Petani::~Petani() {}
 
 /* Getter */
-Ladang Petani::getLadang(){
+Ladang Petani::getLadang() const {
     return ladang;
 }
 

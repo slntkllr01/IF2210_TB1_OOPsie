@@ -3,6 +3,7 @@
 
 #include <string>
 #include "../Item/Item.hpp"
+#include "../Loader/ConfigLoader.hpp"
 using namespace std;
 
 class Produk : public Item {
@@ -11,23 +12,26 @@ class Produk : public Item {
         string origin;
         int addedWeight;
     public:
-        Produk(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price);
-        virtual bool isEdibleBy(string animalType) = 0;
-        virtual int getAddedWeight() const;
-        virtual string getType() const;
+        Produk(int id);
+        virtual bool isEdibleBy() = 0;
+        int getAddedWeight() const;
+        string getType() const;
+        void setType(string type);
+        void setOrigin(string origin);
+        void setAddedWeight(int weight);
 
 };
 
 class produkHewan : public Produk {
     public:
-        produkHewan(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price);
-        bool isEdibleBy(string animalType) override;
+        produkHewan(int id);
+        bool isEdibleBy() override;
 };
 
 class produkTumbuhan : public Produk {
     public:
-        produkTumbuhan(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price);
-        bool isEdibleBy(string animalType) override;
+        produkTumbuhan(int id);
+        bool isEdibleBy() override;
 };
 
 #endif

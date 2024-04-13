@@ -10,17 +10,15 @@ Hewan::Hewan(int id) : Item("Hewan", id, "", "", 0) {
     auto it = loader.hewanConfigs.find(id);
     if (it != loader.hewanConfigs.end()) {
         const HewanConfig& config = it->second;
-
-        itemType = "Hewan";
-        this->id = id;
-        code = config.code;
-        name = config.name;
-        price = config.price;
+        setID(id);
+        setCode(config.code);
+        setName(config.name);
+        setPrice(config.price);
         setType(config.type);
         set_harvestweight(config.weight);
 
     } else {
-        throw std::runtime_error("Invalid animal ID");
+        throw runtime_error("Invalid animal ID");
     }
 }
 

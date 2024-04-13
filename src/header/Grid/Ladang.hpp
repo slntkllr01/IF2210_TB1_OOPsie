@@ -31,6 +31,8 @@ class Ladang{
 
         bool isEmpty(); //Mengecek apakah ladang kosong atau tidak
 
+        Grid<Tanaman> getLadang() const;
+        
         //bool isSiapPanen(Tanaman); //Mengecek apakah tanaman siap dipanen
 
 };

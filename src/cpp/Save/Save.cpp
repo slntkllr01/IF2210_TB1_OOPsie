@@ -11,11 +11,22 @@ void Save::saveState(ListPemain listPemain, Toko toko, string fileName) {
         for (auto itr = arrPemain[i]->getInventory().firstptr(); itr != arrPemain[i]->getInventory().endptr(); itr++) {
             tempFile << itr->second.getName() << endl;
         }
-        tempFile << "ini gue butuh fungsi untuk jumlah tanaman di ladang" << endl;
         if (arrPemain[i]->getPeran() == "Petani") {
-            // ini gue mo konfirm ke dhidit dl (butuh getCol getRow)
+            Petani* petani = dynamic_cast<Petani*>(arrPemain[i]);
+            tempFile << petani->getLadang().getLadang().getElMap().size() << endl;
+            if (!petani->getLadang().getLadang().getElMap().empty()) {
+                for (auto itr = petani->getLadang().getLadang().getElMap().begin(); itr != petani->getLadang().getLadang().getElMap().end(); itr++) {
+                    tempFile << itr->first << " " << itr->second.getName() << " " << itr->second.get_umur() << endl;
+                }
+            }
         } else if (arrPemain[i]->getPeran() == "Peternak") {
-            // ini gue mo konfirm ke dhidit dl (butuh getCol getRow)
+            Peternak* peternak = dynamic_cast<Peternak*>(arrPemain[i]);
+            tempFile << peternak->getPeternakan().getPeternakan().getElMap().size() << endl;
+            if (!peternak->getPeternakan().getPeternakan().getElMap().empty()) {
+                for (auto itr = peternak->getPeternakan().getPeternakan().getElMap().begin(); itr != peternak->getPeternakan().getPeternakan().getElMap().end(); itr++) {
+                    tempFile << itr->first << " " << itr->second-> << " " << itr->second.get_umur() << endl;
+                }
+            }
         }
     }
 

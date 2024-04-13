@@ -59,6 +59,10 @@ class Grid{
         int howMuchElement(){
             return this->numOfEl;
         }
+
+        map<string, T> getElMap() const {
+            return this->element;
+        }
 };  
 
 #endif
