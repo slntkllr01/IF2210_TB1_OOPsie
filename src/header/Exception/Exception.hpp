@@ -13,14 +13,7 @@ class Exception {
 class NoAnimalFood : public Exception {
     public:
         string what() override {
-            return "Tidak ada makanan yang cocok.";
-        }
-};
-
-class CannotEat : public Exception {
-    public:
-        string what() override {
-            return "Tidak bisa makan itu, silakan pilih makanan yang lain.";
+            return "Tidak ada makanan untuk hewan ternak.";
         }
 };
 
@@ -42,23 +35,8 @@ class NoInventorySpace : public Exception {
 class DupeName : public Exception{
     public:
     string what() override {
-        return "Nama tersebut sudah ada, silakan ulangi masukan.";
+        return "Nama tersebut sudah ada.";
     }
-};
-
-// Exception nama pemain kosong
-class EmptyName : public Exception{
-    public:
-    string what() override {
-        return "Nama tidak boleh string kosong, silakan ulangi masukan.";
-    }
-};
-
-class OneWalikota : public Exception {
-    public:
-        string what() override {
-            return "Sudah ada walikota di kota ini.";
-        }
 };
 
 // Exception untuk segala pemilihan opsi
@@ -81,6 +59,20 @@ class InvalidRole : public Exception {
     public:
         string what() override {
             return "Peranmu tidak bisa menggunakan command ini.";
+        }
+};
+
+class LadangFull : public Exception {
+    public:
+        string what() override {
+            return "Ladang kamu penuh, harus kosongkan tempat.";
+        }
+};
+
+class noTanamaninInv : public Exception {
+    public:
+        string what() override {
+            return "Tidak ada tanaman di inventory untuk ditanam.";
         }
 };
 // Add more or edit as you please
