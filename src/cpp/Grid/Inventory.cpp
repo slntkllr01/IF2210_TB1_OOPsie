@@ -50,3 +50,7 @@ bool Inventory::isEmpty(){
 bool Inventory::isThereMakanan(){
 
 } //Mengecek apakah ada makanan
+
+bool Inventory::isThereTanaman(){
+    
+}

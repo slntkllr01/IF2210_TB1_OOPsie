@@ -49,6 +49,8 @@ class Pemain {
         virtual void jual(Item* item, int kuantitas);
         /* Mengecek apakah pemain memenuhi kondisi menang */
         bool isMenang();
+        /* Op overloading untuk membandingkan pointer pemain*/
+        bool operator==(const Pemain* other) const;
 };
 
 #endif

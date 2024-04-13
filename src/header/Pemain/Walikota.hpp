@@ -7,6 +7,7 @@ using namespace std;
 #include "Pemain.hpp"
 #include "../ListPemain/ListPemain.hpp"
 #include "../Bangunan/Bangunan.hpp"
+#include "../Exception/Exception.hpp"
 
 class Walikota : public Pemain {
     private:

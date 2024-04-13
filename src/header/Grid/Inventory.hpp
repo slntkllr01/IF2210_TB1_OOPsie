@@ -35,6 +35,7 @@ class Inventory: public Grid<Item>{
 
         bool isThereMakanan(); //Mengecek apakah ada makanan
 
+        bool isThereTanaman();
 };
 
 #endif

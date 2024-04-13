@@ -1,11 +1,12 @@
 #include <iostream>
 #include "../../header/Game/Game.hpp"
-#include "../header/Exception/Exception.hpp"
+#include "../../header/Exception/Exception.hpp"
 #include "../../command/tanam.cpp"
 #include "../../command/ternak.cpp"
+// #include "../../command/Toko.cpp" //bro wtf ini knp eror trs??!?
 using namespace std;
 int Game::totalTurn = 0;
-Game::Game(int currentturn, ListPemain ListPemain){
+Game::Game(ListPemain ListPemain){
     this -> currentturn = 0;
     this -> listPemain = ListPemain;
     this -> currentpemain = (listPemain.get_ArrPemain().front());
@@ -28,15 +29,15 @@ string Game::get_currentpemainname(){
 }
 
 // mengembalikan indeks dimana nama pemain x berada di dalam list pemain
-int Game::get_idxinalist(string x){
+int Game::get_idxinalist(Pemain* x){
     vector<Pemain*> pemain = listPemain.get_ArrPemain();
 
     for (int i = 0; i<(pemain.size()); i++){
-        if (pemain[i]->getUsername() == x){
+        if (*pemain[i] == x){
             return i;
         }
     }
-    return -1;
+    return -1;  //tidak ketemu
 }
 
 void Game::check_turn(){
@@ -50,7 +51,7 @@ void Game::next_turn(){
     // nambah umur semuanya sambil cek mati
     int sz = listPemain.get_ArrPemain().size();
     for (int i = 0; i < sz ; i++){
-        if ((listPemain.get_ArrPemain())[i]->getPeran()=="PETANI"){
+        if ((listPemain.get_ArrPemain())[i]->getPeran()=="Petani"){
             Petani* petani = dynamic_cast<Petani*>((listPemain.get_ArrPemain())[i]);
             // add age here
             petani->getLadang();
@@ -61,7 +62,7 @@ void Game::next_turn(){
     // ngurutin dulu
     cout << "Pemain " << get_currentpemainname() << " mengakhiri giliran~" << endl;
     
-    set_currentturn((get_idxinalist(currentpemain->getUsername())+1) % listPemain.get_ArrPemain().size());
+    set_currentturn((get_idxinalist(currentpemain)+1) % listPemain.get_ArrPemain().size());
     cout << "Sekarang giliran " << (listPemain.get_ArrPemain())[currentturn]->getUsername() << "!" << endl; // handle idx lebih << "!" << endl;
     // ini blm handle yang round robin queue apalah itu
     set_currentpemain((listPemain.get_ArrPemain())[currentturn]);
@@ -69,6 +70,7 @@ void Game::next_turn(){
 }
 
 void Game::start_game(){
+    
     bool finish = false;
     // game will loop continuously
     while (!finish){
@@ -83,19 +85,47 @@ void Game::start_game(){
                 break;
             }
             else if (command == "CETAK_PENYIMPANAN"){
-
+                currentpemain->getInventory().CetakPenyimpanan();
             }
             else if (command == "PUNGUT_PAJAK"){
                 
             }
             else if (command == "CETAK_LADANG"){
-
+                if (currentpemain->getPeran()=="Petani"){
+                    Petani* petani = dynamic_cast<Petani*>(currentpemain);
+                    // add age here
+                    petani->getLadang().CetakLadang();
+                    delete petani;
+                }
+                else{
+                    throw InvalidRole();
+                }
             }
             else if (command == "CETAK_PETERNAKAN"){
-
+                if (currentpemain->getPeran()=="Peternak"){
+                    Peternak* peternak = dynamic_cast<Peternak*>(currentpemain);
+                    // add age here
+                    peternak->getPeternakan().CetakPeternakan();
+                    delete peternak;
+                }
+                else{
+                    throw InvalidRole();
+                }
             }
             else if (command == "TANAM"){
-                tanam(currentpemain);
+                try{
+                    tanam(currentpemain);
+                }
+                catch(InvalidRole e){
+                    cout << e.what() << endl;
+                }
+                catch(LadangFull e){
+                    cout << e.what() << endl;
+                }
+                catch(noTanamaninInv e){
+                    cout << e.what() << endl;
+                }
+                
             }
             else if (command == "TERNAK"){
                 // ternak(currentpemain);
@@ -110,10 +140,10 @@ void Game::start_game(){
 
             }
             else if (command == "BELI"){
-
+                // beli(currentpemain);
             }
             else if (command == "JUAL"){
-
+                // jual(currentpemain);
             }
             else if (command == "PANEN"){
                 // dibedain jadi petani dan peternak

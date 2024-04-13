@@ -4,15 +4,15 @@
 #include <string>
 using namespace std;
 
-Omnivora::Omnivora(int ID, string code, string name, int harvestweight, int price):Hewan(ID,code,name,"OMNIVORE",harvestweight,price){
+Omnivora::Omnivora(int ID):Hewan(ID){
 }
 
 Omnivora::~Omnivora(){
     
 }
 
-bool Omnivora::CanEat(string tipe){
-    if (tipe == "PRODUCT_MATERIAL_PLANT"){
+bool Omnivora::CanEat(Produk* makanan){
+    if (makanan->getType() == "PRODUCT_MATERIAL_PLANT"){
         return false;
     }
     else{

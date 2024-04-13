@@ -1,5 +1,4 @@
-#include "src/header/Produk/Produk.hpp"
-
+#include "../../header/Produk/Produk.hpp"
 Produk::Produk(int id, string kodeHuruf, string nama, string tipe, string origin, int addedWeight, int price) : Item("Produk", id, kodeHuruf, nama, price), tipe(tipe), origin(origin), addedWeight(addedWeight) {}
 
 int Produk::getAddedWeight() const {

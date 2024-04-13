@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <map>
-#include "header/Pemain/Pemain.hpp"
-#include "header/Item/Item.hpp"
-#include "header/Loader/ConfigLoader.hpp"
+#include "../Pemain/Pemain.hpp"
+#include "../Item/Item.hpp"
+#include "../Loader/ConfigLoader.hpp"
 
 using namespace std;
 

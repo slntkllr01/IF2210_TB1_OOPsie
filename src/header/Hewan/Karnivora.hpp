@@ -5,9 +5,9 @@ using namespace std;
 
 class Karnivora: public Hewan {
 public:
-    Karnivora(int ID, string code, string name, int harvestweight, int price);
+    Karnivora(int ID);
     ~Karnivora();
-    bool CanEat(string tipe);
+    bool CanEat(Produk* makanan);
 };
 
 #endif

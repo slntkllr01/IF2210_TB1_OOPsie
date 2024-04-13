@@ -4,14 +4,21 @@
 using namespace std;
 
 int Hewan::DEADAGE = 20; 
-Hewan::Hewan(int ID, string code, string name, string type, int harvestweight, int price) : Item("Hewan", ID, code, name, price) {
-    this -> type = type;
-    this -> harvestweight = harvestweight;
+Hewan::Hewan(int ID){
+    this -> ID = ID;
     this -> actualweight = 0;
     this -> age = 0;
 }
 
 Hewan::~Hewan(){
+}
+
+void Hewan::set_harvestweight(int harvestweight){
+    this -> harvestweight = harvestweight;
+}
+
+int Hewan::get_harvestweight() const{
+    return this -> harvestweight;
 }
 
 void Hewan::set_actualweight(int actualweight){
@@ -29,17 +36,6 @@ bool Hewan::siapPanen(){
     else{
         return false;
     }
-}
-
-void Hewan::printInfo(){
-    cout << "Status Hewan:" << endl;
-    cout << "   ID: " << id << endl;
-    cout << "   Code: " << code << endl;
-    cout << "   Name: " << name << endl;
-    cout << "   Type: " << type << endl;
-    cout << "   Harvestweight: " << harvestweight << endl;
-    cout << "   Actualweight: " << actualweight << endl;
-    cout << "   Price: " << price << endl;
 }
 
 bool Hewan::is_Dead(){

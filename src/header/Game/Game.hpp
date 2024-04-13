@@ -11,14 +11,13 @@ class Game{
         ListPemain listPemain;
         static int totalTurn;
     public:
-        Game(int currentturn, ListPemain ListPemain);
+        Game(ListPemain ListPemain);
         void set_currentturn(int currentturn);
         void set_currentpemain(Pemain* p);                //check if player had met the requirements for winning
         int get_currentturn();
         string get_currentpemainname();
-        int get_idxinalist(string x);
+        int get_idxinalist(Pemain* x);
         void check_turn();
-
         void next_turn();
         void start_game();
 

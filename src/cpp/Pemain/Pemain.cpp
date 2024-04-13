@@ -17,7 +17,36 @@ string Pemain::getPeran() const{
     return peran;
 }
 
-/* Makan */
-void Pemain::makan(Produk produk){
-    beratBadan += produk.getAddedWeight();
+Inventory Pemain::getInventory() const{
+    return inventory;
 }
+
+int Pemain::getUang() const{
+    return uang;
+}
+
+int Pemain::getBeratBadan() const{
+    return beratBadan;
+}
+
+/* Makan */
+void Pemain::makan(Produk* produk){
+    beratBadan += produk->getAddedWeight();
+}
+
+// JUAL
+void Pemain::jual(Item item, int kuantitas){}
+
+// IS MENANG
+bool Pemain::isMenang(){}
+
+
+bool Pemain::operator==(const Pemain* other) const{
+    if((this -> username == other->getUsername()) && (this -> peran == other -> getPeran())){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+

@@ -4,14 +4,14 @@
 #include <string>
 using namespace std;
 
-Herbivora::Herbivora(int ID, string code, string name, int harvestweight, int price):Hewan(ID,code,name,"HERBIVORE",harvestweight,price){
+Herbivora::Herbivora(int ID):Hewan(ID){
 }
 
 Herbivora::~Herbivora(){
 }
 
-bool Herbivora::CanEat(string tipe){
-    if (tipe == "PRODUCT_FRUIT_PLANT"){
+bool Herbivora::CanEat(Produk* makanan){
+    if (makanan->getType() == "PRODUCT_FRUIT_PLANT"){
         return true;
     }
     else{

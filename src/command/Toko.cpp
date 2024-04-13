@@ -1,5 +1,5 @@
-#include "src/header/Toko/Toko.hpp"
-#include "src/header/Loader/Loader.hpp"
+#include "../header/Toko/Toko.hpp"
+#include "../header/Loader/ConfigLoader.hpp"
 
 using namespace std;
 

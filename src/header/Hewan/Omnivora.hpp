@@ -6,9 +6,9 @@ using namespace std;
 class Omnivora: public Hewan
 {
 public:
-    Omnivora(int ID, string code, string name, int harvestweight, int price);
+    Omnivora(int ID);
     ~Omnivora();
-    bool CanEat(string tipe);
+    bool CanEat(Produk* makanan);
 };
 
 #endif

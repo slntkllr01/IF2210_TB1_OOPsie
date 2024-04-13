@@ -3,28 +3,26 @@
 #include <string>
 #include "../Exception/Exception.hpp"
 #include "../Produk/Produk.hpp"
-#include "../Item/Item.hpp"
 using namespace std;
 
-class Hewan : public Item
-{
-private:       
-    string type;
+class Hewan {
+private:
+    int ID;             
     int harvestweight;
     int actualweight;   // tambahan berat hewan sebenarnya
     int age;
 // <ID> <KODE_HURUF> <NAME> <TYPE> <WEIGHT_TO_HARVEST> <PRICE>
 public:
     static int DEADAGE;
-    Hewan(int ID, string code, string name, string type, int harvestweight, int price);
+    Hewan(int ID);
     ~Hewan();
+    void set_harvestweight(int harvestweight);
+    int get_harvestweight() const;
     void set_actualweight(int actualweight);
     int get_actualweight() const;
     bool siapPanen();
     bool is_Dead();
-    virtual bool CanEat(string tipe) = 0;
-    void printInfo();
-
+    virtual bool CanEat(Produk* makanan) = 0;
 };
 
 #endif
@@ -39,4 +37,4 @@ public:
 //// breeding hewan (huge, butuh item breeding)
 //// penyakit (bs mati, butuh medicine)
 
-// Di Inventory ada 
+// Di Inventory ada
