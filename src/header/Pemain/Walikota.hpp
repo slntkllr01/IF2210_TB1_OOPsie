@@ -25,8 +25,6 @@ class Walikota : public Pemain {
         bool bisaBeli(Item* item) override;
         /* Menagih pajak */
         void tagihPajak(ListPemain& list_pemain);
-        /* Mengecek apakah uang cukup */
-        bool isUangCukup(int uang);
         /* Membangun bangunan */
         void bangunBangunan(Bangunan bangunan);
         /* Menambah pemain */

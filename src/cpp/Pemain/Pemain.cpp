@@ -68,6 +68,11 @@ void Pemain::makan(Produk* produk){
     beratBadan += produk->getAddedWeight();
 }
 
+/* Mengecek apakah uang cukup */
+bool Pemain::isUangCukup(int uang){
+    return this->uang >= uang;
+}
+
 /* Mengecek apakah pemain bisa membeli barang */
 bool Pemain::bisaBeli(Item* item){
     return true;

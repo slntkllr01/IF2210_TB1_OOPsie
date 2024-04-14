@@ -47,11 +47,6 @@ void Walikota::tagihPajak(ListPemain& list_pemain){
     uang += totalPajak;
 }
 
-/* Mengecek apakah uang cukup */
-bool Walikota::isUangCukup(int uang){
-    return this->uang >= uang;
-}
-
 /* Membangun bangunan */
 void Walikota::bangunBangunan(Bangunan bangunan){
 

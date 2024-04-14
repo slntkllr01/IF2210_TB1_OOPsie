@@ -43,6 +43,8 @@ class Pemain {
         Item* ambilItem(string lokasi);
         /* Makan */
         void makan(Produk* produk);
+        /* Mengecek apakah uang cukup */
+        bool isUangCukup(int uang);
         /* Mengecek apakah pemain bisa membeli barang */
         virtual bool bisaBeli(Item* item);
         /* Mengecek apakah pemain bisa menjual barang */
