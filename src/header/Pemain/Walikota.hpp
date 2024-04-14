@@ -15,23 +15,23 @@ class Walikota : public Pemain {
         static Walikota* instance;
         /* User-Defined Constructor */
         Walikota(string username);
-        // Walikota(string username, int uang, int beratBadan);
     public:
         /* Mengembalikan instance dari Walikota */
         static Walikota* getInstance(string username);
         /* Destructor */
         ~Walikota();
+        /* Inisialisasi nilai atribut */
+        void initialize(string username, int uang, int beratBadan);
         /* Mengecek apakah pemain bisa membeli barang */
         bool bisaBeli(Item* item) override;
         /* Menagih pajak */
         void tagihPajak(ListPemain list_pemain);
+        /* Mengecek apakah uang cukup */
+        bool isUangCukup(int uang = 50);
         /* Membangun bangunan */
         void bangunBangunan(Bangunan bangunan);
         /* Menambah pemain */
-        void tambahPemain(string username, string peran, ListPemain list_pemain);
+        void tambahPemain(string username, string peran, ListPemain& list_pemain);
 };
-
-// Inisialisasi instance Walikota
-Walikota* Walikota::instance = nullptr;
 
 #endif
