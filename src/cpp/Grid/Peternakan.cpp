@@ -144,6 +144,6 @@ bool Peternakan::isSiapPanen(Hewan* h){
 
 } //Mengecek apakah suatu hewan siap panen atau tidak
 
-Grid<Hewan*> Peternakan::getPeternakan() const {
+Grid<Hewan*> Peternakan::getKotak() const {
     return this->kotak;
 }

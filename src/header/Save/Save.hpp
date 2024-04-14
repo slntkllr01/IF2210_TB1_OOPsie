@@ -2,6 +2,8 @@
 #define SAVE_HPP
 
 #include "./header/ListPemain/ListPemain.hpp"
+#include "./header/Pemain/Petani.hpp"
+#include "./header/Pemain/Peternak.hpp"
 #include "./header/Toko/Toko.hpp"
 #include <fstream>
 

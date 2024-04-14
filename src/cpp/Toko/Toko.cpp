@@ -14,10 +14,10 @@ int Toko::InvLength() const {
     return this->inventory.size();
 }
 
-void Toko::transaksiBeli(Pemain pemain, Item item, int kuantitas) {
-    if (item.getItemType() != "Hewan" || item.getItemType() != "Tanaman") {
+void Toko::transaksiBeli(Pemain pemain, Item* item, int kuantitas) {
+    if (item->getItemType() != "Hewan" || item->getItemType() != "Tanaman") {
         for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-            if (itr->first.getName() == item.getName()) {
+            if (itr->first.getName() == item->getName()) {
                 if (itr->second - kuantitas > 0) {
                     itr->second -= kuantitas;
                 } else {
@@ -30,12 +30,12 @@ void Toko::transaksiBeli(Pemain pemain, Item item, int kuantitas) {
     pemain.beli(item, kuantitas);
 }
 
-void Toko::transaksiJual(Pemain pemain, Item item, int kuantitas) {
-    if (item.getItemType() != "Hewan" || item.getItemType() != "Tanaman") {
+void Toko::transaksiJual(Pemain pemain, Item* item, int kuantitas) {
+    if (item->getItemType() != "Hewan" || item->getItemType() != "Tanaman") {
         bool found = false;
 
         for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-            if (itr->first.getName() == item.getName()) {
+            if (itr->first.getName() == item->getName()) {
                 itr->second += kuantitas;
                 found = true;
                 break;
@@ -50,7 +50,7 @@ void Toko::transaksiJual(Pemain pemain, Item item, int kuantitas) {
     pemain.jual(item, kuantitas);
 }
 
-void Toko::showInventory(ConfigLoader config) {
+void Toko::showInventory(ConfigLoader& config) {
     cout << "-- LIMITED STOCK --" << endl;
     int i = 0;
     for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {

@@ -17,9 +17,9 @@ class Toko {
         ~Toko();
         map<Item, int> getInventory() const;
         int InvLength() const;
-        void transaksiBeli(Pemain pemain, Item item, int kuantitas);
-        void transaksiJual(Pemain pemain, Item item, int kuantitas);
-        void showInventory(ConfigLoader config);
+        void transaksiBeli(Pemain pemain, Item* item, int kuantitas);
+        void transaksiJual(Pemain pemain, Item* item, int kuantitas);
+        void showInventory(ConfigLoader& config);
 };
 
 #endif
