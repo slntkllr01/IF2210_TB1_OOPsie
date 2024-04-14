@@ -29,7 +29,7 @@ int Petani::hitungKekayaan(){
     int kekayaan_ladang = 0;
     for (const auto& element : ladang.getKotak().getElMap()){
         if (ladang.getKotak().isPresent(element.first)){
-            kekayaan_ladang += element.second.getPrice();
+            kekayaan_ladang += element.second->getPrice();
         }
     }
     return kekayaan_inventory_uang + kekayaan_ladang;
@@ -42,7 +42,6 @@ void Petani::tanam(Tanaman* tanaman, string lokasi){
 
 /* Memanen tanaman yang ada di ladang */
 void Petani::panenTanaman(string lokasi){
-    ladang.Panen(lokasi);
     Tanaman* tanaman = ladang.delTanaman(lokasi);
     Produk* produk = tanaman->hasilTanaman();
     inventory.SimpanBarang(produk);

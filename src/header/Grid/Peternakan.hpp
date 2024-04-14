@@ -15,14 +15,20 @@ class Peternakan{
         
     public:
         // Constructor
+        Peternakan(); // ukuran ambil dari config
+
         Peternakan(int, int);
 
         ~Peternakan();
 
         bool isLokasiValid(string);
+        
         void Ternak(string, Hewan*); //Menambahkan ternak ke slot lahan
+        void addHewan(Hewan*, string); // Ganti jadi ini
 
         void Panen(string); //Memanen hewan dengan kode yang sama dengan inputan
+        Hewan* delHewan(string); // Ganti jadi ini
+        
         void CetakPeternakanHelper();
         void CetakPeternakan();
 

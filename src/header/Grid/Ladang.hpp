@@ -8,7 +8,7 @@ class Ladang{
     private:
         int baris;
         int kolom;
-        Grid<Tanaman> kotak;
+        Grid<Tanaman*> kotak;
         int charBarisMaksimal;
         int charKolomMaksimal;
         //49 = 1
@@ -37,10 +37,10 @@ class Ladang{
 
         bool isEmpty(); //Mengecek apakah ladang kosong atau tidak
 
-        Grid<Tanaman> getLadang() const;
+        Grid<Tanaman*> getLadang() const;
         
         // getter
-        Grid<Tanaman> getKotak() const;
+        Grid<Tanaman*> getKotak() const;
         
         //bool isSiapPanen(Tanaman); //Mengecek apakah tanaman siap dipanen
 

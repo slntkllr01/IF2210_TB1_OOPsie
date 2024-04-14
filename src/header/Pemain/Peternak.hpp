@@ -22,13 +22,15 @@ class Peternak : public Pekerja {
         ~Peternak();
         /* Getter */
         Peternakan getPeternakan() const;
+        /* Setter */
+        void setPeternakan(Peternakan peternakan);
         /* Menghitung kekayaan Peternak */
-        int hitungKekayaan();
+        int hitungKekayaan() override;
         /* Meletakkan hewan di peternakan */
         void ternak(Hewan* hewan, string lokasi);
         /* Memberi makan hewan */
         void beriMakanHewan(Hewan* hewan, Produk* makanan);
-        /* Memanen hewan */
+        /* Memanen hewan yang ada di peternakan */
         void panenHewan(string lokasi);
 };
 
