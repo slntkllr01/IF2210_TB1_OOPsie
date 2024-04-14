@@ -71,10 +71,24 @@ class LadangFull : public Exception {
         }
 };
 
+class PeternakanFull : public Exception {
+    public:
+        string what() override {
+            return "Peternakan kamu penuh, harus kosongkan tempat.";
+        }
+};
+
 class noTanamaninInv : public Exception {
     public:
         string what() override {
             return "Tidak ada tanaman di inventory untuk ditanam.";
+        }
+};
+
+class noHewanInv : public Exception {
+    public:
+        string what() override {
+            return "Tidak ada hewan di inventory untuk diternak.";
         }
 };
 // Add more or edit as you please
