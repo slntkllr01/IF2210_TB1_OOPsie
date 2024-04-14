@@ -48,7 +48,7 @@ void tanam(Pemain* p){
         cout << "Petak tanah: ";
         cin >> slotladang;
         // harus cek petak ladang kosong
-        if(petani->getLadang().isLokasiValid(slotladang) && petani->getLadang().getKotak().isPresent(slotladang)){
+        if(petani->getLadang().isLokasiValid(slotladang) && !(petani->getLadang().getKotak().isPresent(slotladang))){
             petani->tanam(tanaman,slotladang);
             break;
         }

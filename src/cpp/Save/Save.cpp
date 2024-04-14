@@ -9,7 +9,7 @@ void Save::saveState(ListPemain listPemain, Toko toko, string fileName) {
         tempFile << arrPemain[i]->getUsername() << " " << arrPemain[i]->getPeran() << " " << arrPemain[i]->getBeratBadan() << " " << arrPemain[i]->getUang() << endl;
         tempFile << arrPemain[i]->getInventory().howMuchElement() << endl;
         for (auto itr = arrPemain[i]->getInventory().firstptr(); itr != arrPemain[i]->getInventory().endptr(); itr++) {
-            tempFile << itr->second.getName() << endl;
+            tempFile << itr->second->getName() << endl;
         }
         if (arrPemain[i]->getPeran() == "Petani") {
             Petani* petani = dynamic_cast<Petani*>(arrPemain[i]);

@@ -72,13 +72,13 @@ using namespace std;
 // }
 
 
-int main(){
-    ListPemain listPemain;
-    Petani* newPetani1 = new Petani("Petani1");
-    listPemain.add_Pemain(newPetani1);
-    Peternak* newPeternak1 = new Peternak("Peternak1");
-    listPemain.add_Pemain(newPeternak1);
-    Walikota* newWalikota1 = Walikota::getInstance("Walikota"); //bener kah
-    listPemain.add_Pemain(newWalikota1);
-}
+// int main(){
+//     ListPemain listPemain;
+//     Petani* newPetani1 = new Petani("Petani1");
+//     listPemain.add_Pemain(newPetani1);
+//     Peternak* newPeternak1 = new Peternak("Peternak1");
+//     listPemain.add_Pemain(newPeternak1);
+//     Walikota* newWalikota1 = Walikota::getInstance("Walikota"); //bener kah
+//     listPemain.add_Pemain(newWalikota1);
+// }
 // g++ -o main src/command/addPemain.cpp src/cpp/Main.cpp src/cpp/Game/Game.cpp src/cpp/Grid/Inventory.cpp src/cpp/Grid/Ladang.cpp src/cpp/Grid/Peternakan.cpp src/cpp/Item/Item.cpp src/cpp/ListPemain/ListPemain.cpp src/cpp/Pemain/Pekerja.cpp src/cpp/Pemain/Pemain.cpp src/cpp/Pemain/Petani.cpp src/cpp/Pemain/Walikota.cpp src/cpp/Produk/Produk.cpp src/cpp/Save/Save.cpp src/cpp/Tanaman/Tanaman.cpp src/cpp/Toko/Toko.cpp

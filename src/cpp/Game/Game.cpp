@@ -4,6 +4,9 @@
 #include "../../command/tanam.cpp"
 #include "../../command/ternak.cpp"
 #include "../../command/Toko.cpp"
+#include "../../command/addPemain.cpp"
+#include "../../command/makan.cpp"
+// #include "../../command/"
 #include "../../header/Toko/Toko.hpp"
 #include "../../header/Pemain/Petani.hpp"
 #include "../../header/Pemain/Peternak.hpp"
@@ -152,13 +155,13 @@ void Game::start_game(){
                 
             }
             else if (command == "TERNAK"){
-                // ternak(currentpemain);
+                ternak(currentpemain);
             }
             else if (command == "BANGUN"){
 
             }
             else if (command == "MAKAN"){
-
+                makan(currentpemain);
             }
             else if (command == "KASIH_MAKAN"){
 
@@ -176,19 +179,19 @@ void Game::start_game(){
 
             }
             else if (command == "TAMBAH PEMAIN"){
-
+                addPemain(listPemain,currentpemain);
             }
             else {
                 cout << "Masukan tidak valid, silakan ulangi lagi." << endl;
             }
             // checkwin di sini
-            // if (checkwin){
-                // cout << "Selamat!!! player " << get_currentpemainname() << " telah memenangkan permainan~" << endl;
-                // finish = true;
-                // break;
-            // }
+            if (currentpemain->isMenang()){
+                finish = true;
+                break;
+            }
         }
         
     }
+    cout << "Selamat!!! player \"" << get_currentpemainname() << "\" telah memenangkan permainan~" << endl;
     
 }

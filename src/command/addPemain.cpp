@@ -37,10 +37,15 @@ void addPemain(ListPemain listPemain, Pemain* p){
         if (!isWhitespaceString(username)){
             break;
         }
+        else if(listPemain.check_Dupe(username)){
+            cout << "Nama harus unik, silakan ulangi masukan." << endl;
+        }
         else{
             cout << "Nama tidak boleh kosong/whitespace saja, silakan ulangi masukan." << endl;
         }
     }
+    cout << "Pemain baru ditambahkan!" << endl;
+    cout << "Selamat datang \"" << username << "\" di kota ini!" << endl;
     Walikota* walikota = dynamic_cast<Walikota*>(p);
     walikota->tambahPemain(username,peran,listPemain);
     delete walikota;

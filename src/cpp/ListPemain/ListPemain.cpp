@@ -12,26 +12,19 @@ bool ListPemain::compareNames(const Pemain* a, const Pemain* b) {
 }
 
 void ListPemain::add_Pemain(Pemain* pemain){
-    try{
-        check_Dupe(pemain->getUsername());
-        ArrPemain.push_back(pemain);
-        sort(ArrPemain.begin(), ArrPemain.end(), compareNames);
-        cout << "Pemain baru ditambahkan!" << endl;
-        cout << "Selamat datang \"" << pemain->getUsername() << "\" di kota ini!" << endl;
-    }
-    catch(DupeName e){
-        cout << e.what() <<endl;
-    }
+    ArrPemain.push_back(pemain);
+    sort(ArrPemain.begin(), ArrPemain.end(), compareNames);
 
 }
 
-void ListPemain::check_Dupe(string nama){
+bool ListPemain::check_Dupe(string nama){
     int sz = ArrPemain.size();
     for (int i = 0; i<sz; i++){
         if (ArrPemain[i]->getUsername() == nama){
-            throw DupeName();
+            return true;
         }
     }
+    return false;
 }
 
 void ListPemain::print_AllPemain(){
