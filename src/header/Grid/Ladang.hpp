@@ -16,14 +16,20 @@ class Ladang{
         
     public:
         // Constructor
+        Ladang(); // ukuran dari config
+
         Ladang(int, int);
 
         ~Ladang();
 
         bool isLokasiValid(string);
+
         void Tanam(string, Tanaman); //Menambahkan tanaman ke slot lahan
+        void addTanaman(Tanaman*, string); // Ganti jadi ini
 
         void Panen(string); //Memanen tanaman dengan kode yang sama dengan inputan
+        Tanaman* delTanaman(string); // Ganti jadi ini
+        
         void CetakLadangHelper();
         void CetakLadang();
 

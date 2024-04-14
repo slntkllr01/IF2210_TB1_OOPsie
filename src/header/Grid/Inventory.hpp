@@ -9,6 +9,7 @@ class Inventory: public Grid<Item>{
     private:
         int baris;
         int kolom;
+        Grid<Item*> kotak;
     public:
         // Constructor
         Inventory();
@@ -17,7 +18,7 @@ class Inventory: public Grid<Item>{
 
         ~Inventory();
 
-        void SimpanBarang(); //Auto
+        void SimpanBarang(Item*); //Auto
 
         void SimpanBarang(Item*, string); //Input Manual
 
@@ -38,6 +39,8 @@ class Inventory: public Grid<Item>{
         bool isThereTanaman();
 
         string CekJenis(string); //Cek Type dari Item yang ada di parameter string petak
+
+        Grid<Item*> getKotak();
 };
 
 #endif

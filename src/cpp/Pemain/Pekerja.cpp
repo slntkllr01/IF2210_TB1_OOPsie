@@ -26,7 +26,13 @@ bool Pekerja::bisaJual(Item* item){
 /* Menghitung kekayaan pemain */
 int Pekerja::hitungKekayaan(){
     // Kekayaan dari inventory
-    return 0;
+    int kekayaan_inventory = 0;
+    for (const auto& element : inventory.getKotak().getElMap()){
+        if (inventory.getKotak().isPresent(element.first)){
+            kekayaan_inventory += element.second->getPrice();
+        }
+    }
+    return uang + kekayaan_inventory;
 }
 
 /* Menghitung KKP */

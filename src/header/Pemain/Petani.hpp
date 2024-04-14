@@ -21,10 +21,12 @@ class Petani : public Pekerja {
         ~Petani();
         /* Getter */
         Ladang getLadang() const;
+        /* Setter */
+        void setLadang(Ladang ladang);
         /* Menghitung kekayaan petani */
-        int hitungKekayaan();
+        int hitungKekayaan() override;
         /* Menanam tanaman di ladang */
-        void tanam(Tanaman tanaman, string lokasi);
+        void tanam(Tanaman* tanaman, string lokasi);
         /* Memanen tanaman yang ada di ladang */
         void panenTanaman(string lokasi);
 };
