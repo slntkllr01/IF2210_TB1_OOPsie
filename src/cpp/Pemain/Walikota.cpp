@@ -9,6 +9,14 @@ Walikota* Walikota::instance = nullptr;
 /* User-Defined Constructor */
 Walikota::Walikota(string username) : Pemain(username, "Walikota") {}
 
+/* Mengembalikan instance dari Walikota */
+Walikota* Walikota::getInstance(string username){
+    if (instance == nullptr){
+        instance = new Walikota(username);
+    }
+    return instance;
+}
+
 /* Destructor */
 Walikota::~Walikota() {}
 
@@ -25,7 +33,7 @@ bool Walikota::bisaBeli(Item* item){
 }
 
 /* Menagih pajak */
-void Walikota::tagihPajak(ListPemain list_pemain){
+void Walikota::tagihPajak(ListPemain& list_pemain){
     int totalPajak = 0;
     vector<Pemain*> pemains = list_pemain.get_ArrPemain();
     for (Pemain* pemain : pemains){
@@ -46,7 +54,7 @@ bool Walikota::isUangCukup(int uang = 50){
 
 /* Membangun bangunan */
 void Walikota::bangunBangunan(Bangunan bangunan){
-    
+
 }
 
 /* Menambah pemain */
@@ -57,7 +65,7 @@ void Walikota::tambahPemain(string username, string peran, ListPemain& list_pema
     } else if (peran == "Peternak"){
         pemainPtr = new Peternak(username);
     }
-    if (pemainPtr != nullptr) {
+    if (pemainPtr != nullptr){
         list_pemain.add_Pemain(pemainPtr);
         uang -= 50;
     }
