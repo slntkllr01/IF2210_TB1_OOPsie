@@ -25,6 +25,14 @@ Tanaman::Tanaman(int ID): Item("Tanaman", ID, "", "", 0) {
 
 Tanaman::~Tanaman() {}
 
+void Tanaman::set_durationToHarvest(int durationToHarvest){
+    this -> durationToHarvest = durationToHarvest;
+}
+
+void Tanaman::set_umur(int umur){
+    this -> umur = umur;
+}
+
 string Tanaman::get_type() {
     return this->type;
 }

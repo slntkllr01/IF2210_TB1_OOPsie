@@ -97,28 +97,28 @@ class TidakAdaPanen : public Exception {
         string what() override {
             return "Tidak ada yang dapat dipanen.";
         }
-}
+};
 
 class InvalidNomorPanen : public Exception {
     public:
         string what() override {
             return "Nomor yang akan dipanen tidak valid.";
         }
-}
+};
 
 class InvalidJumlahPanen : public Exception {
     public:
         string what() override {
             return "Jumlah petak yang akan dipanen tidak valid atau melebihi ketersediaan.";
         }
-}
+};
 
 class PenyimpananTidakCukup : public Exception {
     public:
         string what() override {
             return "Jumlah penyimpanan tidak cukup!";
         }
-}
+};
 // Add more or edit as you please
 
 #endif

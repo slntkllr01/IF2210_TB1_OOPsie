@@ -15,6 +15,8 @@ class Tanaman : public Item {
         Tanaman(int ID);
         ~Tanaman();
         string get_type();
+        void set_durationToHarvest(int durationToHarvest);
+        void set_umur(int umur);
         int get_durationToHarvest();
         int get_umur();
         void add_umur();
