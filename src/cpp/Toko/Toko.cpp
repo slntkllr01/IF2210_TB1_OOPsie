@@ -14,7 +14,7 @@ int Toko::InvLength() const {
     return this->inventory.size();
 }
 
-void Toko::transaksiBeli(Pemain pemain, Item* item, int kuantitas) {
+void Toko::transaksiBeli(Pemain* pemain, Item* item, int kuantitas) {
     if (item->getItemType() != "Hewan" || item->getItemType() != "Tanaman") {
         for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
             if (itr->first.getName() == item->getName()) {
@@ -26,11 +26,10 @@ void Toko::transaksiBeli(Pemain pemain, Item* item, int kuantitas) {
             }
         }
     }
-    // Asumsikan sudah terimplementasi
-    pemain.beli(item, kuantitas);
+    pemain->beli(item, kuantitas);
 }
 
-void Toko::transaksiJual(Pemain pemain, Item* item, int kuantitas) {
+void Toko::transaksiJual(Pemain* pemain, Item* item, int kuantitas) {
     if (item->getItemType() != "Hewan" || item->getItemType() != "Tanaman") {
         bool found = false;
 
@@ -43,29 +42,28 @@ void Toko::transaksiJual(Pemain pemain, Item* item, int kuantitas) {
         }
 
         if (!found) {
-            inventory.insert({item, 0});
+            inventory.insert({*item, 0});
         }   
     }
-    // Asumsikan sudah terimplementasi
-    pemain.jual(item, kuantitas);
+    pemain->jual(item, kuantitas);
 }
 
 void Toko::showInventory(ConfigLoader& config) {
     cout << "-- LIMITED STOCK --" << endl;
     int i = 0;
     for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-        cout << i + 1 << ". " << itr->first.getName() << " - " << itr->first.getPrice() << " (" << itr->second << ")" << endl;
+        cout << "["<< i + 1 << "] " << itr->first.getName() << " - " << itr->first.getPrice() << " (" << itr->second << ")" << endl;
     }
     cout << endl;
     cout << "-- UNLIMITED STOCK --" << endl;
     cout << endl;
     cout << "-- Hewan --" << endl;
     for (auto itr = config.hewanConfigs.begin(); itr != config.hewanConfigs.begin(); ++itr) {
-        cout << itr->first << ". " << itr->second.name << " - " << itr->second.price << endl;
+        cout << "[H"<< itr->first << "] " << itr->second.name << " - " << itr->second.price << endl;
     }
     cout << endl;
     cout << "-- Tanaman --" << endl;
     for (auto itr = config.tanamanConfigs.begin(); itr != config.tanamanConfigs.begin(); ++itr) {
-        cout << itr->first << ". " << itr->second.name << " - " << itr->second.price << endl;
+        cout << "[T"<< itr->first << "] " << itr->second.name << " - " << itr->second.price << endl;
     }
 }
