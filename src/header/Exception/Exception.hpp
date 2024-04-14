@@ -13,6 +13,13 @@ class Exception {
         virtual string what() = 0;
 };
 
+class NoHumanFood : public Exception {
+    public:
+        string what() override {
+            return "Tidak ada makanan dalam penyimpananmu. Puasa aja ya..";
+        }
+};
+
 // Tidak ada makanan yang cocok/tidak ada makanan untuk hewan pada KASIH PANGAN
 class NoAnimalFood : public Exception {
     public:
