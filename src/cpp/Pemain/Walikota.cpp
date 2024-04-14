@@ -48,7 +48,7 @@ void Walikota::tagihPajak(ListPemain& list_pemain){
 }
 
 /* Mengecek apakah uang cukup */
-bool Walikota::isUangCukup(int uang = 50){
+bool Walikota::isUangCukup(int uang){
     return this->uang >= uang;
 }
 

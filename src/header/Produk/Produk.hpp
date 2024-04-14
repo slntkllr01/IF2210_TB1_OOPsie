@@ -19,7 +19,6 @@ class Produk : public Item {
         void setType(string type);
         void setOrigin(string origin);
         void setAddedWeight(int weight);
-        int getIDBasedonOrigin(string origin);
 
 };
 

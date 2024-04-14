@@ -7,7 +7,6 @@ using namespace std;
 #include "Pemain.hpp"
 #include "../ListPemain/ListPemain.hpp"
 #include "../Bangunan/Bangunan.hpp"
-#include "../Exception/Exception.hpp"
 
 class Walikota : public Pemain {
     private:
@@ -27,7 +26,7 @@ class Walikota : public Pemain {
         /* Menagih pajak */
         void tagihPajak(ListPemain& list_pemain);
         /* Mengecek apakah uang cukup */
-        bool isUangCukup(int uang = 50);
+        bool isUangCukup(int uang);
         /* Membangun bangunan */
         void bangunBangunan(Bangunan bangunan);
         /* Menambah pemain */
