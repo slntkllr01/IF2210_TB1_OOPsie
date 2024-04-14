@@ -19,7 +19,9 @@ class Tanaman : public Item {
         int get_umur();
         void add_umur();
         bool siapPanen();
-        virtual bool CanEat(Produk* makanan);
+        virtual bool CanEat(Produk* makanan) = 0;
+        // tambahin
+        Produk* hasilTanaman();
 };
 
 
