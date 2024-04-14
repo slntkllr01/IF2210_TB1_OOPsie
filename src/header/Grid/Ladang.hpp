@@ -4,6 +4,7 @@
 #include "../../header/Produk/Produk.hpp"
 #include "../../header/Tanaman/Tanaman.hpp"
 #include <iostream>
+#include <map>
 class Ladang: public Grid<Tanaman*>{
     private:
         int baris;
@@ -38,7 +39,7 @@ class Ladang: public Grid<Tanaman*>{
         Grid<Tanaman*> getKotak() const;
         
         //bool isSiapPanen(Tanaman); //Mengecek apakah tanaman siap dipanen
-
+        map<string, int> getListofSiapPanen() const;
 };
 
 #endif

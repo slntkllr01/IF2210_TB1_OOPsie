@@ -49,6 +49,14 @@ class NoInventorySpace : public Exception {
         }
 };
 
+// Exception duplikasi nama pemain (tidak unik)
+class DupeName : public Exception{
+    public:
+    string what() override {
+        return "Nama tersebut sudah ada.";
+    }
+};
+
 class InvalidRole : public Exception {
     public:
         string what() override {
@@ -83,6 +91,34 @@ class noHewanInv : public Exception {
             return "Tidak ada hewan di inventory untuk diternak.";
         }
 };
+
+class TidakAdaPanen : public Exception {
+    public:
+        string what() override {
+            return "Tidak ada yang dapat dipanen.";
+        }
+}
+
+class InvalidNomorPanen : public Exception {
+    public:
+        string what() override {
+            return "Nomor yang akan dipanen tidak valid.";
+        }
+}
+
+class InvalidJumlahPanen : public Exception {
+    public:
+        string what() override {
+            return "Jumlah petak yang akan dipanen tidak valid atau melebihi ketersediaan.";
+        }
+}
+
+class PenyimpananTidakCukup : public Exception {
+    public:
+        string what() override {
+            return "Jumlah penyimpanan tidak cukup!";
+        }
+}
 // Add more or edit as you please
 
 #endif

@@ -4,6 +4,7 @@
 #include "../../header/Produk/Produk.hpp"
 #include "../../header/Hewan/Hewan.hpp"
 #include "../Loader/ConfigLoader.hpp"
+#include <map>
 
 class Peternakan{
     private:
@@ -41,6 +42,8 @@ class Peternakan{
         Grid<Hewan*> getKotak() const;
 
         bool isSiapPanen(Hewan*); //Mengecek apakah suatu hewan siap panen atau tidak
+
+        map<string, int> getListofSiapPanen() const;
 };
 
 #endif
