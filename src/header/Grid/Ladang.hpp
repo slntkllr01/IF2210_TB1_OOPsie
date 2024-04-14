@@ -4,11 +4,10 @@
 #include "../../header/Produk/Produk.hpp"
 #include "../../header/Tanaman/Tanaman.hpp"
 #include <iostream>
-class Ladang{
+class Ladang: public Grid<Tanaman>{
     private:
         int baris;
         int kolom;
-        Grid<Tanaman*> kotak;
         int charBarisMaksimal;
         int charKolomMaksimal;
         //49 = 1
@@ -17,8 +16,6 @@ class Ladang{
     public:
         // Constructor
         Ladang(); // ukuran dari config
-
-        Ladang(int, int);
 
         ~Ladang();
 
