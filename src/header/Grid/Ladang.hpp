@@ -4,7 +4,7 @@
 #include "../../header/Produk/Produk.hpp"
 #include "../../header/Tanaman/Tanaman.hpp"
 #include <iostream>
-class Ladang: public Grid<Tanaman>{
+class Ladang: public Grid<Tanaman*>{
     private:
         int baris;
         int kolom;
@@ -21,10 +21,8 @@ class Ladang: public Grid<Tanaman>{
 
         bool isLokasiValid(string);
 
-        void Tanam(string, Tanaman); //Menambahkan tanaman ke slot lahan
         void addTanaman(Tanaman*, string); // Ganti jadi ini
 
-        void Panen(string); //Memanen tanaman dengan kode yang sama dengan inputan
         Tanaman* delTanaman(string); // Ganti jadi ini
         
         void CetakLadangHelper();

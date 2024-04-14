@@ -100,7 +100,7 @@ bool Inventory::IsMakanan(string lokasi){
 }
 
 void Inventory::CetakPenyimpanan(){
-
+    
 }
 
 int Inventory::SlotTersisa(){

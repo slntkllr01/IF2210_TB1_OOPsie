@@ -35,7 +35,7 @@ bool Ladang::isLokasiValid(string k){
     }
 }
 
-void Ladang::Tanam(string lokasi, Tanaman t){
+void Ladang::addTanaman(Tanaman* t, string lokasi){
     /*Asumsi:
     1. Ladang tidak penuh
     2. Lokasi valid (tidak out of range)
@@ -44,7 +44,7 @@ void Ladang::Tanam(string lokasi, Tanaman t){
     this->add(lokasi, t);
 } //Menambahkan tanaman ke slot lahan
 
-void Ladang::Panen(string lokasi){
+Tanaman* Ladang::delTanaman(string lokasi){
     /*Asumsi:
     1. Ladang tidak kosong
     2. Minimal ada satu tanaman yang siap panen
@@ -60,6 +60,7 @@ void Ladang::CetakLadangHelper(){
     }
     cout<<endl;
 }
+
 void Ladang::CetakLadang(){
     cout<<"   ";
     for(int i = 0; i<this->kolom; i++){
@@ -82,15 +83,16 @@ void Ladang::CetakLadang(){
             k = cc + "0" + cr;
             if(this->isPresent(k)){
                 cout<<" ";
-                if(this->value(k).siapPanen()){
-                    print_green(this->value(k).getCode().at(0));
-                    print_green(this->value(k).getCode().at(1));
-                    print_green(this->value(k).getCode().at(2));
+                if(this->value(k)->siapPanen()){
+                    print_green(this->value(k)->getCode().at(0));
+                    print_green(this->value(k)->getCode().at(1));
+                    print_green(this->value(k)->getCode().at(2));
                 }
                 else{
-                    print_red(this->value(k).getCode().at(0));
-                    print_red(this->value(k).getCode().at(1));
-                    print_red(this->value(k).getCode().at(2));                }
+                    print_red(this->value(k)->getCode().at(0));
+                    print_red(this->value(k)->getCode().at(1));
+                    print_red(this->value(k)->getCode().at(2));                
+                }
                 cout<<" |";                
             }
             else{
