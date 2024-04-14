@@ -88,14 +88,15 @@ bool Inventory::IsMakanan(string lokasi){
     string cek1, cek2, tipeItem;
     cek1 = "PRODUK";
     cek2 = "MATERIAL";
-    tipeItem = t->getItemType();
-    if(tipeItem.find(cek2) == string::npos && tipeItem.find(cek1) != string::npos){
-        return true;
+    bool is = false;
+    if(t->getItemType() == "Produk"){
+        Produk* p = dynamic_cast<Produk*>(t);
+        string tipeItem = p->getType();
+        if(tipeItem.find(cek2) == string::npos && tipeItem.find(cek1) != string::npos){
+            is = true;
+        }
     }
-    else{
-        return false;
-    }
-
+    return is;
 }
 
 void Inventory::CetakPenyimpanan(){
