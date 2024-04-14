@@ -24,6 +24,10 @@ int Item::getPrice() const {
     return this->price;
 }
 
+int Item::getID() const{
+    return this->id;
+}
+
 bool Item::operator<(const Item& other) const {
     return name < other.name;
 }

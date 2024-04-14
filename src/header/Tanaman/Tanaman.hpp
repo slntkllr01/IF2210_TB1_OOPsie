@@ -20,8 +20,6 @@ class Tanaman : public Item {
         void add_umur();
         bool siapPanen();
         virtual bool CanEat(Produk* makanan);
-        // tambahin
-        Produk* hasilTanaman();
 };
 
 

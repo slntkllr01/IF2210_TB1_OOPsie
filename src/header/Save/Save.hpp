@@ -1,10 +1,10 @@
 #ifndef SAVE_HPP
 #define SAVE_HPP
 
-#include "./header/ListPemain/ListPemain.hpp"
-#include "./header/Pemain/Petani.hpp"
-#include "./header/Pemain/Peternak.hpp"
-#include "./header/Toko/Toko.hpp"
+#include "../ListPemain/ListPemain.hpp"
+#include "../Pemain/Petani.hpp"
+#include "../Pemain/Peternak.hpp"
+#include "../Toko/Toko.hpp"
 #include <fstream>
 
 class Save {

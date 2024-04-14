@@ -49,8 +49,7 @@ void tanam(Pemain* p){
         cin >> slotladang;
         // harus cek petak ladang kosong
         if(petani->getLadang().isLokasiValid(slotladang) && petani->getLadang().getKotak().isPresent(slotladang)){
-            Tanaman actualTanaman = *tanaman;
-            petani->getLadang().Tanam(slotladang,actualTanaman);
+            petani->tanam(tanaman,slotladang);
             break;
         }
         else{

@@ -30,8 +30,6 @@ public:
     string getType() const;
     void setType(string type);
     virtual bool CanEat(Produk* makanan) = 0;
-    // tambahin
-    Produk* hasilHewan();
 };
 
 #endif

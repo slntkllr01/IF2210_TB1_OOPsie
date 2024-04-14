@@ -23,6 +23,7 @@ class Item {
         void setName(string name);
         int getPrice() const;
         void setPrice(int price);
+        int getID() const;
         void setID(int id);
         bool operator<(const Item& other) const;
 };

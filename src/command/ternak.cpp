@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include "../header/Exception/Exception.hpp"
+#include "../header/Hewan/Hewan.hpp"
 #include "../header/Grid/Peternakan.hpp"
 #include "../header/Grid/Inventory.hpp"
 
@@ -9,7 +11,7 @@ void ternak(Pemain* p){
     string slot_inventory, slot_ladang;
 
     cout << "Pilih hewan dari penyimpanan" << endl;
-    // display inventory
+    p->getInventory().CetakPenyimpanan();
 
     cout << "Slot: ";
     cin >> slot_inventory;
