@@ -35,6 +35,13 @@ class NoMoney : public Exception {
         }
 };
 
+class InputSlotInvalid : public Exception {
+    public:
+        string what() override {
+            return "Slot yang kamu masukkan tidak valid. Niat main gak sih?";
+        }
+};
+
 class NoInventorySpace : public Exception {
     public:
         string what() override {
