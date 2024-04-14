@@ -14,7 +14,7 @@ Hewan::Hewan(int id) : Item("Hewan", id, "", "", 0) {
         setCode(config.code);
         setName(config.name);
         setPrice(config.price);
-        setType(config.type);
+        set_type(config.type);
         set_harvestweight(config.weight);
 
     } else {
