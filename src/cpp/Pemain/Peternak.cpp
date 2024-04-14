@@ -47,6 +47,12 @@ void Peternak::beriMakanHewan(Hewan* hewan, Produk* makanan){
 /* Memanen hewan yang ada di peternakan */
 void Peternak::panenHewan(string lokasi){
     Hewan* hewan = peternakan.delHewan(lokasi);
-    Produk* produk = hewan->hasilHewan();
-    inventory.SimpanBarang(produk);
+    // Ubah hewan menjadi produk
+    produkHewan produk(hewan->getID() + 8);
+    inventory.SimpanBarang(&produk);
+    if (hewan->getID() == 6 || hewan->getID() == 7){
+        // Ayam dan Bebek menghasilkan 2 produk
+        produkHewan produk2(hewan->getID() + 10);
+        inventory.SimpanBarang(&produk2);
+    }
 }

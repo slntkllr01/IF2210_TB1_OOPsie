@@ -35,7 +35,6 @@ int Petani::hitungKekayaan(){
     return kekayaan_inventory_uang + kekayaan_ladang;
 }
 
-/* Menanam tanaman di ladang */
 void Petani::tanam(Tanaman* tanaman, string lokasi){
     ladang.addTanaman(tanaman, lokasi);
 }
@@ -43,6 +42,7 @@ void Petani::tanam(Tanaman* tanaman, string lokasi){
 /* Memanen tanaman yang ada di ladang */
 void Petani::panenTanaman(string lokasi){
     Tanaman* tanaman = ladang.delTanaman(lokasi);
-    Produk* produk = tanaman->hasilTanaman();
-    inventory.SimpanBarang(produk);
+    // Ubah tanaman menjadi produk
+    produkTumbuhan produk(tanaman->getID());
+    inventory.SimpanBarang(&produk);
 }
