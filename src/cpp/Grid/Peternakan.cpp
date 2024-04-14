@@ -2,11 +2,12 @@
 using namespace std;
 
 // Constructor
-Peternakan::Peternakan(int b, int k){
-    this->baris = b;
-    this->kolom = k;
-    this->charBarisMaksimal = 48 + b;
-    this->charKolomMaksimal = 64 + k;
+Peternakan::Peternakan(){
+    ConfigLoader& loader = ConfigLoader::getInstance();
+    this->baris = loader.ukuranPeternakan.first;
+    this->kolom = loader.ukuranPeternakan.second;
+    this->charBarisMaksimal = 48 + baris;
+    this->charKolomMaksimal = 64 + kolom;
     //49 = 1
     //65 = A
 }

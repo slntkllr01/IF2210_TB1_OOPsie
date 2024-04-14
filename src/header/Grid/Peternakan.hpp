@@ -3,6 +3,8 @@
 #include "GridMap.hpp"
 #include "../../header/Produk/Produk.hpp"
 #include "../../header/Hewan/Hewan.hpp"
+#include "../Loader/ConfigLoader.hpp"
+
 class Peternakan{
     private:
         int baris;
@@ -15,9 +17,7 @@ class Peternakan{
         
     public:
         // Constructor
-        Peternakan(); // ukuran ambil dari config
-
-        Peternakan(int, int);
+        Peternakan();
 
         ~Peternakan();
 

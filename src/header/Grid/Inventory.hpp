@@ -5,18 +5,22 @@
 #include "../Item/Item.hpp"
 #include "../Loader/ConfigLoader.hpp"
 
-class Inventory: public Grid<Item>{
+class Inventory: public Grid<Item*>{
     private:
         int baris;
         int kolom;
-        Grid<Item*> kotak;
+        int charBarisMaksimal;
+        int charKolomMaksimal;
+        //49 = 1
+        //65 = A
+
     public:
         // Constructor
         Inventory();
 
-        Inventory(int, int);
-
         ~Inventory();
+
+        bool isLokasiValid(string);
 
         void SimpanBarang(Item*); //Auto
 
@@ -24,7 +28,7 @@ class Inventory: public Grid<Item>{
 
         Item* AmbilBarang(string); //Delete
 
-        void Makan(string); 
+        bool IsMakanan(string); 
 
         void CetakPenyimpanan();
 
@@ -39,8 +43,6 @@ class Inventory: public Grid<Item>{
         bool isThereTanaman();
 
         string CekJenis(string); //Cek Type dari Item yang ada di parameter string petak
-
-        Grid<Item*> getKotak();
 };
 
 #endif

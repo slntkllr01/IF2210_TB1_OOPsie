@@ -34,17 +34,44 @@ bool Ladang::isLokasiValid(string k){
 }
 
 void Ladang::Tanam(string lokasi, Tanaman t){
-    if(isLokasiValid(lokasi)){
-        kotak.add(lokasi, t);
-        cout<<"Tanaman berhasil ditanam!"<<endl;
+    if(Ladang::isFull()){ //Lahan sudah penuh
+        cout<<"Udah penuh :( kasian desak desakan tanamannya :("<<endl;
     }
-    else{
-        cout<<"Lokasimu ga valid :("<<endl;
+    else{ //Masih ada slot
+        if(isLokasiValid(lokasi)){ //Lokasi valid
+            if(!kotak.isPresent(lokasi)){ //Kalau petaknya masih kosong, sabi
+                kotak.add(lokasi, t);
+                cout<<"Tanaman berhasil ditanam di "<<lokasi<<" !"<<endl;
+            }
+            else{ //Kotak udah ada isinya
+                cout<<"Petak ini sudah ada tanamannya, yuk pilih yang lain!"<<endl;
+            }
+        }
+        else{//Lokasi gak valid, di luar indeks
+            cout<<"Lokasimu ga valid :("<<endl;
+        }
+
     }
 } //Menambahkan tanaman ke slot lahan
 
 void Ladang::Panen(string lokasi){
-    kotak.del(lokasi);
+    if(Ladang::isEmpty()){ //Lahan kosong, gabisa dipanen
+        cout<<"Wong ga ada tanamannya, apa yang mau dipanen :)"<<endl;
+    }
+    else{//Masih bisa yang dipanen
+        if(isLokasiValid(lokasi)){ //Lokasi valid
+            if(kotak.isPresent(lokasi)){//Ada hewannya, sabi dipanen
+                kotak.del(lokasi);
+                cout<<"Tanaman berhasil dipanen!"<<endl;
+            }
+            else{
+                cout<<"Petak ini kosong, yuk pilih yang lain!"<<endl;
+            }
+        }
+        else{
+            cout<<"Lokasimu ga valid :("<<endl;
+        }
+    }
 } //Memanen tanaman dengan kode yang sama dengan inputan
 
 void Ladang::CetakLadangHelper(){
@@ -93,7 +120,7 @@ bool Ladang::isFull(){
         return true;
     }
     else{
-        false;
+        return false;
     }
 
 } //Mengecek apakah ladang sudah penuh atau belum
@@ -110,6 +137,3 @@ bool Ladang::isEmpty(){
 
 //bool Ladang::isSiapPanen(){} //Mengecek apakah tanaman siap dipanen
 
-Grid<Tanaman> Ladang::getLadang() const {
-    return this->kotak;
-}
