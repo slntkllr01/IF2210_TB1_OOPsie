@@ -47,7 +47,7 @@ void ternak(Pemain* p){
 
     // Cetak peternakan
     cout << "Pilih petak tanah yang akan ditinggali" << endl;
-    printPeternakan(p);
+    peternak->getPeternakan().CetakPeternakan();
     Hewan* hewan = dynamic_cast<Hewan*>(item);
 
     while (true) {

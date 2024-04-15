@@ -7,7 +7,7 @@
 #include "../../command/addPemain.cpp"
 #include "../../command/makan.cpp"
 #include "../../command/pungutPajak.cpp"
-// #include "../../command/cetak.cpp"
+#include "../../command/bangunBangunan.cpp"
 #include "../../command/panen.cpp"
 // #include "../../command/simpan.cpp"
 #include "../../command/kasihMakan.cpp"
@@ -143,7 +143,7 @@ void Game::start_game(){
                     ternak(currentpemain);
                 }
                 else if (command == "BANGUN") {
-                    // Handle BANGUN command
+                    bangunBangunan(currentpemain);
                 }
                 else if (command == "MAKAN") {
                     makan(currentpemain);

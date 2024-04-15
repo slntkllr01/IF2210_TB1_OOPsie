@@ -44,7 +44,7 @@ void tanam(Pemain* p){
         }
     }
     cout << "Pilih petak yang akan ditanami" << endl;
-    printLadang(p);
+    petani->getLadang().CetakLadang();
     Tanaman* tanaman = dynamic_cast<Tanaman*>(item);
     while (true){
         cout << "Petak tanah: ";

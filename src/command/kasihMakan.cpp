@@ -15,7 +15,7 @@ void kasihMakan(Pemain* p){
         throw PeternakanEmpty();
     }
     cout << "Pilih hewan yang ingin diberi makan" << endl;
-    printPeternakan(p);
+    peternak->getPeternakan().CetakPeternakan();
     string slot_kandang;
     while (true){
         cout << "Petak kandang: " << endl;
