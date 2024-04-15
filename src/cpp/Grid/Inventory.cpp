@@ -202,4 +202,25 @@ bool Inventory::isThereHewan(){
     return thereAre;
 }
 
-
+bool Inventory::isThereMakanan(string tipeHewan){
+    bool thereAre = false;
+    if(!this->isEmpty()){
+        for(auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
+            if(it->second->getItemType() == "Produk"){
+                Produk* p = dynamic_cast<Produk*>(it->second);
+                string tipeProduk = p->getType();
+                string checker;
+                if(tipeHewan == "HERBIVORE" && tipeProduk.find("PLANT")!= string::npos){
+                    thereAre = true;
+                }
+                else if(tipeHewan == "CARNIVORE" && tipeProduk.find("ANIMAL") != string::npos){
+                    thereAre = true;
+                }
+                else{
+                    thereAre = true;
+                }
+            }
+        }
+    }
+    return thereAre;
+}
