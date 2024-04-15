@@ -33,13 +33,12 @@ class Ladang: public Grid<Tanaman*>{
 
         bool isEmpty(); //Mengecek apakah ladang kosong atau tidak
 
-        Grid<Tanaman*> getLadang() const;
+        // Grid<Tanaman*> getLadang() const;
         
-        // getter
-        Grid<Tanaman*> getKotak() const;
+        bool isSiapPanen(string); //Mengecek apakah tanaman siap dipanen
+        //map<string, int> getListofSiapPanen const(); //Memberikan list kode hewan dan jumlah petak siap panen
+
         
-        //bool isSiapPanen(Tanaman); //Mengecek apakah tanaman siap dipanen
-        map<string, int> getListofSiapPanen() const;
-};
+};  
 
 #endif

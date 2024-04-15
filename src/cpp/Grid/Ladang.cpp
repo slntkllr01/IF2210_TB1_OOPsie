@@ -1,5 +1,6 @@
 #include "../../header/Grid/Ladang.hpp"
 #include "../../header/Color/pcolor.h"
+#include "../../header/Grid/GridMap.hpp"
 #include <iostream>
 using namespace std;
 
@@ -50,7 +51,9 @@ Tanaman* Ladang::delTanaman(string lokasi){
     2. Minimal ada satu tanaman yang siap panen
     3. Lokasi yang dipilih valid (tidak out of range)
     4. Lokasi yang dipilih ada tanamannya dan siap panen*/
+    Tanaman* val = this->value(lokasi);
     this->del(lokasi);
+    return val;
 } //Memanen tanaman dengan kode yang sama dengan inputan
 
 void Ladang::CetakLadangHelper(){
@@ -81,9 +84,9 @@ void Ladang::CetakLadang(){
         for (int j = 0; j < this->kolom; j++) {
             cc = char(charColumn);
             k = cc + "0" + cr;
-            if(this->isPresent(k)){
+            if(isPresent(k)){
                 cout<<" ";
-                if(this->value(k)->siapPanen()){
+                if(isSiapPanen(k)){
                     print_green(this->value(k)->getCode().at(0));
                     print_green(this->value(k)->getCode().at(1));
                     print_green(this->value(k)->getCode().at(2));
@@ -126,5 +129,51 @@ bool Ladang::isEmpty(){
 
 } //Mengecek apakah ladang kosong atau tidak
 
-//bool Ladang::isSiapPanen(){} //Mengecek apakah tanaman siap dipanen
+/*
+Grid<Tanaman*> Ladang::getLadang const (){
+    return this->getElMap();
+}
+*/
 
+bool Ladang::isSiapPanen(string lokasi){
+
+    return this->value(lokasi)->siapPanen();
+} //Mengecek apakah tanaman siap dipanen
+
+
+/*
+map<string, int> Ladang::getListofSiapPanen const(){
+    map<string, int> g;    
+    for (auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
+        if(it->second->siapPanen()){ //Wah ada yang siap panen nih di ladang!
+            string code = it->second->get_kodeHuruf();
+            //cout<<code<<endl;
+            //cout<<"tes"<<endl;
+            cout<<g.size()<<endl;
+            if(g.size() == 0){
+                //cout<<"tes1"<<endl;
+                g.insert({code, 1});
+                string a = g.begin()->first;
+                cout<<a<<endl;
+                a = g.begin()->second;
+                cout<<a<<endl;
+                //cout<<"tes2"<<endl;
+            }
+            else{
+                if(g.find(code) != g.end()){ //Ternyata udah ditambahin ke listofSiapPanen
+                    //Maka cukup naikin valuenya;
+                    g.find(code)->second ++;
+                }
+                else{
+                    //Kalau belum ada samsek, tambahin key dan value baru
+                    g.insert({code, 1});
+                }
+            }
+        }
+    }
+    cout<<"success"<<endl;
+    return g;
+    
+}
+
+*/
