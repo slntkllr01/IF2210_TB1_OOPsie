@@ -1,10 +1,9 @@
-#include "command.hpp"
 #include "../header/Toko/Toko.hpp"
 #include "../header/Loader/ConfigLoader.hpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Pemain/Walikota.hpp"
 #include "../header/Hewan/Hewan.hpp"
-#include "../header/Tanaman/Tanaman.hpp"
+#include "../header/Hewan/Tanaman.hpp"
 #include <vector>
 
 using namespace std;
@@ -74,7 +73,7 @@ void beli(Pemain* pemain, Toko toko) {
                             } else if (!pemain->isUangCukup(itr->second.price * kuantitas)) {
                                 throw NoMoney();
                             } else {
-                                // toko.transaksiBeli(pemain, , kuantitas);
+                                toko.transaksiJual(pemain, , kuantitas);
                                 cout << "Selamat Anda berhasil membeli " << kuantitas << " " << itr->second.name << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
                             }
                         } else {

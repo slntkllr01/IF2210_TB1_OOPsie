@@ -227,3 +227,19 @@ string Inventory::CekJenis(string lokasi){
     }
     return thereAre;
 }
+
+map<Item*, pair<int, vector<string>>> Inventory::listBahanBangunan(map<string, Item*> inventory) {
+    map<Item*, pair<int, vector<string>>> hasil;
+    for (const auto& item : inventory) {
+        if (dynamic_cast<Produk*>(item.second) != nullptr) {
+            Produk* bahan = dynamic_cast<Produk*>(item.second);
+            if (bahan && bahan->getType() == "PRODUCT_MATERIAL_PLANT") {
+                auto& entry = hasil[bahan];
+                entry.first++;
+                entry.second.push_back(item.first);
+            }
+        }
+    }
+
+    return hasil;
+}

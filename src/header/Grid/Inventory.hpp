@@ -4,6 +4,7 @@
 #include "../Produk/Produk.hpp"
 #include "../Item/Item.hpp"
 #include "../Loader/ConfigLoader.hpp"
+#include <vector>
 using namespace std;
 
 class Inventory: public Grid<Item*>{
@@ -49,6 +50,8 @@ class Inventory: public Grid<Item*>{
         bool isThereHewan();
 
         string CekJenis(string); //Cek Type dari Item yang ada di parameter string petak
+
+        static map<Item*, pair<int, vector<string>>> listBahanBangunan(map<string, Item*> isi);
 };
 
 #endif
