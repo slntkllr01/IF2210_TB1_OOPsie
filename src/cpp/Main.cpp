@@ -15,6 +15,12 @@ int main(){
         ConfigLoader& loader = ConfigLoader::getInstance();
         loader.initConfig("../../../config/plant.txt","../../../config/animal.txt","../../../config/product.txt","../../../config/recipe.txt","../../../config/misc.txt");
         cout << "Selamat datang di Harvest Moon~" << endl;
+        cout << R"(
+        (__)
+        (oo)
+        \/^\/
+
+        )" << std::endl;
         ListPemain listPemain;
         string ans;
         while (!stop){
@@ -55,7 +61,7 @@ int main(){
                 listPemain.add_Pemain(newPetani1);
                 Peternak* newPeternak1 = new Peternak("Peternak1");
                 listPemain.add_Pemain(newPeternak1);
-                Walikota* newWalikota1 = Walikota::getInstance("Walikota"); //bener kah
+                Walikota* newWalikota1 = Walikota::getInstance("Walikota");
                 listPemain.add_Pemain(newWalikota1);
             }
             else{

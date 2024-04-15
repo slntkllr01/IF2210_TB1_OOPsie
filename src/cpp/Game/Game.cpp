@@ -6,11 +6,14 @@
 #include "../../command/Toko.cpp"
 #include "../../command/addPemain.cpp"
 #include "../../command/makan.cpp"
-// #include "../../command/"
+#include "../../command/pungutPajak.cpp"
+// #include "../../command/cetak.cpp"
+#include "../../command/panen.cpp"
+// #include "../../command/simpan.cpp"
+#include "../../command/kasihMakan.cpp"
 #include "../../header/Toko/Toko.hpp"
 #include "../../header/Pemain/Petani.hpp"
 #include "../../header/Pemain/Peternak.hpp"
-// #include "../../command/Toko.cpp" //bro wtf ini knp eror trs??!?
 using namespace std;
 int Game::totalTurn = 0;
 Game::Game(ListPemain ListPemain){
@@ -95,9 +98,18 @@ void Game::print_listofcommands(){
     cout << "15. TAMBAH PEMAIN: tambah pemain (walikota)" << endl;
 }
 
+void Game::print_winreqs(){
+    ConfigLoader& config = ConfigLoader::getInstance();
+    cout << "Goal dari permainan kali ini~" << endl;
+    cout << "Uang: " << config.uangMenang << endl;
+    cout << "Beratbadan: " << config.beratMenang << endl;
+    cout << "Pemain yang mencapai kedua syarat di atas akan memenangkan permainan ini ( •̀ ω •́ )✧!!" << endl;
+}
+
 void Game::start_game(){
     Toko toko;
     bool finish = false;
+    print_winreqs();
     // game will loop continuously
     while (!finish){
         // loop asking for command until NEXT command
@@ -107,87 +119,70 @@ void Game::start_game(){
             cout << "Masukkan command " << endl;
             cout << "> ";
             cin >> command;
-            if (command == "NEXT"){
-                next_turn();
-                break;
-            }
-            else if (command == "CETAK_PENYIMPANAN"){
-                currentpemain->getInventory().CetakPenyimpanan();
-            }
-            else if (command == "PUNGUT_PAJAK"){
-                
-            }
-            else if (command == "CETAK_LADANG"){
-                if (currentpemain->getPeran()=="Petani"){
-                    Petani* petani = dynamic_cast<Petani*>(currentpemain);
-                    // add age here
-                    petani->getLadang().CetakLadang();
-                    delete petani;
+            try {
+                if (command == "NEXT") {
+                    next_turn();
+                    break;
                 }
-                else{
-                    throw InvalidRole();
+                else if (command == "CETAK_PENYIMPANAN") {
+                    printPenyimpanan(currentpemain);
                 }
-            }
-            else if (command == "CETAK_PETERNAKAN"){
-                if (currentpemain->getPeran()=="Peternak"){
-                    Peternak* peternak = dynamic_cast<Peternak*>(currentpemain);
-                    // add age here
-                    peternak->getPeternakan().CetakPeternakan();
-                    delete peternak;
+                else if (command == "PUNGUT_PAJAK") {
+                    pungutPajak(currentpemain,listPemain);
                 }
-                else{
-                    throw InvalidRole();
+                else if (command == "CETAK_LADANG") {
+                    printLadang(currentpemain);
                 }
-            }
-            else if (command == "TANAM"){
-                try{
+                else if (command == "CETAK_PETERNAKAN") {
+                    printPeternakan(currentpemain);
+                }
+                else if (command == "TANAM") {
                     tanam(currentpemain);
                 }
-                catch(InvalidRole e){
-                    cout << e.what() << endl;
+                else if (command == "TERNAK") {
+                    ternak(currentpemain);
                 }
-                catch(LadangFull e){
-                    cout << e.what() << endl;
+                else if (command == "BANGUN") {
+                    // Handle BANGUN command
                 }
-                catch(noTanamaninInv e){
-                    cout << e.what() << endl;
+                else if (command == "MAKAN") {
+                    makan(currentpemain);
                 }
-                
-            }
-            else if (command == "TERNAK"){
-                ternak(currentpemain);
-            }
-            else if (command == "BANGUN"){
+                else if (command == "KASIH_MAKAN") {
+                    kasihMakan(currentpemain);
+                }
+                else if (command == "BELI") {
+                    beli(currentpemain, toko);
+                }
+                else if (command == "JUAL") {
+                    jual(currentpemain, toko);
+                }
+                else if (command == "PANEN") {
+                    if (currentpemain->getPeran() == "Petani") {
+                        panen_petani(currentpemain);
+                    }
+                    else if (currentpemain->getPeran() == "Peternak") {
+                        panen_peternak(currentpemain);
+                    }
+                }
+                else if (command == "SIMPAN") {
+                    // Handle SIMPAN command
+                }
+                else if (command == "TAMBAH PEMAIN") {
+                    addPemain(listPemain, currentpemain);
+                }
+                else {
+                    cout << "Masukan tidak valid, silakan ulangi lagi." << endl;
+                }
 
+                // Check win condition
+                if (currentpemain->isMenang()) {
+                    finish = true;
+                    break;
+                }
             }
-            else if (command == "MAKAN"){
-                makan(currentpemain);
-            }
-            else if (command == "KASIH_MAKAN"){
-
-            }
-            else if (command == "BELI"){
-                // beli(toko);
-            }
-            else if (command == "JUAL"){
-                jual(currentpemain);
-            }
-            else if (command == "PANEN"){
-                // dibedain jadi petani dan peternak
-            }
-            else if (command == "SIMPAN"){
-
-            }
-            else if (command == "TAMBAH PEMAIN"){
-                addPemain(listPemain,currentpemain);
-            }
-            else {
-                cout << "Masukan tidak valid, silakan ulangi lagi." << endl;
-            }
-            // checkwin di sini
-            if (currentpemain->isMenang()){
-                finish = true;
-                break;
+            catch (Exception& e) {
+                cout << e.what() << endl;
             }
         }
         

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "cetak.cpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Tanaman/Tanaman.hpp"
 #include "../header/Pemain/Petani.hpp"
@@ -25,10 +26,11 @@ void tanam(Pemain* p){
     string namatanaman;
     Item* item;
     cout << "Pilih tanaman dari penyimpanan" << endl;
-    p->getInventory().CetakPenyimpanan();
+    printPenyimpanan(p);
     while (true){
         cout << "Slot: ";
         cin >> slotinv;
+        cout << endl;
         // perlu cek islokasivalid???
         // make sure if the slot contains a plant and not empty
         if(p->getInventory().isPresent(slotinv) && p->getInventory().CekJenis(slotinv) == "Tanaman"){          
@@ -42,11 +44,12 @@ void tanam(Pemain* p){
         }
     }
     cout << "Pilih petak yang akan ditanami" << endl;
-    petani->getLadang().CetakLadang();
+    printLadang(p);
     Tanaman* tanaman = dynamic_cast<Tanaman*>(item);
     while (true){
         cout << "Petak tanah: ";
         cin >> slotladang;
+        cout << endl;
         // harus cek petak ladang kosong
         if(petani->getLadang().isLokasiValid(slotladang) && !(petani->getLadang().getKotak().isPresent(slotladang))){
             petani->tanam(tanaman,slotladang);

@@ -78,6 +78,13 @@ class PeternakanFull : public Exception {
         }
 };
 
+class PeternakanEmpty : public Exception {
+    public:
+        string what() override {
+            return "Peternakan kamu kosong.";
+        }
+};
+
 class noTanamaninInv : public Exception {
     public:
         string what() override {
