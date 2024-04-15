@@ -48,12 +48,13 @@ void Inventory::SimpanBarang(Item* t){
         int i, j;
         i = 0;
         while(i<this->baris && !find){
+            j = 0;
             cr = char(charRow);
             charColumn = 65;
             while(j<this->kolom && !find){
                 cc = char(charColumn);
                 k = cc + "0" + cr;
-                if(this->isPresent(k)){
+                if(!this->isPresent(k)){
                     find = true;
                 }
                 charColumn++;
