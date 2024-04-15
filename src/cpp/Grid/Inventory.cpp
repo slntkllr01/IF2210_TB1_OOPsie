@@ -123,3 +123,8 @@ bool Inventory::isThereTanaman(){
     
 }
 
+bool Inventory::isThereHewan(){
+    
+}
+
+

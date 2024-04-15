@@ -20,6 +20,7 @@ class Game{
         void check_turn();
         void next_turn();
         void print_listofcommands();
+        void print_winreqs();
         void start_game();
 
 };

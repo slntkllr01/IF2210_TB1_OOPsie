@@ -4,11 +4,33 @@
 #include <vector>
 
 using namespace std;
+// fungsi bantuan untuk meng-handle input koma
+vector<string> getInput(string input) {
+    vector<string> items;
+    size_t pos = 0;
+    string token;
+    const char delimiter = ',';
 
-void beli(Pemain* pemain, ConfigLoader config, Toko toko) {
+    while ((pos = input.find(delimiter)) != string::npos) {
+        token = input.substr(0, pos);
+        token.erase(0, token.find_first_not_of(" \t\n\r\f\v"));
+        token.erase(token.find_last_not_of(" \t\n\r\f\v") + 1);
+        items.push_back(token);
+        input.erase(0, pos + 1);
+    }
+
+    input.erase(0, input.find_first_not_of(" \t\n\r\f\v"));
+    input.erase(input.find_last_not_of(" \t\n\r\f\v") + 1);
+    items.push_back(input);
+
+    return items;
+}
+
+void beli(Pemain* pemain, Toko toko) {
+    ConfigLoader& loader = ConfigLoader::getInstance();
     cout << "Selamat datang di toko!!" << endl;
     cout << "Berikut merupakan hal yang dapat Anda Beli" << endl;
-    toko.showInventory(config);
+    toko.showInventory(loader);
     cout << endl;
     cout << "Uang Anda : " << pemain->getUang() << endl;
     cout << "Slot penyimpanan tersedia: " << pemain->getInventory().howMuchElement() << endl;
@@ -103,24 +125,3 @@ void jual(Pemain* p, Toko toko) {
     
 }
 
-// fungsi bantuan untuk meng-handle input koma
-vector<string> getInput(string input) {
-    vector<string> items;
-    size_t pos = 0;
-    string token;
-    const char delimiter = ',';
-
-    while ((pos = input.find(delimiter)) != string::npos) {
-        token = input.substr(0, pos);
-        token.erase(0, token.find_first_not_of(" \t\n\r\f\v"));
-        token.erase(token.find_last_not_of(" \t\n\r\f\v") + 1);
-        items.push_back(token);
-        input.erase(0, pos + 1);
-    }
-
-    input.erase(0, input.find_first_not_of(" \t\n\r\f\v"));
-    input.erase(input.find_last_not_of(" \t\n\r\f\v") + 1);
-    items.push_back(input);
-
-    return items;
-}

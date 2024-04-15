@@ -42,6 +42,8 @@ class Inventory: public Grid<Item*>{
 
         bool isThereTanaman();
 
+        bool isThereHewan();
+
         string CekJenis(string); //Cek Type dari Item yang ada di parameter string petak
 };
 

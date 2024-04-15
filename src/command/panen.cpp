@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <map>
+#include "cetak.cpp"
 #include "../header/Grid/Peternakan.hpp"
 #include "../header/Grid/Ladang.hpp" 
 #include "../header/Grid/Inventory.hpp"
@@ -16,7 +18,7 @@
 using namespace std;
 
 void panen_petani(Pemain* p) {
-    // cetak_ladang()
+    printLadang(p);
 
     std::map<string, int>::iterator it;
     Petani* petani = dynamic_cast<Petani*>(p);
@@ -44,17 +46,17 @@ void panen_petani(Pemain* p) {
 
     // pilih nomor tanaman yang akan dipanen beserta validasinya
     cout << "Nomor tanaman yang ingin dipanen: ";
-    cin >> nomor_tanaman >> endl;
+    cin >> nomor_tanaman;
     if (nomor_tanaman < 1 || nomor_tanaman >= i ){
         throw InvalidNomorPanen();
     }
 
     // simpan kode dan jumlah tanaman yang dapat dipanen dalam variabel
-    kode_tanaman = vector_kode_tanaman(nomor_tanaman-1);
+    kode_tanaman = vector_kode_tanaman[nomor_tanaman-1];
     maks_jumlah_panen = ListSiapPanen.at(kode_tanaman);
 
     cout << "Berapa petak yang ingin dipanen: ";
-    cin >> jumlah_petak >> endl;
+    cin >> jumlah_petak;
     // Cek jumlah_petak valid dalam jumlah tanaman yang dapat dipanen
     if (jumlah_petak < 1 || jumlah_petak > maks_jumlah_panen){
         throw InvalidJumlahPanen();
@@ -70,7 +72,7 @@ void panen_petani(Pemain* p) {
         while(true){
             cout << "Petak ke-" << i << ": ";
             cin >> nomor_petak;
-            if (petani->getLadang().isLokasiValid(nomor_petak) && !petani->getLadang().isEmpty() && petani->getLadang().value(nomor_petak).getCode() == kode_tanaman){
+            if (petani->getLadang().isLokasiValid(nomor_petak) && !petani->getLadang().isEmpty() && (petani->getLadang().value(nomor_petak))->getCode() == kode_tanaman){
                 petani->panenTanaman(nomor_petak);
                 lokasi_dipanen.push_back(nomor_petak);
                 break;
@@ -83,13 +85,13 @@ void panen_petani(Pemain* p) {
     cout << jumlah_petak << " petak tanaman " << kode_tanaman;
     cout << " pada petak ";
     for(int i = 0; i < jumlah_petak-1; i++){
-        cout << lokasi_dipanen(i) << ", ";
+        cout << lokasi_dipanen[i] << ", ";
     }
-    cout << lokasi_dipanen(jumlah_petak-1) << " telah dipanen!" << endl;
+    cout << lokasi_dipanen[jumlah_petak-1] << " telah dipanen!" << endl;
 }
 
 void panen_peternak(Pemain* p) {
-    //cetak_peternakan()
+    printPeternakan(p);
 
     std::map<string, int>::iterator it;
     Peternak* peternak = dynamic_cast<Peternak*>(p);
@@ -117,17 +119,17 @@ void panen_peternak(Pemain* p) {
 
     // pilih nomor hewan yang akan dipanen beserta validasinya
     cout << "Nomor hewan yang ingin dipanen: ";
-    cin >> nomor_hewan >> endl;
+    cin >> nomor_hewan;
     if (nomor_hewan < 1 || nomor_hewan >= i ){
         throw InvalidNomorPanen();
     }
 
     // simpan kode dan jumlah hewan yang dapat dipanen dalam variabel
-    kode_hewan = vector_kode_hewan(nomor_hewan-1);
+    kode_hewan = vector_kode_hewan[nomor_hewan-1];
     maks_jumlah_panen = ListSiapPanen.at(kode_hewan);
 
     cout << "Berapa petak yang ingin dipanen: ";
-    cin >> jumlah_petak >> endl;
+    cin >> jumlah_petak;
     // Cek jumlah_petak valid dalam jumlah hewan yang dapat dipanen
     if (jumlah_petak < 1 || jumlah_petak > maks_jumlah_panen){
         throw InvalidJumlahPanen();
@@ -143,8 +145,8 @@ void panen_peternak(Pemain* p) {
         while(true){
             cout << "Petak ke-" << i << ": ";
             cin >> nomor_petak;
-            if (petani->getLadang().isLokasiValid(nomor_petak) && !petani->getLadang().isEmpty() && petani->getLadang().value(nomor_petak).getCode() == kode_tanaman){
-                petani->panenTanaman(nomor_petak);
+            if (peternak->getPeternakan().isLokasiValid(nomor_petak) && !peternak->getPeternakan().isEmpty() && (peternak->getPeternakan().value(nomor_petak))->getCode() == kode_hewan){
+                peternak->panenHewan(nomor_petak);
                 lokasi_dipanen.push_back(nomor_petak);
                 break;
             } else {
@@ -153,10 +155,10 @@ void panen_peternak(Pemain* p) {
         }
     }
 
-    cout << jumlah_petak << " petak hewan " << kode_tanaman;
+    cout << jumlah_petak << " petak hewan " << kode_hewan;
     cout << " pada petak ";
     for(int i = 0; i < jumlah_petak-1; i++){
-        cout << lokasi_dipanen(i) << ", ";
+        cout << lokasi_dipanen[i] << ", ";
     }
-    cout << lokasi_dipanen(jumlah_petak-1) << " telah dipanen!" << endl;
+    cout << lokasi_dipanen[jumlah_petak-1] << " telah dipanen!" << endl;
 }

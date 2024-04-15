@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "cetak.cpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Hewan/Hewan.hpp"
 #include "../header/Grid/Peternakan.hpp"
@@ -29,7 +30,7 @@ void ternak(Pemain* p){
     Item* item;
     // Cetak inventory
     cout << "Pilih hewan dari penyimpanan" << endl;
-    p->getInventory().CetakPenyimpanan();
+    printPenyimpanan(p);
 
     while (true) {
         cout << "Slot: ";
@@ -46,13 +47,13 @@ void ternak(Pemain* p){
 
     // Cetak peternakan
     cout << "Pilih petak tanah yang akan ditinggali" << endl;
-    peternak->getPeternakan().CetakPeternakan();
+    printPeternakan(p);
     Hewan* hewan = dynamic_cast<Hewan*>(item);
 
     while (true) {
         cout << "Petak tanah: ";
         cin >> slot_peternakan;
-        if(peternak->getPeternakan().isLokasiValid(slot_peternakan) && peternak->getPeternakan().getKotak().isPresent(slot_peternakan)){
+        if(peternak->getPeternakan().isLokasiValid(slot_peternakan) && !(peternak->getPeternakan().getKotak().isPresent(slot_peternakan))){
             peternak->ternak(hewan, slot_peternakan);          
             break;
         } else {
