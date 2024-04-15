@@ -36,11 +36,11 @@ class Peternakan : public Grid<Hewan*>{
 
         void BeriMakan(Produk*, string);
 
-        //Grid<Hewan*> getKotak() const;
-
         bool isSiapPanen(string); //Mengecek apakah suatu hewan siap panen atau tidak
 
-        //map<string, int> getListofSiapPanen() const;
+        Grid<int> getListOfSiapPanen(); //Mengeluarkan list hewan apa saja yang siap panen
+
+        Grid<string> getListOfHewan();
 };
 
 #endif

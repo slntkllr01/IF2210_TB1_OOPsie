@@ -39,6 +39,7 @@ class Ladang: public Grid<Tanaman*>{
 
         Grid<int> getListofSiapPanen(); //Mengeluarkan list tanaman apa saja yang siap panen
 
+        Grid<string> getListOfTanaman();
         
 };  
 

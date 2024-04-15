@@ -173,6 +173,43 @@ bool Peternakan::isSiapPanen(string k){
 
 } //Mengecek apakah suatu hewan siap panen atau tidak
 
-/*Grid<Hewan*> Peternakan::getKotak() const {
-    return this->kotak;
-}*/
+Grid<int> Peternakan::getListOfSiapPanen(){
+    Grid<int> g;
+    for (const auto &it : this->getElMap()){
+        if(it.second->siapPanen()){ //Wah ada yang siap panen nih di ladang!
+            string code = it.second->getCode();
+            if(g.howMuchElement() == 0){
+                g.add(code, 1);
+            }
+            else{
+                if(g.isPresent(code)){ //Ternyata udah ditambahin ke listofSiapPanen
+                    //Maka cukup naikin valuenya;
+                    int temp = g.value(code);
+                    g.del(code);
+                    g.add(code, temp + 1);
+                }
+                else{
+                    //Kalau belum ada samsek, tambahin key dan value baru
+                    g.add(code, 1);
+                }
+            }
+        }
+    }
+    return g;
+    
+}
+
+Grid<string> Peternakan::getListOfHewan(){
+    Grid<string> g;
+    for (const auto &it : this->getElMap()){ 
+        string code = it.second->getCode();
+        string value = it.second->getName();
+        if(g.howMuchElement() == 0){
+            g.add(code, value);
+        }
+        else if(!g.isPresent(code)){ 
+                g.add(code, value);
+        }
+    }
+    return g;
+}

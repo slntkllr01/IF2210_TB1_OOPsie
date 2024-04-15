@@ -165,3 +165,18 @@ Grid<int> Ladang::getListofSiapPanen(){
     return g;
     
 }
+
+Grid<string> Ladang::getListOfTanaman(){
+    Grid<string> g;
+    for (const auto &it : this->getElMap()){ 
+        string code = it.second->getCode();
+        string value = it.second->getName();
+        if(g.howMuchElement() == 0){
+            g.add(code, value);
+        }
+        else if(!g.isPresent(code)){ 
+                g.add(code, value);
+        }
+    }
+    return g;
+}
