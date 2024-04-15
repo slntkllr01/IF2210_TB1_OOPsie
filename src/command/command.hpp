@@ -7,7 +7,7 @@
 #include "../header/ListPemain/ListPemain.hpp"
 
 // Tambah Pemain
-void addPemain(ListPemain listPemain, Pemain* p);
+void addPemain(ListPemain& listPemain, Pemain* p);
 bool isWhitespaceString(const string& s);
 // Bangun Bangunan
 void bangunBangunan(Pemain* p);

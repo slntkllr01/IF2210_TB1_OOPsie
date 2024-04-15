@@ -12,7 +12,7 @@ bool isWhitespaceString(const string& str) {
     return all_of(str.begin(), str.end(), [](unsigned char c) { return std::isspace(c); });
 }
 
-void addPemain(ListPemain listPemain, Pemain* p){
+void addPemain(ListPemain& listPemain, Pemain* p){
     if (p->getPeran() !="Walikota"){
         throw InvalidRole();
     }
@@ -36,10 +36,12 @@ void addPemain(ListPemain listPemain, Pemain* p){
         cout << "Masukkan nama pemain: ";
         cin >> username;
         if (!isWhitespaceString(username)){
-            break;
-        }
-        else if(listPemain.check_Dupe(username)){
-            cout << "Nama harus unik, silakan ulangi masukan." << endl;
+            if (!listPemain.check_Dupe(username)){
+                break;
+            } 
+            else{
+                cout << "Nama harus unik, silakan ulangi masukan." << endl;
+            }
         }
         else{
             cout << "Nama tidak boleh kosong/whitespace saja, silakan ulangi masukan." << endl;
@@ -49,5 +51,9 @@ void addPemain(ListPemain listPemain, Pemain* p){
     cout << "Selamat datang \"" << username << "\" di kota ini!" << endl;
     Walikota* walikota = dynamic_cast<Walikota*>(p);
     walikota->tambahPemain(username,peran,listPemain);
-    delete walikota;
+    // delete walikota;
+
+    // DEBUG
+    cout << "LIST PEMAINNNNNNNNNNN" << endl;
+    listPemain.print_AllPemain();
 }

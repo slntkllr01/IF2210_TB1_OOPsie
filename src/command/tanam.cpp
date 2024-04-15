@@ -62,6 +62,6 @@ void tanam(Pemain* p){
     
     cout << "Cangkul-cangkul yang dalam~!" << endl;
     cout << namatanaman << " berhasil ditanam!" << endl;
-    delete petani;
-    delete tanaman;
+    // delete petani;
+    // delete tanaman;
 }

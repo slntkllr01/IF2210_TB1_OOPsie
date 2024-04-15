@@ -66,7 +66,7 @@ void Game::next_turn(){
             Petani* petani = dynamic_cast<Petani*>((listPemain.get_ArrPemain())[i]);
             // add age here
             petani->getLadang();
-            delete petani;
+            // delete petani;
         }
     }
     
@@ -96,7 +96,7 @@ void Game::print_listofcommands(){
     cout << "12. JUAL: jual item di toko biar dapet cuan" << endl;
     cout << "13. PANEN: panen hewan atau tanaman (petani & peternak)" << endl;
     cout << "14. SIMPAN: simpan state game ke berkas" << endl;
-    cout << "15. TAMBAH PEMAIN: tambah pemain (walikota)" << endl;
+    cout << "15. TAMBAH_PEMAIN: tambah pemain (walikota)" << endl;
 }
 
 void Game::print_winreqs(){
@@ -169,8 +169,11 @@ void Game::start_game(){
                 else if (command == "SIMPAN") {
                     // Handle SIMPAN command
                 }
-                else if (command == "TAMBAH PEMAIN") {
+                else if (command == "TAMBAH_PEMAIN") {
                     addPemain(listPemain, currentpemain);
+                    // DEBUG
+                    cout << "LIST PEMAIN PLIS JGN BENAR" << endl;
+                    listPemain.print_AllPemain();
                 }
                 else {
                     cout << "Masukan tidak valid, silakan ulangi lagi." << endl;

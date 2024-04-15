@@ -13,7 +13,7 @@ int main(){
     bool stop=false;
     try{
         ConfigLoader& loader = ConfigLoader::getInstance();
-        loader.initConfig("../../../config/plant.txt","../../../config/animal.txt","../../../config/product.txt","../../../config/recipe.txt","../../../config/misc.txt");
+        loader.initConfig("config/plant.txt","config/animal.txt","config/product.txt","config/recipe.txt","config/misc.txt");
         cout << "Selamat datang di Harvest Moon~" << endl;
         cout << R"(
         (__)

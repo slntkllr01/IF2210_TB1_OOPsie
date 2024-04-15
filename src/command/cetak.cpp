@@ -20,7 +20,7 @@ void printPeternakan(Pemain* p){
  
         //     }
         // }
-        delete peternak;
+        // delete peternak;
     }
     else{
         throw InvalidRole();
@@ -37,7 +37,7 @@ void printLadang(Pemain* p){
 
         //     }
         // }
-        delete petani;
+        // delete petani;
     }
     else{
         throw InvalidRole();
