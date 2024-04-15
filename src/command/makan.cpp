@@ -1,6 +1,5 @@
 #include "../header/Pemain/Pemain.hpp"
 #include "../header/Exception/Exception.hpp"
-#include "cetak.cpp"
 
 void makan(Pemain* pemain){
     // Cek apakah di penyimpanan ada makanan
@@ -9,7 +8,7 @@ void makan(Pemain* pemain){
     }
     cout << "Pilih makanan dari penyimpanan" << endl;
     // Tamplikan isi penyimpanan
-    printPenyimpanan(pemain);
+    pemain->getInventory().CetakPenyimpanan();
     // Pilih slot makanan
     string slot;
     bool valid_input = false;
@@ -26,7 +25,7 @@ void makan(Pemain* pemain){
             cout << "Silahkan masukan slot yang berisi makanan." << endl;
         } // Cek apakah slot berisi makanan
         else if (!pemain->getInventory().IsMakanan(slot)){
-            cout << "Apa yang kamu lakukan??!! Kamu mencoba untuk memakan itu?!!" << endl;
+            cout << "Apa yang kamu lakukan?\?!! Kamu mencoba untuk memakan itu?!!" << endl;
             cout << "Silahkan masukan slot yang berisi makanan." << endl;
         } else {
             valid_input = true;

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include "cetak.cpp"
 #include "../header/Pemain/Peternak.hpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Grid/Peternakan.hpp"
@@ -30,9 +29,10 @@ void kasihMakan(Pemain* p){
             cout << "Isi petak tidak valid/kosong, silakan ulangi masukan." << endl;
         }
     cout << "Pilih pangan yang akan diberikan: " << endl;
-    printPenyimpanan(p);
+    p->getInventory().CetakPenyimpanan();
     //implement sini
     //validasi petak, bisa dimakan sm hewan itu ga CanEat(Produk*)
     //lakukan kasih makan set berat badan hewan
     cout << peternak->getPeternakan().value(slot_kandang)->getName() << " sudah diberi makan dan beratnya menjadi " << /*berat hewan*/  endl;
+}
 }

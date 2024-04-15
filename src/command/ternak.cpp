@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include "cetak.cpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Hewan/Hewan.hpp"
 #include "../header/Grid/Peternakan.hpp"
@@ -30,7 +29,7 @@ void ternak(Pemain* p){
     Item* item;
     // Cetak inventory
     cout << "Pilih hewan dari penyimpanan" << endl;
-    printPenyimpanan(p);
+    p->getInventory().CetakPenyimpanan();
 
     while (true) {
         cout << "Slot: ";
