@@ -27,8 +27,8 @@ bool Pekerja::bisaJual(Item* item){
 int Pekerja::hitungKekayaan(){
     // Kekayaan dari inventory
     int kekayaan_inventory = 0;
-    for (const auto& element : inventory.getKotak().getElMap()){
-        if (inventory.getKotak().isPresent(element.first)){
+    for (const auto& element : inventory.getElMap()){
+        if (inventory.isPresent(element.first)){
             kekayaan_inventory += element.second->getPrice();
         }
     }

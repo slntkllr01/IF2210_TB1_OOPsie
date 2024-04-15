@@ -21,7 +21,7 @@ void kasihMakan(Pemain* p){
         cout << "Petak kandang: " << endl;
         cin >> slot_kandang;
         // cek slot kandang ada isi ga
-        if(peternak->getPeternakan().getKotak().isPresent(slot_kandang) && peternak->getPeternakan().isLokasiValid(slot_kandang)){
+        if(peternak->getPeternakan().isPresent(slot_kandang) && peternak->getPeternakan().isLokasiValid(slot_kandang)){
             cout << endl;
             cout << "Kamu memilih " << peternak->getPeternakan().value(slot_kandang)->getName() << " untuk diberi makan."<< endl;
             break;

@@ -49,14 +49,6 @@ class NoInventorySpace : public Exception {
         }
 };
 
-// Exception duplikasi nama pemain (tidak unik)
-class DupeName : public Exception{
-    public:
-    string what() override {
-        return "Nama tersebut sudah ada.";
-    }
-};
-
 class InvalidRole : public Exception {
     public:
         string what() override {

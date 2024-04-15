@@ -53,7 +53,7 @@ void ternak(Pemain* p){
     while (true) {
         cout << "Petak tanah: ";
         cin >> slot_peternakan;
-        if(peternak->getPeternakan().isLokasiValid(slot_peternakan) && !(peternak->getPeternakan().getKotak().isPresent(slot_peternakan))){
+        if(peternak->getPeternakan().isLokasiValid(slot_peternakan) && !(peternak->getPeternakan().isPresent(slot_peternakan))){
             peternak->ternak(hewan, slot_peternakan);          
             break;
         } else {
