@@ -36,7 +36,8 @@ class Ladang: public Grid<Tanaman*>{
         // Grid<Tanaman*> getLadang() const;
         
         bool isSiapPanen(string); //Mengecek apakah tanaman siap dipanen
-        //map<string, int> getListofSiapPanen const(); //Memberikan list kode hewan dan jumlah petak siap panen
+
+        Grid<int> getListofSiapPanen(); //Mengeluarkan list tanaman apa saja yang siap panen
 
         
 };  

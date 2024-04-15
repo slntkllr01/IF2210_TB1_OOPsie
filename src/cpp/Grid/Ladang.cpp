@@ -140,40 +140,28 @@ bool Ladang::isSiapPanen(string lokasi){
     return this->value(lokasi)->siapPanen();
 } //Mengecek apakah tanaman siap dipanen
 
-
-/*
-map<string, int> Ladang::getListofSiapPanen const(){
-    map<string, int> g;    
-    for (auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
-        if(it->second->siapPanen()){ //Wah ada yang siap panen nih di ladang!
-            string code = it->second->get_kodeHuruf();
-            //cout<<code<<endl;
-            //cout<<"tes"<<endl;
-            cout<<g.size()<<endl;
-            if(g.size() == 0){
-                //cout<<"tes1"<<endl;
-                g.insert({code, 1});
-                string a = g.begin()->first;
-                cout<<a<<endl;
-                a = g.begin()->second;
-                cout<<a<<endl;
-                //cout<<"tes2"<<endl;
+Grid<int> Ladang::getListofSiapPanen(){
+    Grid<int> g;
+    for (const auto &it : this->getElMap()){
+        if(it.second->siapPanen()){ //Wah ada yang siap panen nih di ladang!
+            string code = it.second->getCode();
+            if(g.howMuchElement() == 0){
+                g.add(code, 1);
             }
             else{
-                if(g.find(code) != g.end()){ //Ternyata udah ditambahin ke listofSiapPanen
+                if(g.isPresent(code)){ //Ternyata udah ditambahin ke listofSiapPanen
                     //Maka cukup naikin valuenya;
-                    g.find(code)->second ++;
+                    int temp = g.value(code);
+                    g.del(code);
+                    g.add(code, temp + 1);
                 }
                 else{
                     //Kalau belum ada samsek, tambahin key dan value baru
-                    g.insert({code, 1});
+                    g.add(code, 1);
                 }
             }
         }
     }
-    cout<<"success"<<endl;
     return g;
     
 }
-
-*/
