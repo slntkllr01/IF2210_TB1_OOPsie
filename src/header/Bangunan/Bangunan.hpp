@@ -13,6 +13,7 @@ class Bangunan : public Item {
         map<string, int> listOfResep;
     public:
         Bangunan(int ID);
+        Bangunan(string name);
         void setResep(map<string, int> resep);
 };
 
