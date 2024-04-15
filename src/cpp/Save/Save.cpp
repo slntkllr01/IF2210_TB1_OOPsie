@@ -13,17 +13,17 @@ void Save::saveState(ListPemain listPemain, Toko toko, string fileName) {
         }
         if (arrPemain[i]->getPeran() == "Petani") {
             Petani* petani = dynamic_cast<Petani*>(arrPemain[i]);
-            tempFile << petani->getLadang().getLadang().getElMap().size() << endl;
-            if (!petani->getLadang().getLadang().getElMap().empty()) {
-                for (auto itr = petani->getLadang().getLadang().getElMap().begin(); itr != petani->getLadang().getLadang().getElMap().end(); itr++) {
+            tempFile << petani->getLadang().getElMap().size() << endl;
+            if (!petani->getLadang().getElMap().empty()) {
+                for (auto itr = petani->getLadang().getElMap().begin(); itr != petani->getLadang().getElMap().end(); itr++) {
                     tempFile << itr->first << " " << itr->second->getName() << " " << itr->second->get_umur() << endl;
                 }
             }
         } else if (arrPemain[i]->getPeran() == "Peternak") {
             Peternak* peternak = dynamic_cast<Peternak*>(arrPemain[i]);
-            tempFile << peternak->getPeternakan().getKotak().getElMap().size() << endl;
-            if (!peternak->getPeternakan().getKotak().getElMap().empty()) {
-                for (auto itr = peternak->getPeternakan().getKotak().getElMap().begin(); itr != peternak->getPeternakan().getKotak().getElMap().end(); itr++) {
+            tempFile << peternak->getPeternakan().getElMap().size() << endl;
+            if (!peternak->getPeternakan().getElMap().empty()) {
+                for (auto itr = peternak->getPeternakan().getElMap().begin(); itr != peternak->getPeternakan().getElMap().end(); itr++) {
                     tempFile << itr->first << " " << itr->second->getName() << " " << itr->second->get_actualweight() << endl;
                 }
             }
