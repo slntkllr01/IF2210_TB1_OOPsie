@@ -7,6 +7,7 @@ class Omnivora: public Hewan
 {
 public:
     Omnivora(int id);
+    Omnivora(string name);
     ~Omnivora();
     bool CanEat(Produk* makanan);
 };

@@ -5,6 +5,7 @@
 using namespace std;
 
 Omnivora::Omnivora(int id) : Hewan(id) {}
+Omnivora::Omnivora(string name) : Hewan(name) {}
 
 Omnivora::~Omnivora(){
     

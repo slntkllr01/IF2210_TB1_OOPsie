@@ -7,6 +7,7 @@ class Herbivora: public Hewan
 {
 public:
     Herbivora(int id);
+    Herbivora(string name);
     ~Herbivora();
     bool CanEat(Produk* makanan);
 };

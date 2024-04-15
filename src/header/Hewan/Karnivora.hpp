@@ -7,6 +7,7 @@ using namespace std;
 class Karnivora: public Hewan {
 public:
     Karnivora(int id);
+    Karnivora(string name);
     ~Karnivora();
     bool CanEat(Produk* makanan);
 };

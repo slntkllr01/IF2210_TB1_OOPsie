@@ -16,6 +16,7 @@ private:
 public:
     static int DEADAGE;
     Hewan(int id);
+    Hewan(string name);
     ~Hewan();
     void set_type(string type);
     string get_type();

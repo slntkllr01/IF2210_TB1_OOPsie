@@ -4,8 +4,8 @@
 #include <string>
 using namespace std;
 
-Karnivora::Karnivora(int id) : Hewan(id) {
-}
+Karnivora::Karnivora(int id) : Hewan(id) {}
+Karnivora::Karnivora(string name) : Hewan(name) {}
 
 Karnivora::~Karnivora(){
     

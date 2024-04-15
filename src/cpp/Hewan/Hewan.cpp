@@ -22,6 +22,23 @@ Hewan::Hewan(int id) : Item("Hewan", id, "", "", 0) {
     }
 }
 
+Hewan::Hewan(string name) : Item("Hewan", 0, "", name, 0) {
+    ConfigLoader& loader = ConfigLoader::getInstance();
+    for (auto& it : loader.hewanConfigs) {
+        const HewanConfig& config = it.second;
+        if (config.name == name) {
+            setID(it.first);
+            setCode(config.code);
+            setName(config.name);
+            setPrice(config.price);
+            set_type(config.type);
+            set_harvestweight(config.weight);
+            return;
+        }
+    }
+    throw runtime_error("Invalid animal name");
+}
+
 Hewan::~Hewan(){
 }
 
