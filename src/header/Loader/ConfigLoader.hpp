@@ -150,6 +150,52 @@ public:
         file >> ukuranLahan.first >> ukuranLahan.second;
         file >> ukuranPeternakan.first >> ukuranPeternakan.second;
     }
+
+    /* Getter */
+    string getTanamanType(string tanamanName){
+        for (auto& it : tanamanConfigs){
+            if (it.second.name == tanamanName){
+                return "Tanaman";
+            }
+        }
+    }
+
+    string getHewanType(string hewanName){
+        for (auto& it : hewanConfigs){
+            if (it.second.name == hewanName){
+                return it.second.type;
+            }
+        }
+    }
+
+    string getProdukType(string produkName){
+        for (auto& it : produkConfigs){
+            if (it.second.name == produkName){
+                return it.second.type;
+            }
+        }
+    }
+
+    string getBangunanType(string bangunanName){
+        for (auto& it : bangunanConfigs){
+            if (it.second.name == bangunanName){
+                return "Bangunan";
+            }
+        }
+    }
+
+    string getItemType(string itemName){
+        string type;
+        type = getTanamanType(itemName);
+        if (type != "") return type;
+        type = getHewanType(itemName);
+        if (type != "") return type;
+        type = getProdukType(itemName);
+        if (type != "") return type;
+        type = getBangunanType(itemName);
+        if (type != "") return type;
+        return "Invalid Item Name";
+    }
 };
 
 #endif
