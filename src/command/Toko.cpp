@@ -3,7 +3,7 @@
 #include "../header/Exception/Exception.hpp"
 #include "../header/Pemain/Walikota.hpp"
 #include "../header/Hewan/Hewan.hpp"
-#include "../header/Hewan/Tanaman.hpp"
+#include "../header/Tanaman/Tanaman.hpp"
 #include <vector>
 
 using namespace std;
@@ -73,7 +73,7 @@ void beli(Pemain* pemain, Toko toko) {
                             } else if (!pemain->isUangCukup(itr->second.price * kuantitas)) {
                                 throw NoMoney();
                             } else {
-                                toko.transaksiJual(pemain, , kuantitas);
+                                // toko.transaksiBeli(pemain, , kuantitas);
                                 cout << "Selamat Anda berhasil membeli " << kuantitas << " " << itr->second.name << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
                             }
                         } else {

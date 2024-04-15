@@ -9,6 +9,7 @@
 #include "../../command/pungutPajak.cpp"
 #include "../../command/bangunBangunan.cpp"
 #include "../../command/panen.cpp"
+#include "../../command/cetak.cpp"
 // #include "../../command/simpan.cpp"
 #include "../../command/kasihMakan.cpp"
 #include "../../header/Toko/Toko.hpp"

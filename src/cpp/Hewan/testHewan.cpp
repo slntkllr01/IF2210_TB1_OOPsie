@@ -3,7 +3,6 @@
 #include "../../header/Hewan/Karnivora.hpp"
 #include "../../header/Hewan/Herbivora.hpp"
 #include "../../header/Hewan/Omnivora.hpp"
-#include "../../header/Tanaman/Fruit.hpp"
 // #include "../../header/Tanaman/Material.hpp"
 #include <iostream>
 using namespace std;

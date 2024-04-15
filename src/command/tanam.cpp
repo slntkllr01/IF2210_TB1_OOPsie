@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include "cetak.cpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Tanaman/Tanaman.hpp"
 #include "../header/Pemain/Petani.hpp"
@@ -26,7 +25,7 @@ void tanam(Pemain* p){
     string namatanaman;
     Item* item;
     cout << "Pilih tanaman dari penyimpanan" << endl;
-    printPenyimpanan(p);
+    p->getInventory().CetakPenyimpanan();
     while (true){
         cout << "Slot: ";
         cin >> slotinv;

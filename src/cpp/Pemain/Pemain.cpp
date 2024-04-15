@@ -60,7 +60,7 @@ void Pemain::simpanItem(Item* item, string lokasi){
 
 /* Mengambil item dari inventory */
 Item* Pemain::ambilItem(string lokasi){
-    inventory.AmbilBarang(lokasi);
+    return inventory.AmbilBarang(lokasi);
 }
 
 /* Makan */

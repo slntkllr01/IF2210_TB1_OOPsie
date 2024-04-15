@@ -14,7 +14,7 @@ void printPeternakan(Pemain* p){
         // for (int i = 0; i < peternak->getPeternakan().getBaris(); i++){
         //     for (int j = 0; j < peternak->getPeternakan().getKolom(); j++) {
         //         // isi if present trus print hewan di peternakan
-        //         //  - A01: Cow 
+        //         // - A01: Cow 
         //         // - G01: Horse
  
         //     }

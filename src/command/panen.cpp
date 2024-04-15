@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "cetak.cpp"
 #include "../header/Grid/Peternakan.hpp"
 #include "../header/Grid/Ladang.hpp" 
 #include "../header/Grid/Inventory.hpp"
@@ -24,7 +23,7 @@ void panen_petani(Pemain* p) {
     petani->getLadang().CetakLadang();
 
     map<string, int> ListSiapPanen;
-    ListSiapPanen = petani->getLadang().getListofSiapPanen();
+    ListSiapPanen = petani->getLadang().getListofSiapPanen().getElMap();
 
     if (ListSiapPanen.empty()){
         throw TidakAdaPanen();
@@ -97,7 +96,7 @@ void panen_peternak(Pemain* p) {
     peternak->getPeternakan().CetakPeternakan();
 
     map<string, int> ListSiapPanen;
-    ListSiapPanen = peternak->getPeternakan().getListofSiapPanen();
+    // ListSiapPanen = peternak->getPeternakan().getListofSiapPanen().getElMap();
 
     if (ListSiapPanen.empty()){
         throw TidakAdaPanen();
