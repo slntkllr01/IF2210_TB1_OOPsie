@@ -97,6 +97,7 @@ void Game::print_listofcommands(){
     cout << "13. PANEN: panen hewan atau tanaman (petani & peternak)" << endl;
     cout << "14. SIMPAN: simpan state game ke berkas" << endl;
     cout << "15. TAMBAH_PEMAIN: tambah pemain (walikota)" << endl;
+    cout << "16. CHECK_STATUS: cek status uang, berat badan current player" << endl;
 }
 
 void Game::print_winreqs(){
@@ -174,6 +175,9 @@ void Game::start_game(){
                     // DEBUG
                     cout << "LIST PEMAIN PLIS JGN BENAR" << endl;
                     listPemain.print_AllPemain();
+                }
+                else if (command == "CHECK_STATUS"){
+                    checkStatus(currentpemain);
                 }
                 else {
                     cout << "Masukan tidak valid, silakan ulangi lagi." << endl;
