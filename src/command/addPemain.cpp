@@ -16,6 +16,9 @@ void addPemain(ListPemain& listPemain, Pemain* p){
     if (p->getPeran() !="Walikota"){
         throw InvalidRole();
     }
+    if (!p->isUangCukup(50)){
+        throw NoMoney();
+    }
     string username;
     string peran;
     while(true){

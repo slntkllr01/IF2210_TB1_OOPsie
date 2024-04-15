@@ -58,8 +58,19 @@ int main(){
             else if (method == 2){     //nonload
                 stop = true;
                 Petani* newPetani1 = new Petani("Petani1");
+                // DEBUG
+                // Item* tanaman1 = new Tanaman(2);
+                // newPetani1->tanam(tanaman1, "A02");
+                Tanaman tanaman1(1);
+                Tanaman tanaman2(2);
+                newPetani1->getInventory().SimpanBarang(&tanaman1, "A02");
+                newPetani1->getInventory().SimpanBarang(&tanaman2);
+                // newPetani1->ambilItem("A02");
+                newPetani1->tanam(&tanaman1, "B02");
+                // ------------------------------
                 listPemain.add_Pemain(newPetani1);
                 Peternak* newPeternak1 = new Peternak("Peternak1");
+                // Herbivora* hewan1 = new Herbivora(1);
                 listPemain.add_Pemain(newPeternak1);
                 Walikota* newWalikota1 = Walikota::getInstance("Walikota");
                 listPemain.add_Pemain(newWalikota1);

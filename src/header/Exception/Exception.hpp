@@ -31,7 +31,7 @@ class NoAnimalFood : public Exception {
 class NoMoney : public Exception {
     public:
         string what() override {
-            return "Gulden kamu kurang.";
+            return "GADA UANG MAMPUS LOL 🤪";
         }
 };
 
