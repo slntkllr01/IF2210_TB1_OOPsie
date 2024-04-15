@@ -1,5 +1,6 @@
 #include "../../header/Grid/Inventory.hpp"
 #include <string>
+
 using namespace std;
 
 // Constructor
@@ -99,32 +100,106 @@ bool Inventory::IsMakanan(string lokasi){
     return is;
 }
 
+void Inventory::CetakPenyimpananHelper(){
+    cout<<"   +";
+    for(int i=0; i<this->kolom; i++){
+        cout<<"-----+";
+    }
+    cout<<endl;
+}
+
 void Inventory::CetakPenyimpanan(){
-    
+    cout<<"   ";
+    for(int i = 0; i<this->kolom; i++){
+        cout<<"   "<<char(65+i)<<"  ";
+    }
+    cout<<endl;
+
+    Inventory::CetakPenyimpananHelper();
+    int charRow = 49; //Ascii dari 1
+    int charColumn;
+    string k, cr, cc;
+
+    for (int i = 0; i < this->baris; i++) {
+        cout<<"0"<<i+1<<" ";
+        cr = char(charRow);
+        charColumn = 65; //Ascii dari A
+        cout << "|";
+        for (int j = 0; j < this->kolom; j++) {
+            cc = char(charColumn);
+            k = cc + "0" + cr;
+            if(isPresent(k)){
+                cout<<" "<<this->value(k)->getCode()<<" |";                
+            }
+            else{
+                cout<<" "<<"   "<<" |";
+            }
+            charColumn++;
+        }
+        cout <<endl;
+        Inventory::CetakPenyimpananHelper();
+        charRow++;
+    }
 }
 
 int Inventory::SlotTersisa(){
-
+    return baris*kolom - this->howMuchElement();
 } //Untuk diprint setelah cetak penyimpanan
 
 bool Inventory::isFull(){
-
+    return baris*kolom == this->howMuchElement();
 } //Mengecek apakah penyimpanan sudah penuh atau belum
 
 bool Inventory::isEmpty(){
-
+    return this->howMuchElement() == 0;
 }
 
 bool Inventory::isThereMakanan(){
+    bool thereAre = false;
+    if(!this->isEmpty()){
+        for(auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
+            if(it->second->getItemType() == "Produk"){
+                Produk* p = dynamic_cast<Produk*>(it->second);
+                if(p->isEdibleBy()){
+                    thereAre = true;
+                }
 
+            }
+                
+        }
+    }
+
+    return thereAre;
+        
+    
 } //Mengecek apakah ada makanan
 
 bool Inventory::isThereTanaman(){
-    
+    bool thereAre = false;
+    if(!this->isEmpty()){
+        for(auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
+            if(it->second->getItemType() == "Tanaman"){
+                    thereAre = true;
+                }
+
+            }
+                
+    }
+    return thereAre;
 }
 
 bool Inventory::isThereHewan(){
-    
+    bool thereAre = false;
+    if(!this->isEmpty()){
+        for(auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
+            if(it->second->getItemType() == "Hewan"){
+                    thereAre = true;
+                }
+
+            }
+                
+    }
+    return thereAre;
 }
 
 

@@ -4,6 +4,7 @@
 #include "../Produk/Produk.hpp"
 #include "../Item/Item.hpp"
 #include "../Loader/ConfigLoader.hpp"
+using namespace std;
 
 class Inventory: public Grid<Item*>{
     private:
@@ -30,6 +31,7 @@ class Inventory: public Grid<Item*>{
 
         bool IsMakanan(string); 
 
+        void CetakPenyimpananHelper();
         void CetakPenyimpanan();
 
         int SlotTersisa(); //Untuk diprint setelah cetak penyimpanan
