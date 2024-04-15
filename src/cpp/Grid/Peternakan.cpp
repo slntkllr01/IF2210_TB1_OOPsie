@@ -1,4 +1,5 @@
 #include "../../header/Grid/Peternakan.hpp"
+#include "../../header/Color/pcolor.h"
 using namespace std;
 
 // Constructor
@@ -35,14 +36,16 @@ bool Peternakan::isLokasiValid(string k){
     }
 }
 
-void Peternakan::Ternak(string lokasi, Hewan* h){
+void Peternakan::addHewan(Hewan* h, string lokasi){
+    this->add(lokasi, h);
+    /*
     if(Peternakan::isFull()){ //Lahan sudah penuh
         cout<<"Udah penuh :( kasian desak desakan sapinya"<<endl;
     }
     else{ //Masih ada slot
         if(isLokasiValid(lokasi)){ //Lokasi valid
-            if(!kotak.isPresent(lokasi)){ //Kalau petaknya masih kosong, sabi
-                kotak.add(lokasi, h);
+            if(!this->isPresent(lokasi)){ //Kalau petaknya masih kosong, sabi
+                this->add(lokasi, h);
                 cout<<"Hewan berhasil diternak di "<<lokasi<<" !"<<endl;
             }
             else{ //Kotak udah ada isinya
@@ -54,17 +57,27 @@ void Peternakan::Ternak(string lokasi, Hewan* h){
         }
 
     }
+    */
 } //Menambahkan ternak ke slot lahan
 
-void Peternakan::Panen(string lokasi){
+Hewan* Peternakan::delHewan(string lokasi){
+    Hewan* h = iteratorOf(lokasi)->second; 
+    this->del(lokasi);
+    cout<<"Hewan berhasil dipanen!"<<endl;
+    return h;
+    
+    /*
     if(Peternakan::isEmpty()){ //Lahan kosong, gabisa dipanen
         cout<<"Wong ga ada hewannya, apa yang mau dipanen :)"<<endl;
     }
     else{//Masih bisa yang dipanen
         if(isLokasiValid(lokasi)){ //Lokasi valid
-            if(kotak.isPresent(lokasi)){//Ada hewannya, sabi dipanen
-                kotak.del(lokasi);
+            if(this->isPresent(lokasi)){//Ada hewannya, sabi dipanen
+                Hewan* h = iteratorOf(lokasi)->second; 
+                this->del(lokasi);
                 cout<<"Hewan berhasil dipanen!"<<endl;
+                return h;
+
             }
             else{
                 cout<<"Petak ini kosong, yuk pilih yang lain!"<<endl;
@@ -74,6 +87,8 @@ void Peternakan::Panen(string lokasi){
             cout<<"Lokasimu ga valid :("<<endl;
         }
     }
+    */
+    
 } //Memanen hewan dengan kode yang sama dengan inputan
 
 void Peternakan::CetakPeternakanHelper(){
@@ -104,8 +119,19 @@ void Peternakan::CetakPeternakan(){
         for (int j = 0; j < this->kolom; j++) {
             cc = char(charColumn);
             k = cc + "0" + cr;
-            if(kotak.isPresent(k)){
-                cout<<" "<<(kotak.value(k))->getCode()<<" |";                
+            if(isPresent(k)){
+                cout<<" ";
+                if(isSiapPanen(k)){
+                    print_green(this->value(k)->getCode().at(0));
+                    print_green(this->value(k)->getCode().at(1));
+                    print_green(this->value(k)->getCode().at(2));
+                }
+                else{
+                    print_red(this->value(k)->getCode().at(0));
+                    print_red(this->value(k)->getCode().at(1));
+                    print_red(this->value(k)->getCode().at(2));                
+                }
+                cout<<" |";              
             }
             else{
                 cout<<" "<<"   "<<" |";
@@ -119,7 +145,7 @@ void Peternakan::CetakPeternakan(){
 }
 
 bool Peternakan::isFull(){
-    if(kotak.howMuchElement()==baris*kolom){
+    if(this->howMuchElement()==baris*kolom){
         return true;
     }
     else{
@@ -128,7 +154,7 @@ bool Peternakan::isFull(){
 } //Mengecek apakah penyimpanan sudah penuh atau belum
 
 bool Peternakan::isEmpty(){
-    if(kotak.howMuchElement() == 0){
+    if(this->howMuchElement() == 0){
         return true;
     }
     else{
@@ -136,15 +162,17 @@ bool Peternakan::isEmpty(){
     }
 }
 
-void Peternakan::BeriMakan(Produk* p){
-    cout<<"Not implemented yet"<<endl;
+void Peternakan::BeriMakan(Produk* p, string lokasi){
+    int add = p->getAddedWeight();
+    int now = this->value(lokasi)->get_actualweight();
+    this->value(lokasi)->set_actualweight(add + now);
 }
 
-bool Peternakan::isSiapPanen(Hewan* h){
-    return true;
+bool Peternakan::isSiapPanen(string k){
+    return this->value(k)->siapPanen();
 
 } //Mengecek apakah suatu hewan siap panen atau tidak
 
-Grid<Hewan*> Peternakan::getKotak() const {
+/*Grid<Hewan*> Peternakan::getKotak() const {
     return this->kotak;
-}
+}*/
