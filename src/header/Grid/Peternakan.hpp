@@ -6,11 +6,10 @@
 #include "../Loader/ConfigLoader.hpp"
 #include <map>
 
-class Peternakan{
+class Peternakan : public Grid<Hewan*>{
     private:
         int baris;
         int kolom;
-        Grid<Hewan*> kotak;
         int charBarisMaksimal;
         int charKolomMaksimal;
         //49 = 1
@@ -24,10 +23,8 @@ class Peternakan{
 
         bool isLokasiValid(string);
         
-        void Ternak(string, Hewan*); //Menambahkan ternak ke slot lahan
         void addHewan(Hewan*, string); // Ganti jadi ini
 
-        void Panen(string); //Memanen hewan dengan kode yang sama dengan inputan
         Hewan* delHewan(string); // Ganti jadi ini
         
         void CetakPeternakanHelper();
@@ -39,11 +36,11 @@ class Peternakan{
 
         void BeriMakan(Produk*);
 
-        Grid<Hewan*> getKotak() const;
+        //Grid<Hewan*> getKotak() const;
 
         bool isSiapPanen(Hewan*); //Mengecek apakah suatu hewan siap panen atau tidak
 
-        map<string, int> getListofSiapPanen() const;
+        //map<string, int> getListofSiapPanen() const;
 };
 
 #endif
