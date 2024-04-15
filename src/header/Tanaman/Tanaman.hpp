@@ -13,6 +13,7 @@ class Tanaman : public Item {
         int umur;
     public:
         Tanaman(int ID);
+        Tanaman(string name);
         ~Tanaman();
         string get_type();
         void set_durationToHarvest(int durationToHarvest);
@@ -21,9 +22,6 @@ class Tanaman : public Item {
         int get_umur();
         void add_umur();
         bool siapPanen();
-        virtual bool CanEat(Produk* makanan) = 0;
 };
-
-
 
 #endif

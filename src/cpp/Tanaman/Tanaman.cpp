@@ -19,8 +19,27 @@ Tanaman::Tanaman(int ID): Item("Tanaman", ID, "", "", 0) {
         this->durationToHarvest = config.duration;
         this->umur = 0;
     } else {
-        throw std::runtime_error("Invalid animal ID");
+        throw std::runtime_error("Invalid plant ID");
     }
+}
+
+Tanaman::Tanaman(string name) : Item("Tanaman", 0, "", name, 0) {
+    ConfigLoader& loader = ConfigLoader::getInstance();
+    for (auto& it : loader.tanamanConfigs) {
+        const TanamanConfig& config = it.second;
+        if (config.name == name) {
+            this->itemType = "Tanaman";
+            this->id = it.first;
+            this->code = config.code;
+            this->name = config.name;
+            this->price = config.price;
+            this->type = config.type;
+            this->durationToHarvest = config.duration;
+            this->umur = 0;
+            return;
+        }
+    }
+    throw std::runtime_error("Invalid plant name");
 }
 
 Tanaman::~Tanaman() {}

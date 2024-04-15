@@ -4,13 +4,9 @@
 #include <string>
 using namespace std;
 
-Fruit::Fruit(int ID) : Tanaman(ID) {
-}
+Fruit::Fruit(int ID) : Tanaman(ID) {}
+Fruit::Fruit(string name) : Tanaman(name) {}
 
 Fruit::~Fruit(){
-    
-}
-
-bool Fruit::CanEat(Produk* makanan){
     
 }

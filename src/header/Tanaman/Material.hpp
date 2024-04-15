@@ -9,6 +9,7 @@ using namespace std;
 class Material : public Tanaman {
     public:
         Material(int ID);
+        Material(string name);
         ~Material();
         bool CanEat(Produk* makanan);
 };

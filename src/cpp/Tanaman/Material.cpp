@@ -4,13 +4,9 @@
 #include <string>
 using namespace std;
 
-Material::Material(int ID) : Tanaman(ID) {
-}
+Material::Material(int ID) : Tanaman(ID) {}
+Material::Material(string name) : Tanaman(name) {}
 
 Material::~Material(){
-    
-}
-
-bool Material::CanEat(Produk* makanan){
     
 }
