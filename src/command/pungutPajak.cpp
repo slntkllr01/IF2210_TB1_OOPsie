@@ -1,3 +1,4 @@
+#include "command.hpp"
 #include "../header/ListPemain/ListPemain.hpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Pemain/Walikota.hpp"

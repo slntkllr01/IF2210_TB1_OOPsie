@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "command.hpp"
 #include "../header/Grid/Peternakan.hpp"
 #include "../header/Grid/Ladang.hpp" 
 #include "../header/Grid/Inventory.hpp"

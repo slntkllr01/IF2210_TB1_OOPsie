@@ -202,7 +202,10 @@ bool Inventory::isThereHewan(){
     return thereAre;
 }
 
-bool Inventory::isThereMakanan(string tipeHewan){
+string Inventory::CekJenis(string lokasi){
+    return this->value(lokasi)->getItemType();
+    
+}bool Inventory::isThereMakanan(string tipeHewan){
     bool thereAre = false;
     if(!this->isEmpty()){
         for(auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){

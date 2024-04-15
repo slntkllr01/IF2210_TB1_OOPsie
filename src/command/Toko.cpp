@@ -1,3 +1,4 @@
+#include "command.hpp"
 #include "../header/Toko/Toko.hpp"
 #include "../header/Loader/ConfigLoader.hpp"
 #include "../header/Exception/Exception.hpp"

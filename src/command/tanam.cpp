@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "command.hpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Tanaman/Tanaman.hpp"
 #include "../header/Pemain/Petani.hpp"
