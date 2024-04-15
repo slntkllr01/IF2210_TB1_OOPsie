@@ -29,7 +29,7 @@ int Item::getID() const{
 }
 
 bool Item::operator<(const Item& other) const {
-    return id < other.id;
+    return name < other.name;
 }
 
 void Item::setItemType(string itemType) {

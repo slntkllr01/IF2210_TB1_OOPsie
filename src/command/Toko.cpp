@@ -1,6 +1,9 @@
 #include "../header/Toko/Toko.hpp"
 #include "../header/Loader/ConfigLoader.hpp"
 #include "../header/Exception/Exception.hpp"
+#include "../header/Pemain/Walikota.hpp"
+#include "../header/Hewan/Hewan.hpp"
+#include "../header/Hewan/Tanaman.hpp"
 #include <vector>
 
 using namespace std;
@@ -35,9 +38,7 @@ void beli(Pemain* pemain, Toko toko) {
     cout << "Uang Anda : " << pemain->getUang() << endl;
     cout << "Slot penyimpanan tersedia: " << pemain->getInventory().howMuchElement() << endl;
     cout << endl;
-    int pilihanA = 0;
-    int pilihanB = 0;
-    int kuantitas = 0;
+    int pilihanA, pilihanB, pilihanC, kuantitas = 0;
     while (true) {
         cout << "--- Silakan pilih menu yang anda inginkan ---" << endl;
         cout << " [1] " << "UnLimited Stock (Hewan dan Tanaman)" << endl;
@@ -49,7 +50,6 @@ void beli(Pemain* pemain, Toko toko) {
             cout << "Masukkan input pilihan yang benar!" << endl;
             continue;
         } else {
-            int pilihanB;
             cout << "Apa barang yang ingin Anda Beli ?" << endl;
             if (pilihanA == 1) {
                 cout << " [1] " << "Hewan" << endl;
@@ -59,21 +59,55 @@ void beli(Pemain* pemain, Toko toko) {
                 cout << endl;
                 if (pilihanB != 1 || pilihanB != 2) {
                     cout << "Masukkan input pilihan yang benar!" << endl;
-                    continue;   
+                    continue;
                 } else {
                     if (pilihanB == 1) {
-                        // Apapun itu anj 
+                        cout << "Masukkan kode hewan yang ingin anda beli! ";
+                        cin >> pilihanC;
+                        auto itr = loader.hewanConfigs.find(pilihanC);
+                        if (itr != loader.hewanConfigs.end()) {
+                            cout << "Kuantitas : ";
+                            cin >> kuantitas;
+                            if (((pemain->getInventory().howMuchElement() - kuantitas) < 0) || (pemain->getInventory().isFull())) {
+                                throw PenyimpananTidakCukup();
+                            } else if (!pemain->isUangCukup(itr->second.price * kuantitas)) {
+                                throw NoMoney();
+                            } else {
+                                toko.transaksiJual(pemain, , kuantitas);
+                                cout << "Selamat Anda berhasil membeli " << kuantitas << " " << itr->second.name << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
+                            }
+                        } else {
+                            cout << "Masukkan input pilihan yang benar!" << endl;
+                            continue;
+                        }
+
                     } else if (pilihanB == 2) {
-                        // Apapun itu lh anj
+                        cout << "Masukkan kode tanaman yang ingin anda beli! ";
+                        cin >> pilihanC;
+                        auto itr = loader.tanamanConfigs.find(pilihanC);
+                        if (itr != loader.tanamanConfigs.end()) {
+                            cout << "Kuantitas : ";
+                            cin >> kuantitas;
+                            if (((pemain->getInventory().howMuchElement() - kuantitas) < 0) || (pemain->getInventory().isFull())) {
+                                throw PenyimpananTidakCukup();
+                            } else if (!pemain->isUangCukup(itr->second.price * kuantitas)) {
+                                throw NoMoney();
+                            } else {
+                                cout << "Selamat Anda berhasil membeli " << kuantitas << " " << itr->second.name << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
+                            }
+                        } else {
+                            cout << "Masukkan input pilihan yang benar!" << endl;
+                            continue;
+                        }
                     }
-                }
-                
+                } 
             } else if (pilihanA == 2) {
-                // Apapun itu lh anj
+                cout << "Masukkan kode barang yang ingin anda beli! ";
+                cin >> pilihanC;
+
             }
     }
 }
-    
 }
 
 void jual(Pemain* p, Toko toko) {
