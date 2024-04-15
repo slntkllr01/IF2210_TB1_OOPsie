@@ -35,6 +35,8 @@ void ternak(Pemain* p);
 vector<string> getInput(string input);
 void beli(Pemain* pemain, Toko toko);
 void jual(Pemain* p, Toko toko);
+// Check Status
+void checkStatus(Pemain* p);
 
 
 #endif
