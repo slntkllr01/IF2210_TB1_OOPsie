@@ -22,6 +22,7 @@ class Grid{
             auto first = element.begin();
             auto end = element.end();
             element.erase(first, end);
+            numOfEl = 0;
         } 
 
         bool isPresent(string k){
@@ -34,6 +35,11 @@ class Grid{
             }
         }
 
+        auto iteratorOf(string k){
+            auto it = element.find(k);
+            return it;
+        }
+
         T value(string k){
             auto it = element.find(k);
             return it->second;
@@ -41,6 +47,7 @@ class Grid{
 
         void add(string k, T val){
             element.insert({k, val});
+            numOfEl++;
         }
 
         auto firstptr(){
@@ -54,6 +61,7 @@ class Grid{
         void del(string k){
            auto it = element.find(k);
            element.erase(it);
+           numOfEl--;
         }
 
         int howMuchElement(){
