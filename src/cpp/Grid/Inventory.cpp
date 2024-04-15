@@ -56,7 +56,7 @@ void Inventory::SimpanBarang(Item* t){
                 if(this->isPresent(k)){
                     find = true;
                 }
-                charColumn;
+                charColumn++;
                 j++;
             }
             charRow++;
