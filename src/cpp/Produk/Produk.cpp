@@ -57,6 +57,10 @@ bool produkTumbuhan::isEdibleBy() { // ini untuk manusia kan?
     return this->getType() != "PRODUCT_MATERIAL_PLANT";
 }
 
+bool produkTumbuhan::isBahan() {
+    return this->getType() == "PRODUCT_MATERIAL_PLANT";
+}
+
 void Produk::setType(string type) {
     this->tipe = type;
 }

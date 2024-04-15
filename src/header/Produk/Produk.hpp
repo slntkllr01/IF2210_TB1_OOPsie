@@ -35,6 +35,7 @@ class produkTumbuhan : public Produk {
         produkTumbuhan(int id);
         produkTumbuhan(string name);
         bool isEdibleBy() override;
+        bool isBahan();
 };
 
 #endif
