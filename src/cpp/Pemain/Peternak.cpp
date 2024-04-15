@@ -26,8 +26,8 @@ int Peternak::hitungKekayaan(){
     int kekayaan_inventory_uang = Pekerja::hitungKekayaan();
     // Kekayaan dari peternakan
     int kekayaan_peternakan = 0;
-    for (const auto& element : peternakan.getKotak().getElMap()){
-        if (peternakan.getKotak().isPresent(element.first)){
+    for (const auto& element : peternakan.getElMap()){
+        if (peternakan.isPresent(element.first)){
             kekayaan_peternakan += element.second->getPrice();
         }
     }
