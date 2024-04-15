@@ -120,4 +120,17 @@ class PenyimpananTidakCukup : public Exception {
 };
 // Add more or edit as you please
 
+class InventoryEmpty : public Exception {
+    public:
+        string what() override {
+            return "Penyimpananmu kosong!";
+        }
+};
+
+class ThereIsntMakananHewan: public Exception {
+    public:
+        string what() override {
+            return "Tidak ada makanan untuk hewanmu di inventory!";
+        }
+};
 #endif
