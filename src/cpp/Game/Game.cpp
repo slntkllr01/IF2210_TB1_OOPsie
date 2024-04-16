@@ -179,7 +179,7 @@ void Game::start_game(){
                     }
                 }
                 else if (command == "SIMPAN") {
-                    // Handle SIMPAN command
+                    save(listPemain, toko);
                 }
                 else if (command == "TAMBAH_PEMAIN") {
                     addPemain(listPemain, currentpemain);

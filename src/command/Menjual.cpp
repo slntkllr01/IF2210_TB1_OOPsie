@@ -39,8 +39,10 @@ void jual(Pemain* p, Toko toko){
             string input;
             cout << "Silahkan pilih petak yang ingin Anda Jual!" << endl;
             cout << "Petak : ";
-            // si cin.ignore ini untuk ngebersihin inputan
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            // Properly use cin.ignore() only if needed
+            if(cin.peek() == '\n') {
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
             getline(cin, input);
             cout << endl;
             vector<string> temp = getInput(input);

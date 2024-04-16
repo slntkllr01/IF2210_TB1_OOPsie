@@ -9,26 +9,28 @@ void Save::saveState(ListPemain listPemain, Toko toko, string fileName) {
     
     vector<Pemain*> arrPemain = listPemain.get_ArrPemain();
 
+    tempFile << arrPemain.size() << endl;
+
     for (int i = 0; i < arrPemain.size(); i++) {
         tempFile << arrPemain[i]->getUsername() << " " << arrPemain[i]->getPeran() << " " << arrPemain[i]->getBeratBadan() << " " << arrPemain[i]->getUang() << endl;
         tempFile << arrPemain[i]->getInventory().howMuchElement() << endl;
-        for (auto itr = arrPemain[i]->getInventory().firstptr(); itr != arrPemain[i]->getInventory().endptr(); itr++) {
-            tempFile << itr->second->getName() << endl;
+        for (const auto& itr : arrPemain[i]->getInventory().getElMap()) {
+            tempFile << itr.second->getName() << endl;
         }
         if (arrPemain[i]->getPeran() == "Petani") {
             Petani* petani = dynamic_cast<Petani*>(arrPemain[i]);
             tempFile << petani->getLadang().getElMap().size() << endl;
             if (!petani->getLadang().getElMap().empty()) {
-                for (auto itr = petani->getLadang().getElMap().begin(); itr != petani->getLadang().getElMap().end(); itr++) {
-                    tempFile << itr->first << " " << itr->second->getName() << " " << itr->second->get_umur() << endl;
+                for (const auto& itr : petani->getLadang().getElMap()) {
+                    tempFile << itr.first << " " << itr.second->getName() << " " << itr.second->get_umur() << endl;
                 }
             }
         } else if (arrPemain[i]->getPeran() == "Peternak") {
             Peternak* peternak = dynamic_cast<Peternak*>(arrPemain[i]);
             tempFile << peternak->getPeternakan().getElMap().size() << endl;
             if (!peternak->getPeternakan().getElMap().empty()) {
-                for (auto itr = peternak->getPeternakan().getElMap().begin(); itr != peternak->getPeternakan().getElMap().end(); itr++) {
-                    tempFile << itr->first << " " << itr->second->getName() << " " << itr->second->get_actualweight() << endl;
+                for (const auto& itr : peternak->getPeternakan().getElMap()) {
+                    tempFile << itr.first << " " << itr.second->getName() << " " << itr.second->get_actualweight() << endl;
                 }
             }
         }
@@ -36,8 +38,8 @@ void Save::saveState(ListPemain listPemain, Toko toko, string fileName) {
 
     tempFile << toko.InvLength() << endl;
     
-    for (auto itr = toko.getInventory().begin(); itr != toko.getInventory().end(); itr++) {
-        tempFile << itr->first.getName() << " " << itr->second << endl;
+    for (auto const& itr : toko.getInventory()) {
+        tempFile << itr.first.getName() << " " << itr.second << endl;
     }
 
     tempFile.close();

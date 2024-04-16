@@ -38,5 +38,8 @@ void jual(Pemain* p, Toko toko);
 // Check Status
 void checkStatus(Pemain* p);
 
+void save(ListPemain list, Toko toko);
+
+
 
 #endif
