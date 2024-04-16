@@ -129,7 +129,6 @@ void beli(Pemain* pemain, Toko& toko){
         }
         else if (pilihanItem == 3){
             cout << "Berikut merupakan hewan yang dapat Anda beli:" << endl;
-            cout << "UKURANN " << toko.getInvHewan().size() << endl; // debug
             int i = 0;
             for (const auto& hewan : toko.getInvHewan()){
                 cout << "[" << i + 1 << "] " << hewan->getName() << " - " << hewan->getPrice() << endl;

@@ -2,7 +2,9 @@
 
 using namespace std;
 
-Toko::Toko() {}
+Toko::Toko() {
+    addInvHewanandTanaman();
+}
 
 Toko::~Toko() {}
 
