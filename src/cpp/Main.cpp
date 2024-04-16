@@ -6,6 +6,7 @@
 #include "../header/Toko/Toko.hpp"
 #include "../header/Exception/Exception.hpp"
 #include "../header/Hewan/Herbivora.hpp"
+#include "../header/Loader/StateLoader.hpp"
 using namespace std;
 
 int main(){
@@ -23,6 +24,7 @@ int main(){
 
         )" << std::endl;
         ListPemain listPemain;
+        Toko toko;
         string ans;
         while (!stop){
             cout << "Pilih metode untuk inisialisasi:" << endl;
@@ -45,6 +47,7 @@ int main(){
                         // }
                         // checkvalidasi muat?
                         // muat state
+                        StateLoader::loadState(dir, listPemain, toko);
                     }
                     else if (ans =="n"){
                         cout << "Muat state dibatalkan." << endl;
