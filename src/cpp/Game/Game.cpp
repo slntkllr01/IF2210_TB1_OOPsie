@@ -174,6 +174,8 @@ void Game::start_game(){
                     }
                     else if (currentpemain->getPeran() == "Peternak") {
                         panen_peternak(currentpemain);
+                    } else {
+                        cout << "Peranmu tidak bisa menggunakan command ini." << endl;
                     }
                 }
                 else if (command == "SIMPAN") {
