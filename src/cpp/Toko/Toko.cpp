@@ -10,6 +10,14 @@ map<Item, int> Toko::getInventory() const {
     return this->inventory;
 }
 
+vector<Hewan*> Toko::getInvHewan() const {
+    return this->invHewan;
+}
+
+vector<Tanaman> Toko::getInvTanaman() const {
+    return this->invTanaman;
+}
+
 int Toko::InvLength() const {
     return this->inventory.size();
 }
