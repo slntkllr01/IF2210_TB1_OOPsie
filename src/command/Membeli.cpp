@@ -85,16 +85,17 @@ void beli(Pemain* pemain, Toko& toko){
         }
         else if (pilihanItem == 2){
             cout << "Berikut merupakan tanaman yang dapat Anda beli:" << endl;
-            vector<Tanaman> invTanaman;
+            cout << "ummmm" << endl; // debug
             int i = 0;
-            for (const auto& tanaman : invTanaman){
+            for (const auto& tanaman : toko.getInvTanaman()){
+                cout << "ummmm3" << endl; // debug
                 cout << "[" << i + 1 << "] " << tanaman.getName() << " - " << tanaman.getPrice() << endl;
                 i++;
             }
             cout << "Pilihan: ";
             int pilihanTanaman;
             cin >> pilihanTanaman;
-            if (pilihanTanaman < 1 || pilihanTanaman > invTanaman.size()){
+            if (pilihanTanaman < 1 || pilihanTanaman > toko.getInvTanaman().size()){
                 throw "Input tidak valid!";
             }
             else {
@@ -103,11 +104,11 @@ void beli(Pemain* pemain, Toko& toko){
                 cin >> kuantitas;
                 if ((pemain->getInventory().SlotTersisa() < kuantitas) || (pemain->getInventory().isFull())){
                     throw PenyimpananTidakCukup();
-                } else if (!pemain->isUangCukup(invTanaman[pilihanTanaman - 1].getPrice() * kuantitas)){
+                } else if (!pemain->isUangCukup(toko.getInvTanaman()[pilihanTanaman - 1].getPrice() * kuantitas)){
                     throw NoMoney();
                 } else {
-                    toko.transaksiBeli(pemain, &invTanaman[pilihanTanaman - 1], kuantitas);
-                    cout << "Selamat Anda berhasil membeli " << kuantitas << " " << invTanaman[pilihanTanaman - 1].getName() << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
+                    toko.transaksiBeli(pemain, &toko.getInvTanaman()[pilihanTanaman - 1], kuantitas);
+                    cout << "Selamat Anda berhasil membeli " << kuantitas << " " << toko.getInvTanaman()[pilihanTanaman - 1].getName() << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
                     cout << "Pilih slot untuk menyimpan barang yang Anda beli!" << endl;
                     pemain->getInventory().CetakPenyimpanan();
                     for (int i = 0; i < kuantitas; i++){
@@ -119,7 +120,7 @@ void beli(Pemain* pemain, Toko& toko){
                         } else if (pemain->getInventory().isPresent(pilihanSlot)){
                             throw "Slot sudah terisi! Pilih slot lain!";
                         } else {
-                            pemain->simpanItem(&invTanaman[pilihanTanaman - 1], pilihanSlot);
+                            pemain->simpanItem(&toko.getInvTanaman()[pilihanTanaman - 1], pilihanSlot);
                         }
                     }
                     cout << "Barang berhasil disimpan!" << endl;
@@ -128,16 +129,16 @@ void beli(Pemain* pemain, Toko& toko){
         }
         else if (pilihanItem == 3){
             cout << "Berikut merupakan hewan yang dapat Anda beli:" << endl;
-            vector<Hewan*> invHewan;
+            cout << "UKURANN " << toko.getInvHewan().size() << endl; // debug
             int i = 0;
-            for (const auto& hewan : invHewan){
+            for (const auto& hewan : toko.getInvHewan()){
                 cout << "[" << i + 1 << "] " << hewan->getName() << " - " << hewan->getPrice() << endl;
                 i++;
             }
             cout << "Pilihan: ";
             int pilihanHewan;
             cin >> pilihanHewan;
-            if (pilihanHewan < 1 || pilihanHewan > invHewan.size()){
+            if (pilihanHewan < 1 || pilihanHewan > toko.getInvHewan().size()){
                 throw "Input tidak valid!";
             }
             else {
@@ -146,11 +147,11 @@ void beli(Pemain* pemain, Toko& toko){
                 cin >> kuantitas;
                 if ((pemain->getInventory().SlotTersisa() < kuantitas) || (pemain->getInventory().isFull())){
                     throw PenyimpananTidakCukup();
-                } else if (!pemain->isUangCukup(invHewan[pilihanHewan - 1]->getPrice() * kuantitas)){
+                } else if (!pemain->isUangCukup(toko.getInvHewan()[pilihanHewan - 1]->getPrice() * kuantitas)){
                     throw NoMoney();
                 } else {
-                    toko.transaksiBeli(pemain, invHewan[pilihanHewan - 1], kuantitas);
-                    cout << "Selamat Anda berhasil membeli " << kuantitas << " " << invHewan[pilihanHewan - 1]->getName() << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
+                    toko.transaksiBeli(pemain, toko.getInvHewan()[pilihanHewan - 1], kuantitas);
+                    cout << "Selamat Anda berhasil membeli " << kuantitas << " " << toko.getInvHewan()[pilihanHewan - 1]->getName() << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
                     cout << "Pilih slot untuk menyimpan barang yang Anda beli!" << endl;
                     pemain->getInventory().CetakPenyimpanan();
                     for (int i = 0; i < kuantitas; i++){
@@ -162,7 +163,7 @@ void beli(Pemain* pemain, Toko& toko){
                         } else if (pemain->getInventory().isPresent(pilihanSlot)){
                             throw "Slot sudah terisi! Pilih slot lain!";
                         } else {
-                            pemain->simpanItem(invHewan[pilihanHewan - 1], pilihanSlot);
+                            pemain->simpanItem(toko.getInvHewan()[pilihanHewan - 1], pilihanSlot);
                         }
                     }
                     cout << "Barang berhasil disimpan!" << endl;
