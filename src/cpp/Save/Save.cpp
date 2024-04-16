@@ -3,6 +3,10 @@
 void Save::saveState(ListPemain listPemain, Toko toko, string fileName) {
     ofstream tempFile(fileName + ".tmp"); // bikin file temp supaya ga conflict
 
+    if (!tempFile) {
+        throw std::runtime_error("Tidak dapat membuka file sementara untuk penulisan.");
+    }
+    
     vector<Pemain*> arrPemain = listPemain.get_ArrPemain();
 
     for (int i = 0; i < arrPemain.size(); i++) {
@@ -38,6 +42,9 @@ void Save::saveState(ListPemain listPemain, Toko toko, string fileName) {
 
     tempFile.close();
 
+    if (!tempFile.good()) {
+        throw runtime_error("Error! Terjadi kesalahan saat penulisan file. Silakan coba lagi.");
+    }
 
     remove(fileName.c_str()); // hapus file eslong
     rename((fileName + ".tmp").c_str(), fileName.c_str()); // ganti nama file temp jadi file eslong

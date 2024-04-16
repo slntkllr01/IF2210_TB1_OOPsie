@@ -9,7 +9,7 @@
 
 class Save {
     public:
-        void saveState(ListPemain listPemain, Toko toko, string fileName);
+        static void saveState(ListPemain listPemain, Toko toko, string fileName);
 };
 
 #endif
