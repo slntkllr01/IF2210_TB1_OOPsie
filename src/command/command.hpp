@@ -33,7 +33,7 @@ void tanam(Pemain* p);
 void ternak(Pemain* p);
 // Toko (Jual/Beli)
 vector<string> getInput(string input);
-void beli(Pemain* pemain, Toko toko);
+void beli(Pemain* pemain, Toko& toko);
 void jual(Pemain* p, Toko toko);
 // Check Status
 void checkStatus(Pemain* p);

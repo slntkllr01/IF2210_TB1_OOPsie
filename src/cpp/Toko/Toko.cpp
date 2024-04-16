@@ -49,10 +49,14 @@ void Toko::transaksiJual(Pemain* pemain, Item* item, int kuantitas) {
 }
 
 void Toko::showInventory() {
-    cout << "-- LIMITED STOCK --" << endl;
+    cout << "-- BANGUNAN DAN PRODUK --" << endl;
     int i = 0;
-    for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-        cout << "["<< i + 1 << "] " << itr->first.getName() << " - " << itr->first.getPrice() << " (Stok: " << itr->second << ")" << endl;
+    for (const auto& itr : inventory){
+        cout << "["<< i + 1 << "] " << itr.first.getName() << " - " << itr.first.getPrice() << " (Stok: " << itr.second << ")" << endl;
+        // if (itr.first.getItemType() != "Hewan" && itr.first.getItemType() != "Tanaman"){
+        //     cout << "["<< i + 1 << "] " << itr.first.getName() << " - " << itr.first.getPrice() << " (Stok: " << itr.second << ")" << endl;
+        //     i++;
+        // }
     }
     cout << endl;
 }

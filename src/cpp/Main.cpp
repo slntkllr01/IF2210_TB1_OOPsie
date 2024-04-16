@@ -48,6 +48,8 @@ int main(){
                         // checkvalidasi muat?
                         // muat state
                         StateLoader::loadState(dir, listPemain, toko);
+                        cout << "TOKO SETELAH LOAD STATE" << endl; // debug
+                        toko.showInventory(); // debug
                     }
                     else if (ans =="n"){
                         cout << "Muat state dibatalkan." << endl;
@@ -110,7 +112,7 @@ int main(){
                 cout << "Masukan tidak valid. Masukan pilihan metode insialisasi 1 (config) atau 2 (nonconfig)." << endl;
             }
         }
-        Game game = Game(listPemain);
+        Game game = Game(listPemain, toko);
         game.start_game();
     }
     catch (const exception& e){

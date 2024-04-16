@@ -18,9 +18,10 @@
 #include "../../header/Pemain/Peternak.hpp"
 using namespace std;
 int Game::totalTurn = 0;
-Game::Game(ListPemain ListPemain){
+Game::Game(ListPemain ListPemain, Toko toko){
     this -> currentturn = 0;
     this -> listPemain = ListPemain;
+    this -> toko = toko;
     this -> currentpemain = (listPemain.get_ArrPemain().front());
 }
 
@@ -113,7 +114,6 @@ void Game::print_winreqs(){
 }
 
 void Game::start_game(){
-    Toko toko;
     bool finish = false;
     print_winreqs();
     cout << "Type in \"COMMAND\" untuk cek semua list command" << endl;

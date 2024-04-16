@@ -20,9 +20,10 @@ class Game{
         int currentturn;        //indeks currentpemain berada di ListPemain
         Pemain* currentpemain;
         ListPemain listPemain;
+        Toko toko;
         static int totalTurn;
     public:
-        Game(ListPemain ListPemain);
+        Game(ListPemain ListPemain, Toko toko);
         void set_currentturn(int currentturn);
         void set_currentpemain(Pemain* p);                //check if player had met the requirements for winning
         int get_currentturn();
