@@ -48,8 +48,6 @@ int main(){
                         // checkvalidasi muat?
                         // muat state
                         StateLoader::loadState(dir, listPemain, toko);
-                        cout << "TOKO SETELAH LOAD STATE" << endl; // debug
-                        toko.showInventory(); // debug
                     }
                     else if (ans =="n"){
                         cout << "Muat state dibatalkan." << endl;

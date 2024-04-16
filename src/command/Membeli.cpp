@@ -40,7 +40,6 @@ void beli(Pemain* pemain, Toko& toko){
         int i = 1;
         for (const auto &it : toko.getInventory()){
             if (i == pilihanToko){
-                cout << it.first.getName() << " - " << it.first.getPrice() << " (Stok: " << it.second << ")" << endl; // debug
                 if (pemain->getPeran() == "Walikota" && it.first.getItemType() == "Bangunan"){
                     cout << "Kamu tidak bisa membeli bangunan. Beli yang lain!" << endl;
                     break;

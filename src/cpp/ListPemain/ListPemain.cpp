@@ -12,21 +12,8 @@ bool ListPemain::compareNames(const Pemain* a, const Pemain* b) {
 }
 
 void ListPemain::add_Pemain(Pemain* pemain){
-    // DEBUG
-    cout << "MASUK KE FUNGSI LISTPEMAIN" << endl;
     ArrPemain.push_back(pemain);
-    // DEBUG print list pemain
-    cout << "List pemain: " << endl;
-    for (int i = 0; i < ArrPemain.size(); i++){
-        cout << ArrPemain[i]->getUsername() << endl;
-    }
     sort(ArrPemain.begin(), ArrPemain.end(), compareNames);
-    // DEBUG
-    cout << "SETELAH SORTTT" << endl;
-    for (int i = 0; i < ArrPemain.size(); i++){
-        cout << ArrPemain[i]->getUsername() << endl;
-    }
-
 }
 
 bool ListPemain::check_Dupe(string nama){

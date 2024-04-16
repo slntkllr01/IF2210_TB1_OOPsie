@@ -183,8 +183,7 @@ void Game::start_game(){
                 }
                 else if (command == "TAMBAH_PEMAIN") {
                     addPemain(listPemain, currentpemain);
-                    // DEBUG
-                    cout << "LIST PEMAIN PLIS JGN BENAR" << endl;
+                    cout << "<<<<<<<< LIST PEMAIN >>>>>>>>" << endl;
                     listPemain.print_AllPemain();
                 }
                 else if (command == "CHECK_STATUS"){
