@@ -7,8 +7,6 @@
 #include <map>
 using namespace std;
 
-#include <iostream> // debug
-
 class TanamanConfig {
 public:
     string code;
@@ -165,9 +163,7 @@ public:
     }
 
     string getHewanType(string hewanName){
-        cout << "harusnyaaaa: " << hewanName << endl; // debug
         for (auto& it : hewanConfigs){
-            cout << "hewan2an name: " << it.second.name << endl; // debug
             if (it.second.name == hewanName){
                 return it.second.type;
             }
@@ -185,9 +181,7 @@ public:
     }
 
     string getBangunanType(string bangunanName){
-        cout << "bangunan name HARUSNYA: " << bangunanName << endl; // debug
         for (auto& it : bangunanConfigs){
-            cout << "bangunan2AN name: " << it.second.name << endl; // debug
             if (it.second.name == bangunanName){
                 return "Bangunan";
             }
@@ -196,26 +190,15 @@ public:
     }
     
     string getItemType(string itemName){
-        cout << "halo dari config" << itemName << endl; // debug
         string type;
         type = getTanamanType(itemName);
-        cout << "tanaman type: " << type << endl; // debug
         if (type != "") return type;
-        cout << "bukan tanamannn" << endl; // debug
-        cout << "itemname" << itemName << endl; // debug
         type = getHewanType(itemName);
-        cout << "itemname" << itemName << endl; // debug
-        cout << "hewan type: " << type << endl; // debug
         if (type != "") return type;
-        cout << "bukan hewannn" << endl; // debug
         type = getProdukType(itemName);
-        cout << "produk type: " << type << endl; // debug
         if (type != "") return type;
-        cout << "bukan produk" << endl; // debug
         type = getBangunanType(itemName);
-        cout << "bangunan type: " << type << endl; // debug
         if (type != "") return type;
-        cout << "deaddd apa dong" << endl; // debug
         return "Invalid Item Name";
     }
 };
