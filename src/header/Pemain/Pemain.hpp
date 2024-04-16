@@ -50,7 +50,7 @@ class Pemain {
         /* Mengecek apakah pemain bisa menjual barang */
         virtual bool bisaJual(Item* item);
         /* Membeli barang */
-        void beli(Item* item, int kuantitas);
+        void beli(const Item* item, int kuantitas);
         /* Menjual barang */
         void jual(Item* item, int kuantitas);
         /* Mengecek apakah pemain memenuhi kondisi menang */

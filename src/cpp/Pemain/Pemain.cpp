@@ -84,7 +84,7 @@ bool Pemain::bisaJual(Item* item){
 }
 
 /* Membeli barang */
-void Pemain::beli(Item* item, int kuantitas){
+void Pemain::beli(const Item* item, int kuantitas){
     uang -= item->getPrice() * kuantitas;
 }
 

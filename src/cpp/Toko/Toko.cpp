@@ -14,7 +14,7 @@ int Toko::InvLength() const {
     return this->inventory.size();
 }
 
-void Toko::transaksiBeli(Pemain* pemain, Item* item, int kuantitas) {
+void Toko::transaksiBeli(Pemain* pemain, const Item* item, int kuantitas) {
     if (item->getItemType() != "Hewan" || item->getItemType() != "Tanaman") {
         for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
             if (itr->first.getName() == item->getName()) {
@@ -49,23 +49,35 @@ void Toko::transaksiJual(Pemain* pemain, Item* item, int kuantitas) {
 }
 
 void Toko::showInventory() {
-    ConfigLoader& config = ConfigLoader::getInstance();
     cout << "-- LIMITED STOCK --" << endl;
     int i = 0;
     for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-        cout << "["<< i + 1 << "] " << itr->first.getName() << " - " << itr->first.getPrice() << " (" << itr->second << ")" << endl;
+        cout << "["<< i + 1 << "] " << itr->first.getName() << " - " << itr->first.getPrice() << " (Stok: " << itr->second << ")" << endl;
     }
     cout << endl;
-    cout << "-- UNLIMITED STOCK --" << endl;
-    cout << endl;
-    cout << "-- Hewan --" << endl;
-    for (auto itr = config.hewanConfigs.begin(); itr != config.hewanConfigs.begin(); ++itr) {
-        cout << "[H"<< itr->first << "] " << itr->second.name << " - " << itr->second.price << endl;
+}
+
+int Toko::getStock(Item* item) {
+    for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
+        if (itr->first.getName() == item->getName()) {
+            return itr->second;
+        }
     }
-    cout << endl;
-    cout << "-- Tanaman --" << endl;
-    for (auto itr = config.tanamanConfigs.begin(); itr != config.tanamanConfigs.begin(); ++itr) {
-        cout << "[T"<< itr->first << "] " << itr->second.name << " - " << itr->second.price << endl;
+    return 0;
+}
+
+void Toko::addBarang(Item* item, int jumlah){
+    bool found = false;
+    for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
+        if (itr->first.getName() == item->getName()) {
+            itr->second += jumlah;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        inventory.insert({*item, jumlah});
     }
 }
 
