@@ -15,7 +15,7 @@ void bangunBangunan(Pemain* pemain){
     for (const auto& entry : configLoader.bangunanConfigs){
         cout << "    " << entry.first << ". ";
         const auto& config = entry.second;
-        cout << config.name << " (" << config.price << " gulden";
+        cout << config.name << " (";
         for (const auto& resep : config.resep){
             cout << ", " << resep.first << " " << resep.second;
         }

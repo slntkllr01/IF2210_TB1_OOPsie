@@ -1,4 +1,4 @@
-SRCS := $(wildcard *.cpp) $(wildcard src/command/*.cpp) $(wildcard src/cpp/*.cpp) $(wildcard src/cpp/*/*.cpp)
+SRCS := $(wildcard *.cpp) $(wildcard src/command/*.cpp) $(wildcard src/cpp/*.cpp) $(wildcard src/cpp/*/*.cpp) -lstdc++fs
 
 EXECUTABLE_FILENAME = main
 
