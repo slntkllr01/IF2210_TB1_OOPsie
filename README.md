@@ -23,14 +23,14 @@
 - Plant material plants to build buildings or different kinds of fruit trees to sell and eat them.
 - Take care all kind of animals from cows to snakes.
 - And... dont forget to pay your taxes to the mayor.
--     
+- Be a winner by achieving your weight goal and guilders.
 
 ## Requirements 🫧
-
+- C++ code compiler
 
 ## Setting Up 🍀
 - Clone this repository on your terminal `https://github.com/slntkllr01/IF2210_TB1_OOPsie.git`
-- Make sure you have C++ code compiler like GCC
+- Make sure you have C++ code compiler like GCC that compatible
 
 ## How to Run 🌿
 - Type on your terminal 'make all' to compile
