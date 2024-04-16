@@ -10,6 +10,14 @@ map<Item, int> Toko::getInventory() const {
     return this->inventory;
 }
 
+vector<Hewan*> Toko::getInvHewan() const {
+    return this->invHewan;
+}
+
+vector<Tanaman> Toko::getInvTanaman() const {
+    return this->invTanaman;
+}
+
 int Toko::InvLength() const {
     return this->inventory.size();
 }
@@ -53,6 +61,7 @@ void Toko::showInventory() {
     int i = 0;
     for (const auto& itr : inventory){
         cout << "["<< i + 1 << "] " << itr.first.getName() << " - " << itr.first.getPrice() << " (Stok: " << itr.second << ")" << endl;
+        i++;
         // if (itr.first.getItemType() != "Hewan" && itr.first.getItemType() != "Tanaman"){
         //     cout << "["<< i + 1 << "] " << itr.first.getName() << " - " << itr.first.getPrice() << " (Stok: " << itr.second << ")" << endl;
         //     i++;

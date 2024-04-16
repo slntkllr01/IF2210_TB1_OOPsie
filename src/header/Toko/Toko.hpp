@@ -23,6 +23,8 @@ class Toko {
         Toko();
         ~Toko();
         map<Item, int> getInventory() const;
+        vector<Hewan*> getInvHewan() const;
+        vector<Tanaman> getInvTanaman() const;
         int InvLength() const;
         void transaksiBeli(Pemain* pemain, const Item* item, int kuantitas);
         void transaksiJual(Pemain* pemain, Item* item, int kuantitas);
