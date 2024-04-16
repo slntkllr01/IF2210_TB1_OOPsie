@@ -145,7 +145,7 @@ void Inventory::CetakPenyimpanan(){
             cc = char(charColumn);
             k = cc + "0" + cr;
             if(isPresent(k)){
-                cout<<" "<<this->value(k)->getName()<<" |";                
+                cout<<" "<<this->value(k)->getCode()<<" |";                
             }
             else{
                 cout<<" "<<"   "<<" |";

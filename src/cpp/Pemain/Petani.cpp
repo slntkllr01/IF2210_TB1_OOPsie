@@ -43,6 +43,6 @@ void Petani::tanam(Tanaman* tanaman, string lokasi){
 void Petani::panenTanaman(string lokasi){
     Tanaman* tanaman = ladang.delTanaman(lokasi);
     // Ubah tanaman menjadi produk
-    produkTumbuhan produk(tanaman->getID());
-    simpanItem(&produk,"A01");
+    produkTumbuhan* prod = new produkTumbuhan(tanaman->getID());
+    simpanItemAuto(prod);
 }

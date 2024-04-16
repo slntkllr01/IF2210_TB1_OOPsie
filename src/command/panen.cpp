@@ -90,7 +90,6 @@ void panen_peternak(Pemain* p) {
     printPeternakan(p);
     map<string, int> ListSiapPanen;
     ListSiapPanen = peternak->getPeternakan().getListOfSiapPanen().getElMap();
-
     if (ListSiapPanen.empty()){
         throw TidakAdaPanen();
     }

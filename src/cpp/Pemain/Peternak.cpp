@@ -48,11 +48,11 @@ void Peternak::beriMakanHewan(Hewan* hewan, Produk* makanan){
 void Peternak::panenHewan(string lokasi){
     Hewan* hewan = peternakan.delHewan(lokasi);
     // Ubah hewan menjadi produk
-    produkHewan produk(hewan->getID() + 8);
-    simpanItemAuto(&produk);
+    produkTumbuhan* prod = new produkTumbuhan(hewan->getID()+8);
+    simpanItemAuto(prod);
     if (hewan->getID() == 6 || hewan->getID() == 7){
         // Ayam dan Bebek menghasilkan 2 produk
-        produkHewan produk2(hewan->getID() + 10);
-        simpanItemAuto(&produk2);
+        produkTumbuhan* prod2 = new produkTumbuhan(hewan->getID()+10);
+        simpanItemAuto(prod2);
     }
 }

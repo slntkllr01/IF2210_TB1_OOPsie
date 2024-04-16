@@ -41,7 +41,7 @@ void kasihMakan(Pemain* p){
     if (!peternak->getInventory().isThereMakanan(peternak->getPeternakan().value(slot_kandang)->get_type())){
         throw ThereIsntMakananHewan();
     }
-
+    int added_weight;
     string slot_inventory;
     while (true){
         cout << "Stok: ";
@@ -52,7 +52,7 @@ void kasihMakan(Pemain* p){
             if(peternak->getInventory().value(slot_inventory)->getItemType() == "Produk"){
                 Item* INV = peternak->ambilItem(slot_inventory); 
                 Produk* pr = static_cast<Produk*>(INV);
-                peternak->getPeternakan().value(slot_kandang)->get_type();
+                added_weight = pr->getAddedWeight();
                 //Validasi apakah produk yang dipilih bisa dimakan                
                 if((peternak->getPeternakan().value(slot_kandang)->get_type()=="HERBIVORE" &&  (pr->getID()<=8 && pr->getID()>=5))||((peternak->getPeternakan().value(slot_kandang)->get_type()=="OMNIVORE" && (pr->getID()<=17 && pr->getID()>=5)))||((peternak->getPeternakan().value(slot_kandang)->get_type()=="CARNIVORE" && (pr->getID()<=17 && pr->getID()>=9)))){
                     cout << endl;
@@ -72,6 +72,7 @@ void kasihMakan(Pemain* p){
     }
 
     Produk* prod = static_cast<Produk*>(peternak->getInventory().value(slot_inventory));
+    prod->setAddedWeight(added_weight);
     peternak->beriMakanHewan(peternak->getPeternakan().value(slot_kandang), prod);
     
     cout << peternak->getPeternakan().value(slot_kandang)->getName() << " sudah diberi makan dan beratnya menjadi " <<peternak->getPeternakan().value(slot_kandang)->get_actualweight()<<endl;
