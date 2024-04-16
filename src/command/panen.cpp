@@ -12,14 +12,9 @@
 #include "../header/Pemain/Petani.hpp"
 #include "../header/Pemain/Peternak.hpp"
 
-// void cetak_ladang()
-// void cetak_peternakan()
-
 using namespace std;
 
 void panen_petani(Pemain* p) {
-
-    std::map<string, int>::iterator it;
     Petani* petani = static_cast<Petani*>(p);
     printLadang(p);
 
@@ -34,10 +29,10 @@ void panen_petani(Pemain* p) {
     int i = 1;
     vector<string> vector_kode_tanaman;
     // menampilkan pilihan tanaman dapat dipanen dengan iterasi
-    for (it = ListSiapPanen.begin(); it != ListSiapPanen.end(); ++it) {
+    for (const auto &it : ListSiapPanen) {
         cout << i << ". ";
-        cout << it->first << "(" << it->second << " petak siap panen)" << endl;
-        vector_kode_tanaman.push_back(it->first);
+        cout << it.first << "(" << it.second << " petak siap panen)" << endl;
+        vector_kode_tanaman.push_back(it.first);
         i++;
     }
 
@@ -91,12 +86,10 @@ void panen_petani(Pemain* p) {
 }
 
 void panen_peternak(Pemain* p) {
-
-    std::map<string, int>::iterator it;
     Peternak* peternak = static_cast<Peternak*>(p);
     printPeternakan(p);
     map<string, int> ListSiapPanen;
-    // ListSiapPanen = peternak->getPeternakan().getListofSiapPanen().getElMap();
+    ListSiapPanen = peternak->getPeternakan().getListOfSiapPanen().getElMap();
 
     if (ListSiapPanen.empty()){
         throw TidakAdaPanen();
@@ -106,14 +99,14 @@ void panen_peternak(Pemain* p) {
     int i = 1;
     vector<string> vector_kode_hewan;
     // menampilkan pilihan hewan dapat dipanen dengan iterasi
-    for (it = ListSiapPanen.begin(); it != ListSiapPanen.end(); ++it) {
+    for (const auto &it : ListSiapPanen) {
         cout << i << ". ";
-        cout << it->first << "(" << it->second << " petak siap panen)" << endl;
-        vector_kode_hewan.push_back(it->first);
+        cout << it.first << "(" << it.second << " petak siap panen)" << endl;
+        vector_kode_hewan.push_back(it.first);
         i++;
     }
 
-    int nomor_hewan, jumlah_petak, maks_jumlah_panen;
+    int nomor_hewan, jumlah_petak, maks_jumlah_panen, min_slot;
     string kode_hewan, nomor_petak;
 
     // pilih nomor hewan yang akan dipanen beserta validasinya
@@ -130,11 +123,18 @@ void panen_peternak(Pemain* p) {
     cout << "Berapa petak yang ingin dipanen: ";
     cin >> jumlah_petak;
     // Cek jumlah_petak valid dalam jumlah hewan yang dapat dipanen
+
+    if (kode_hewan == "CHK" || kode_hewan == "DCK") {
+        min_slot = 2 * jumlah_petak; // menghasilkan dua produk
+    } else {
+        min_slot = jumlah_petak;
+    }
+
     if (jumlah_petak < 1 || jumlah_petak > maks_jumlah_panen){
         throw InvalidJumlahPanen();
     }
     // Cek jumlah_petak valid cukup disimpan di inventory
-    if (jumlah_petak > p->getInventory().SlotTersisa()){
+    if (min_slot > p->getInventory().SlotTersisa()){
         throw PenyimpananTidakCukup();
     }
 
