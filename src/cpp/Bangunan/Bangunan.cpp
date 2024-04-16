@@ -1,12 +1,12 @@
 #include "../../header/Bangunan/Bangunan.hpp"
 
-Bangunan::Bangunan(int ID) : Item("Bangunan", id, "", "", 0) {
+Bangunan::Bangunan(int ID) : Item("Bangunan", ID, "", "", 0) {
     ConfigLoader& loader = ConfigLoader::getInstance();
     auto it = loader.bangunanConfigs.find(id);
 
     if (it != loader.bangunanConfigs.end()) {
         const BangunanConfig& config = it->second;
-        setID(id);
+        setID(ID);
         setCode(config.code);
         setName(config.name);
         setPrice(config.price);

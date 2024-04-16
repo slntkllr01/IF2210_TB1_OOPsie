@@ -53,11 +53,11 @@ void Walikota::bangunBangunan(Bangunan bangunan){
 
     for (const auto& it : item) {
         for (int i = 0; i < it.second.second.size(); i++) {
-            this->getInventory().AmbilBarang(it.second.second[i]);
+            this->ambilItem(it.second.second[i]);
         }
     }
 
-    // simpan otomatis (soon)
+    this->simpanItemAuto(&bangunan);
 }
 
 /* Menambah pemain */
