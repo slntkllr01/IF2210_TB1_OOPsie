@@ -62,46 +62,8 @@ int main(){
             else if (method == 2){     //nonload
                 stop = true;
                 Petani* newPetani1 = new Petani("Petani1");
-                // DEBUG
-                // Item* tanaman1 = new Tanaman(2);
-                // newPetani1->tanam(tanaman1, "A02");
-                Tanaman tanaman1(1);
-                Tanaman tanaman3(1);
-                Tanaman tanaman4(1);
-                Tanaman tanaman5(2);
-                Tanaman tanaman2(2);
-                tanaman1.set_umur(15);
-                newPetani1->simpanItem(&tanaman1, "A02");
-                
-                // newPetani1->getInventory().SimpanBarang(&tanaman2);
-                // newPetani1->ambilItem("A02");
-                // newPetani1->tanam(&tanaman1, "B02");
-                // newPetani1->tanam(&tanaman3, "B03");
-                // newPetani1->tanam(&tanaman4, "B01");
-                // newPetani1->tanam(&tanaman2, "C02");
-                
-                // ------------------------------
                 listPemain.add_Pemain(newPetani1);
                 Peternak* newPeternak1 = new Peternak("Peternak1");
-                Herbivora cow = Herbivora(1);
-                Herbivora sheep = Herbivora(2);
-                Herbivora sheep1 = Herbivora(2);
-                produkTumbuhan teakwood = produkTumbuhan(1);
-                produkHewan sheepmeat = produkHewan(10);
-                produkTumbuhan apple = produkTumbuhan(5);
-
-
-                newPeternak1->simpanItem(&cow,"A02");
-                newPeternak1->simpanItem(&sheep,"A03");
-                newPeternak1->simpanItem(&sheep1,"A01");
-                newPeternak1->simpanItem(&teakwood,"B02");
-                newPeternak1->simpanItem(&sheepmeat,"B03");
-                newPeternak1->simpanItem(&apple,"B01");
-                // newPeternak1->ternak(&cow,"A02");
-                // newPeternak1->ternak(&sheep,"A01");
-                // newPeternak1->ternak(&sheep1,"A03");
-                
-                // Herbivora* hewan1 = new Herbivora(1);
                 listPemain.add_Pemain(newPeternak1);
                 Walikota* newWalikota1 = Walikota::getInstance("Walikota");
                 listPemain.add_Pemain(newWalikota1);
