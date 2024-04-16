@@ -27,10 +27,7 @@ void beli(Pemain* pemain, Toko toko){
         cout << endl << "Pilihan item yang diinginkan : " << endl;
         cin >> pilihanA;
         cout << endl;
-        if (pilihanA != 1 || pilihanA != 2 || pilihanA != 3){
-            cout << "Masukkan input pilihan yang benar!" << endl;
-            continue;
-        } else {
+        if (pilihanA == 1 || pilihanA == 2 || pilihanA == 3){
             cout << "Apa barang yang ingin Anda Beli ?" << endl;
             if (pilihanA == 1){
                 toko.showInventory();
@@ -133,6 +130,8 @@ void beli(Pemain* pemain, Toko toko){
             //     cin >> pilihanC;
 
             // }
-        }
+        }  
+        } else {
+            cout << "Masukkan input pilihan yang benar!" << endl;
     }
-}
+}}
