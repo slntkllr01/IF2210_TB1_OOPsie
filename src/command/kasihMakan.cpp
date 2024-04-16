@@ -15,7 +15,6 @@ void kasihMakan(Pemain* p){
     if (peternak->getPeternakan().isEmpty()){
         throw PeternakanEmpty();
     }
-
     cout << "Pilih hewan yang ingin diberi makan" << endl;
     peternak->getPeternakan().CetakPeternakan();
     string slot_kandang;
@@ -51,9 +50,11 @@ void kasihMakan(Pemain* p){
         if(peternak->getInventory().isPresent(slot_inventory) && peternak->getInventory().isLokasiValid(slot_inventory)){
             //Sekarang validasi apakah yang dipilih itu produk
             if(peternak->getInventory().value(slot_inventory)->getItemType() == "Produk"){
-                Produk* pr = dynamic_cast<Produk*>(peternak->getInventory().value(slot_inventory));
-                //Validasi apakah produk yang dipilih bisa dimakan
-                if(peternak->getPeternakan().value(slot_kandang)->CanEat(pr)){
+                Item* INV = peternak->ambilItem(slot_inventory); 
+                Produk* pr = static_cast<Produk*>(INV);
+                peternak->getPeternakan().value(slot_kandang)->get_type();
+                //Validasi apakah produk yang dipilih bisa dimakan                
+                if((peternak->getPeternakan().value(slot_kandang)->get_type()=="HERBIVORE" &&  (pr->getID()<=8 && pr->getID()>=5))||((peternak->getPeternakan().value(slot_kandang)->get_type()=="OMNIVORE" && (pr->getID()<=17 && pr->getID()>=5)))||((peternak->getPeternakan().value(slot_kandang)->get_type()=="CARNIVORE" && (pr->getID()<=17 && pr->getID()>=9)))){
                     cout << endl;
                     break;
                 }
@@ -70,7 +71,7 @@ void kasihMakan(Pemain* p){
         }
     }
 
-    Produk* prod = dynamic_cast<Produk*>(peternak->getInventory().value(slot_inventory));
+    Produk* prod = static_cast<Produk*>(peternak->getInventory().value(slot_inventory));
     peternak->beriMakanHewan(peternak->getPeternakan().value(slot_kandang), prod);
     
     cout << peternak->getPeternakan().value(slot_kandang)->getName() << " sudah diberi makan dan beratnya menjadi " <<peternak->getPeternakan().value(slot_kandang)->get_actualweight()<<endl;

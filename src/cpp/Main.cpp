@@ -86,11 +86,17 @@ int main(){
                 Herbivora cow = Herbivora(1);
                 Herbivora sheep = Herbivora(2);
                 Herbivora sheep1 = Herbivora(2);
-                // produkTumbuhan 
+                produkTumbuhan teakwood = produkTumbuhan(1);
+                produkHewan sheepmeat = produkHewan(10);
+                produkTumbuhan apple = produkTumbuhan(5);
+
 
                 newPeternak1->simpanItem(&cow,"A02");
                 newPeternak1->simpanItem(&sheep,"A03");
                 newPeternak1->simpanItem(&sheep1,"A01");
+                newPeternak1->simpanItem(&teakwood,"B02");
+                newPeternak1->simpanItem(&sheepmeat,"B03");
+                newPeternak1->simpanItem(&apple,"B01");
                 // newPeternak1->ternak(&cow,"A02");
                 // newPeternak1->ternak(&sheep,"A01");
                 // newPeternak1->ternak(&sheep1,"A03");
