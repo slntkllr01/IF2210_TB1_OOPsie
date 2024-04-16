@@ -36,9 +36,9 @@ bool Inventory::isLokasiValid(string k){
 }
 
 void Inventory::SimpanBarang(Item* t){
-    cout<<"Masuk simpanBarang auto"<<endl;
+    // cout<<"Masuk simpanBarang auto"<<endl;
     if(Inventory::isFull()){
-        cout<<"Penyimpananmu sudah penuh nih!"<<endl;
+        // cout<<"Penyimpananmu sudah penuh nih!"<<endl;
     }
     else{ //Masih ada slot
         //Akan dilakukan pencarian slot pertama yang kosong iteratif
@@ -64,26 +64,26 @@ void Inventory::SimpanBarang(Item* t){
             charRow++;
             i++;
         }
-        cout<<"berhasil1"<<endl;
-        cout<<k<<" Ini knya"<<endl;
-        cout<<t->getName()<<"Ini namanya"<<endl;
+        // cout<<"berhasil1"<<endl;
+        // cout<<k<<" Ini knya"<<endl;
+        // cout<<t->getName()<<"Ini namanya"<<endl;
         this->add(k, t);
-        cout<<"berhasil2"<<endl;
+        // cout<<"berhasil2"<<endl;
         Inventory::CetakPenyimpanan();
-        if(this->isEmpty()){
-            cout<<"Dari dalam fungsi, emptyy"<<endl;
-        }
-        else{
-            cout<<"Dari dalam fungsi, gak empty kok"<<endl;
-        }
+        // if(this->isEmpty()){
+        //     cout<<"Dari dalam fungsi, emptyy"<<endl;
+        // }
+        // else{
+        //     cout<<"Dari dalam fungsi, gak empty kok"<<endl;
+        // }
     }
 } //Auto
 
 void Inventory::SimpanBarang(Item* t, string lokasi){
-    cout<<"Nih diprint lagi"<<endl;
+    // cout<<"Nih diprint lagi"<<endl;
     Inventory::CetakPenyimpanan();
     this->add(lokasi, t);
-    cout<<"Nih diprint lagi2"<<endl;
+    // cout<<"Nih diprint lagi2"<<endl;
     Inventory::CetakPenyimpanan();
 } //Input Manual
 
@@ -173,9 +173,9 @@ bool Inventory::isEmpty(){
 bool Inventory::isThereMakanan(){
     bool thereAre = false;
     if(!this->isEmpty()){
-        for(auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
-            if(it->second->getItemType() == "Produk"){
-                Produk* p = dynamic_cast<Produk*>(it->second);
+        for (const auto &it:this->getElMap()){
+            if(it.second->getItemType() == "Produk"){
+                Produk* p = dynamic_cast<Produk*>(it.second);
                 if(p->isEdibleBy()){
                     thereAre = true;
                 }
@@ -183,6 +183,16 @@ bool Inventory::isThereMakanan(){
             }
                 
         }
+        // for(auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
+        //     if(it->second->getItemType() == "Produk"){
+        //         Produk* p = dynamic_cast<Produk*>(it->second);
+        //         if(p->isEdibleBy()){
+        //             thereAre = true;
+        //         }
+
+        //     }
+                
+        // }
     }
 
     return thereAre;
