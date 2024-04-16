@@ -158,6 +158,7 @@ public:
                 return "Tanaman";
             }
         }
+        return "Tanaman not found";
     }
 
     string getHewanType(string hewanName){
@@ -166,6 +167,7 @@ public:
                 return it.second.type;
             }
         }
+        return "Hewan not found";
     }
 
     string getProdukType(string produkName){
@@ -174,6 +176,7 @@ public:
                 return it.second.type;
             }
         }
+        return "Produk not found";
     }
 
     string getBangunanType(string bangunanName){
@@ -182,6 +185,7 @@ public:
                 return "Bangunan";
             }
         }
+        return "Bangunan not found";
     }
 
     string getItemType(string itemName){

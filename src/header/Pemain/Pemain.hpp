@@ -39,6 +39,7 @@ class Pemain {
         void setBeratBadan(int beratBadan);
         /* Menyimpan item ke inventory */
         void simpanItem(Item* item, string lokasi);
+        void simpanItemAuto(Item* item);
         /* Mengambil item dari inventory */
         Item* ambilItem(string lokasi);
         /* Makan */

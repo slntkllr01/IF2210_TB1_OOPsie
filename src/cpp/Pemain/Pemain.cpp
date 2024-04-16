@@ -58,6 +58,10 @@ void Pemain::simpanItem(Item* item, string lokasi){
     inventory.SimpanBarang(item, lokasi);
 }
 
+void Pemain::simpanItemAuto(Item* item){
+    inventory.SimpanBarang(item);
+}
+
 /* Mengambil item dari inventory */
 Item* Pemain::ambilItem(string lokasi){
     return inventory.AmbilBarang(lokasi);
