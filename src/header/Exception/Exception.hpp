@@ -133,4 +133,12 @@ class ThereIsntMakananHewan: public Exception {
             return "Tidak ada makanan untuk hewanmu di inventory!";
         }
 };
+
+class InvalidPath: public Exception {
+    public:
+        string what() override {
+            return "Lokasi berkas tidak valid";
+        }
+};
+
 #endif

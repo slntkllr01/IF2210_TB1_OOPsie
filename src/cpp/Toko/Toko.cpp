@@ -48,7 +48,8 @@ void Toko::transaksiJual(Pemain* pemain, Item* item, int kuantitas) {
     pemain->jual(item, kuantitas);
 }
 
-void Toko::showInventory(ConfigLoader& config) {
+void Toko::showInventory() {
+    ConfigLoader& config = ConfigLoader::getInstance();
     cout << "-- LIMITED STOCK --" << endl;
     int i = 0;
     for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
@@ -65,5 +66,26 @@ void Toko::showInventory(ConfigLoader& config) {
     cout << "-- Tanaman --" << endl;
     for (auto itr = config.tanamanConfigs.begin(); itr != config.tanamanConfigs.begin(); ++itr) {
         cout << "[T"<< itr->first << "] " << itr->second.name << " - " << itr->second.price << endl;
+    }
+}
+
+void Toko::addInvHewanandTanaman() {
+    ConfigLoader& config = ConfigLoader::getInstance();
+    for (const auto& itr : config.hewanConfigs) {
+        if (itr.second.type == "HERBIVORE") {
+            Herbivora* hewan = new Herbivora(itr.first);
+            this->invHewan.push_back(hewan);
+        } else if (itr.second.type == "CARNIVORE") {
+            Karnivora* hewan = new Karnivora(itr.first);
+            this->invHewan.push_back(hewan);
+        } else if (itr.second.type == "OMNIVORE") {
+            Omnivora* hewan = new Omnivora(itr.first);
+            this->invHewan.push_back(hewan);
+        }   
+    }
+
+    for (const auto& itr : config.tanamanConfigs) {
+        Tanaman tanaman(itr.first);
+        this->invTanaman.push_back(tanaman);
     }
 }
