@@ -38,28 +38,28 @@ public:
             int berat, uang;
             iss >> username >> role >> berat >> uang;
             // Membuat pemain
-            shared_ptr<Pemain> pemain;
+            Pemain* pemain;
             if (role == "Petani"){
-                pemain = make_shared<Petani>(username, uang, berat);
+                pemain = new Petani(username, uang, berat);
                 // Load inventory
                 pemain->setInventory(loadInventory(file));
                 // Load state ladang
-                loadLadang(file, dynamic_pointer_cast<Petani>(pemain));
+                loadLadang(file, dynamic_cast<Petani*>(pemain));
             } else if (role == "Peternak"){
-                pemain = make_shared<Peternak>(username, uang, berat);
+                pemain = new Peternak(username, uang, berat);
                 // Load inventory
                 pemain->setInventory(loadInventory(file));
                 // load state peternakan
-                loadPeternakan(file, dynamic_pointer_cast<Peternak>(pemain));
+                loadPeternakan(file, dynamic_cast<Peternak*>(pemain));
             } else if (role == "Walikota"){
                 // buat instance walikota
-                pemain = std::shared_ptr<Pemain>(Walikota::getInstance(username));
-                dynamic_pointer_cast<Walikota>(pemain)->initialize(username, uang, berat);
+                pemain = Walikota::getInstance(username);
+                dynamic_cast<Walikota*>(pemain)->initialize(username, uang, berat);
                 // Load inventory
                 pemain->setInventory(loadInventory(file));
             }
 
-            list_pemain.add_Pemain(pemain.get());
+            list_pemain.add_Pemain(pemain);
         }
         // Load state toko
         loadTokoState(file, toko);
@@ -84,7 +84,7 @@ private:
         return inventory;
     }
 
-    static void loadLadang(ifstream& file, shared_ptr<Petani> petani){
+    static void loadLadang(ifstream& file, Petani* petani){
         int jumlah_tanaman;
         string line;
         getline(file, line);
@@ -102,7 +102,7 @@ private:
         }
     }
 
-    static void loadPeternakan(ifstream& file, shared_ptr<Peternak> peternak){
+    static void loadPeternakan(ifstream& file, Peternak* peternak){
         int jumlah_hewan;
         string line;
         getline(file, line);
@@ -123,7 +123,7 @@ private:
     static void loadTokoState(ifstream& file, Toko& toko){
         int banyak_item;
         file >> banyak_item;
-        for (int l = 0; l < banyak_item; l++) {
+        for (int l = 0; l < banyak_item; l++){
             string nama_item;
             int jumlah;
             file >> nama_item >> jumlah;
