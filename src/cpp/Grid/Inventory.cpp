@@ -219,10 +219,10 @@ bool Inventory::isThereHewan(){
     if(!this->isEmpty()){
         for(auto it = this->getElMap().begin(); it != this->getElMap().end(); ++it){
             if(it->second->getItemType() == "Hewan"){
-                    thereAre = true;
-                }
-
+                thereAre = true;
             }
+
+        }
                 
     }
     return thereAre;
@@ -231,7 +231,9 @@ bool Inventory::isThereHewan(){
 string Inventory::CekJenis(string lokasi){
     return this->value(lokasi)->getItemType();
     
-}bool Inventory::isThereMakanan(string tipeHewan){
+}
+
+bool Inventory::isThereMakanan(string tipeHewan){
     bool thereAre = false;
     if(!this->isEmpty()){
         for (const auto &it:this->getElMap()){
@@ -239,10 +241,10 @@ string Inventory::CekJenis(string lokasi){
                 Produk* p = dynamic_cast<Produk*>(it.second);
                 string tipeProduk = p->getType();
                 string checker;
-                if(tipeHewan == "HERBIVORE" && tipeProduk.find("PLANT")!= string::npos){
+                if(tipeHewan == "HERBIVORE" && tipeProduk.find("PRODUCT_FRUIT_PLANT")!= string::npos){
                     thereAre = true;
                 }
-                else if(tipeHewan == "CARNIVORE" && tipeProduk.find("ANIMAL") != string::npos){
+                else if(tipeHewan == "CARNIVORE" && tipeProduk.find("PRODUCT_ANIMAL") != string::npos){
                     thereAre = true;
                 }
                 else{
