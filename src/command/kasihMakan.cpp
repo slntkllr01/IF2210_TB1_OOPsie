@@ -38,9 +38,9 @@ void kasihMakan(Pemain* p){
         throw InventoryEmpty();
     }
 
-    if (!peternak->getInventory().isThereMakanan(peternak->getPeternakan().value(slot_kandang)->get_type())){
-        throw ThereIsntMakananHewan();
-    }
+    // if (!peternak->getInventory().isThereMakanan(peternak->getPeternakan().value(slot_kandang)->get_type())){
+    //     throw ThereIsntMakananHewan();
+    // }
     int added_weight;
     string slot_inventory;
     while (true){
