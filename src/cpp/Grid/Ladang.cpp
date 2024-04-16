@@ -187,7 +187,7 @@ Grid<string> Ladang::getListOfTanaman(){
 void Ladang::addAllAge(){
     for (const auto &it : this->getElMap()){ 
         it.second->add_umur();
-        // cout << "Lokasi: " << it.first << " Kode: " << it.second->getCode()<< " Umur: " <<it.second->get_umur()<< endl;
+        cout << "Lokasi: " << it.first << " Kode: " << it.second->getCode()<< " Umur: " <<it.second->get_umur()<< endl;
     }
     
 }

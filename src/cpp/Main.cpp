@@ -5,6 +5,7 @@
 #include "../header/Game/Game.hpp"
 #include "../header/Toko/Toko.hpp"
 #include "../header/Exception/Exception.hpp"
+#include "../header/Hewan/Herbivora.hpp"
 using namespace std;
 
 int main(){
@@ -62,17 +63,30 @@ int main(){
                 // Item* tanaman1 = new Tanaman(2);
                 // newPetani1->tanam(tanaman1, "A02");
                 Tanaman tanaman1(1);
+                Tanaman tanaman3(1);
+                Tanaman tanaman4(1);
+                Tanaman tanaman5(2);
                 Tanaman tanaman2(2);
                 newPetani1->getInventory().SimpanBarang(&tanaman1, "A02");
                 newPetani1->getInventory().SimpanBarang(&tanaman2);
                 // newPetani1->ambilItem("A02");
                 newPetani1->tanam(&tanaman1, "B02");
-                newPetani1->tanam(&tanaman1, "B03");
-                newPetani1->tanam(&tanaman1, "B01");
+                newPetani1->tanam(&tanaman3, "B03");
+                newPetani1->tanam(&tanaman4, "B01");
                 newPetani1->tanam(&tanaman2, "C02");
+                
                 // ------------------------------
                 listPemain.add_Pemain(newPetani1);
                 Peternak* newPeternak1 = new Peternak("Peternak1");
+                Herbivora cow = Herbivora(1);
+                Herbivora sheep = Herbivora(2);
+                Herbivora sheep1 = Herbivora(2);
+
+                // newPeternak1->getInventory().SimpanBarang(&cow,"A02");
+                newPeternak1->ternak(&cow,"A02");
+                newPeternak1->ternak(&sheep,"A01");
+                newPeternak1->ternak(&sheep1,"A03");
+                
                 // Herbivora* hewan1 = new Herbivora(1);
                 listPemain.add_Pemain(newPeternak1);
                 Walikota* newWalikota1 = Walikota::getInstance("Walikota");

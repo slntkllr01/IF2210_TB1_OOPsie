@@ -31,7 +31,7 @@ void kasihMakan(Pemain* p){
         else{
             cout << "Isi petak tidak valid/kosong, silakan ulangi masukan." << endl;
         }
-    
+    }
     cout << "Pilih pangan yang akan diberikan: " << endl;
 
     peternak->getInventory().CetakPenyimpanan();
@@ -70,8 +70,8 @@ void kasihMakan(Pemain* p){
         }
     }
 
-    Produk* p = dynamic_cast<Produk*>(peternak->getInventory().value(slot_inventory));
-    peternak->beriMakanHewan(peternak->getPeternakan().value(slot_kandang), p);
+    Produk* prod = dynamic_cast<Produk*>(peternak->getInventory().value(slot_inventory));
+    peternak->beriMakanHewan(peternak->getPeternakan().value(slot_kandang), prod);
     
-    cout << peternak->getPeternakan().value(slot_kandang)->getName() << " sudah diberi makan dan beratnya menjadi " <<peternak->getPeternakan().value(slot_kandang)->get_actualweight()<<endl;}
+    cout << peternak->getPeternakan().value(slot_kandang)->getName() << " sudah diberi makan dan beratnya menjadi " <<peternak->getPeternakan().value(slot_kandang)->get_actualweight()<<endl;
 }
