@@ -1,4 +1,5 @@
 #include <iostream>
+#include <experimental/filesystem>
 #include "../../header/Game/Game.hpp"
 #include "../../header/Exception/Exception.hpp"
 // #include "../../command/tanam.cpp"
@@ -61,14 +62,17 @@ void Game::check_turn(){
 void Game::next_turn(){
     // nambah umur semuanya sambil cek mati
     int sz = listPemain.get_ArrPemain().size();
+
     for (int i = 0; i < sz ; i++){
         if ((listPemain.get_ArrPemain())[i]->getPeran()=="Petani"){
             Petani* petani = dynamic_cast<Petani*>((listPemain.get_ArrPemain())[i]);
             // add age here
-            petani->getLadang();
+            petani->getLadang().addAllAge();
             // delete petani;
         }
     }
+    
+    cout << endl;
     
     // ngurutin dulu
     cout << "Pemain " << get_currentpemainname() << " mengakhiri giliran~" << endl;
@@ -112,12 +116,14 @@ void Game::start_game(){
     Toko toko;
     bool finish = false;
     print_winreqs();
+    cout << "Type in \"COMMAND\" untuk cek semua list command" << endl;
     // game will loop continuously
     while (!finish){
         // loop asking for command until NEXT command
         while (true){
             string command;
-            print_listofcommands();
+            cout << endl;
+            cout << "===============================" << endl;
             cout << "Masukkan command " << endl;
             cout << "> ";
             cin >> command;
@@ -125,6 +131,9 @@ void Game::start_game(){
                 if (command == "NEXT") {
                     next_turn();
                     break;
+                }
+                else if(command == "COMMAND"){
+                    print_listofcommands();
                 }
                 else if (command == "CETAK_PENYIMPANAN") {
                     printPenyimpanan(currentpemain);

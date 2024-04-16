@@ -21,7 +21,7 @@ void panen_petani(Pemain* p) {
 
     std::map<string, int>::iterator it;
     Petani* petani = dynamic_cast<Petani*>(p);
-    petani->getLadang().CetakLadang();
+    printLadang(p);
 
     map<string, int> ListSiapPanen;
     ListSiapPanen = petani->getLadang().getListofSiapPanen().getElMap();
@@ -94,8 +94,7 @@ void panen_peternak(Pemain* p) {
 
     std::map<string, int>::iterator it;
     Peternak* peternak = dynamic_cast<Peternak*>(p);
-    peternak->getPeternakan().CetakPeternakan();
-
+    printPeternakan(p);
     map<string, int> ListSiapPanen;
     // ListSiapPanen = peternak->getPeternakan().getListofSiapPanen().getElMap();
 

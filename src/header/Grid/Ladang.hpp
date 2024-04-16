@@ -41,6 +41,9 @@ class Ladang: public Grid<Tanaman*>{
 
         Grid<string> getListOfTanaman();
         
+        void addAllAge();
+
+        void printAllTanaman();
 };  
 
 #endif

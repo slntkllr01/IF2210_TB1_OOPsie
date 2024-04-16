@@ -41,6 +41,8 @@ class Peternakan : public Grid<Hewan*>{
         Grid<int> getListOfSiapPanen(); //Mengeluarkan list hewan apa saja yang siap panen
 
         Grid<string> getListOfHewan();
+
+        void printAllHewan();
 };
 
 #endif

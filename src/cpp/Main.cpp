@@ -67,6 +67,9 @@ int main(){
                 newPetani1->getInventory().SimpanBarang(&tanaman2);
                 // newPetani1->ambilItem("A02");
                 newPetani1->tanam(&tanaman1, "B02");
+                newPetani1->tanam(&tanaman1, "B03");
+                newPetani1->tanam(&tanaman1, "B01");
+                newPetani1->tanam(&tanaman2, "C02");
                 // ------------------------------
                 listPemain.add_Pemain(newPetani1);
                 Peternak* newPeternak1 = new Peternak("Peternak1");

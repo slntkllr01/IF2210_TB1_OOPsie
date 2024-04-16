@@ -100,6 +100,7 @@ void Peternakan::CetakPeternakanHelper(){
 }
 
 void Peternakan::CetakPeternakan(){
+    cout << "   ================[ Peternakan ]=================" << endl;
     cout<<"   ";
     for(int i = 0; i<this->kolom; i++){
         cout<<"   "<<char(65+i)<<"  ";
@@ -212,4 +213,11 @@ Grid<string> Peternakan::getListOfHewan(){
         }
     }
     return g;
+}
+
+void Peternakan::printAllHewan(){
+    Grid<string> g = getListOfHewan();
+    for (const auto &it:g.getElMap()){
+        cout << "- " << it.first << " : " << it.second << endl;
+    }
 }

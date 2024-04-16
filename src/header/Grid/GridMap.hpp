@@ -71,6 +71,6 @@ class Grid{
         map<string, T> getElMap() const {
             return this->element;
         }
-};  
+};
 
 #endif

@@ -65,6 +65,7 @@ void Ladang::CetakLadangHelper(){
 }
 
 void Ladang::CetakLadang(){
+    cout << "   ================[ Ladang ]=================" << endl;
     cout<<"   ";
     for(int i = 0; i<this->kolom; i++){
         cout<<"   "<<char(65+i)<<"  ";
@@ -179,4 +180,22 @@ Grid<string> Ladang::getListOfTanaman(){
         }
     }
     return g;
+}
+
+
+// tambah umur semua tanaman di ladang +1
+void Ladang::addAllAge(){
+    for (const auto &it : this->getElMap()){ 
+        it.second->add_umur();
+        // cout << "Lokasi: " << it.first << " Kode: " << it.second->getCode()<< " Umur: " <<it.second->get_umur()<< endl;
+    }
+    
+}
+
+// print daftar tanaman yg ada di ladang (unique)
+void Ladang::printAllTanaman(){
+    Grid<string> g = getListOfTanaman();
+    for (const auto &it:g.getElMap()){
+        cout << "- " << it.first << " : " << it.second << endl;
+    }
 }

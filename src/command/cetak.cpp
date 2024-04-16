@@ -9,35 +9,22 @@
 using namespace std;
 
 void printPeternakan(Pemain* p){
-    if (p->getPeran()=="Peternak"){
+    if (p->getPeran() == "Peternak"){
         Peternak* peternak = dynamic_cast<Peternak*>(p);
         peternak->getPeternakan().CetakPeternakan();
-        // for (int i = 0; i < peternak->getPeternakan().getBaris(); i++){
-        //     for (int j = 0; j < peternak->getPeternakan().getKolom(); j++) {
-        //         // isi if present trus print hewan di peternakan
-        //         // - A01: Cow 
-        //         // - G01: Horse
- 
-        //     }
-        // }
-        // delete peternak;
+        peternak->getPeternakan().printAllHewan();
+        cout << endl;
     }
     else{
         throw InvalidRole();
     }
 }
-
 void printLadang(Pemain* p){
     if (p->getPeran()=="Petani"){
         Petani* petani = dynamic_cast<Petani*>(p);
         petani->getLadang().CetakLadang();
-        // for (int i = 0; i < petani->getLadang().getBaris(); i++){
-        //     for (int j = 0; j < petani->getLadang().getKolom(); j++) {
-        //         // isi if present trus print tnmn di peternakan
-
-        //     }
-        // }
-        // delete petani;
+        petani->getLadang().printAllTanaman();
+        cout << endl;
     }
     else{
         throw InvalidRole();
@@ -46,4 +33,5 @@ void printLadang(Pemain* p){
 
 void printPenyimpanan(Pemain* p){
     p->getInventory().CetakPenyimpanan();
+    cout << endl;
 }
