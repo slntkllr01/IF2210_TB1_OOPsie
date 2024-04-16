@@ -69,7 +69,6 @@ void Inventory::SimpanBarang(Item* t){
         // cout<<t->getName()<<"Ini namanya"<<endl;
         this->add(k, t);
         // cout<<"berhasil2"<<endl;
-        Inventory::CetakPenyimpanan();
         // if(this->isEmpty()){
         //     cout<<"Dari dalam fungsi, emptyy"<<endl;
         // }
@@ -80,11 +79,7 @@ void Inventory::SimpanBarang(Item* t){
 } //Auto
 
 void Inventory::SimpanBarang(Item* t, string lokasi){
-    // cout<<"Nih diprint lagi"<<endl;
-    Inventory::CetakPenyimpanan();
     this->add(lokasi, t);
-    // cout<<"Nih diprint lagi2"<<endl;
-    Inventory::CetakPenyimpanan();
 } //Input Manual
 
 Item* Inventory::AmbilBarang(string lokasi){
