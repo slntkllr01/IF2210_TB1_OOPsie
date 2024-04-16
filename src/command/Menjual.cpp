@@ -6,6 +6,7 @@
 #include "../header/Hewan/Hewan.hpp"
 #include "../header/Tanaman/Tanaman.hpp"
 #include <vector>
+#include <limits> 
 
 using namespace std;
 // fungsi bantuan untuk meng-handle input koma
@@ -38,6 +39,8 @@ void jual(Pemain* p, Toko toko){
             string input;
             cout << "Silahkan pilih petak yang ingin Anda Jual!" << endl;
             cout << "Petak : ";
+            // si cin.ignore ini untuk ngebersihin inputan
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             getline(cin, input);
             cout << endl;
             vector<string> temp = getInput(input);
