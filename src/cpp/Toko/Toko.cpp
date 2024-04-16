@@ -53,6 +53,7 @@ void Toko::showInventory() {
     int i = 0;
     for (const auto& itr : inventory){
         cout << "["<< i + 1 << "] " << itr.first.getName() << " - " << itr.first.getPrice() << " (Stok: " << itr.second << ")" << endl;
+        i++;
         // if (itr.first.getItemType() != "Hewan" && itr.first.getItemType() != "Tanaman"){
         //     cout << "["<< i + 1 << "] " << itr.first.getName() << " - " << itr.first.getPrice() << " (Stok: " << itr.second << ")" << endl;
         //     i++;
