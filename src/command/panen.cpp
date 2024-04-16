@@ -20,7 +20,7 @@ using namespace std;
 void panen_petani(Pemain* p) {
 
     std::map<string, int>::iterator it;
-    Petani* petani = dynamic_cast<Petani*>(p);
+    Petani* petani = static_cast<Petani*>(p);
     printLadang(p);
 
     map<string, int> ListSiapPanen;
@@ -93,7 +93,7 @@ void panen_petani(Pemain* p) {
 void panen_peternak(Pemain* p) {
 
     std::map<string, int>::iterator it;
-    Peternak* peternak = dynamic_cast<Peternak*>(p);
+    Peternak* peternak = static_cast<Peternak*>(p);
     printPeternakan(p);
     map<string, int> ListSiapPanen;
     // ListSiapPanen = peternak->getPeternakan().getListofSiapPanen().getElMap();

@@ -18,9 +18,9 @@ void tanam(Pemain* p){
     }
 
     // no food
-    if (!(p->getInventory().isThereTanaman())){
-        throw noTanamaninInv();
-    }
+    // if (!(p->getInventory().isThereTanaman())){
+    //     throw noTanamaninInv();
+    // }
     string slotinv;
     string slotladang;
     string namatanaman;
@@ -45,7 +45,8 @@ void tanam(Pemain* p){
     }
     cout << "Pilih petak yang akan ditanami" << endl;
     petani->getLadang().CetakLadang();
-    Tanaman* tanaman = dynamic_cast<Tanaman*>(item);
+
+    Tanaman* tanaman = static_cast<Tanaman*>(item);
     while (true){
         cout << "Petak tanah: ";
         cin >> slotladang;

@@ -44,5 +44,5 @@ void Petani::panenTanaman(string lokasi){
     Tanaman* tanaman = ladang.delTanaman(lokasi);
     // Ubah tanaman menjadi produk
     produkTumbuhan produk(tanaman->getID());
-    inventory.SimpanBarang(&produk);
+    simpanItem(&produk,"A01");
 }

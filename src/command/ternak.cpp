@@ -22,9 +22,9 @@ void ternak(Pemain* p){
     }
 
     // Pastikan ada hewan di inventory
-    if (!(p->getInventory().isThereHewan())){
-        throw noHewanInv();
-    }
+    // if (!(p->getInventory().isThereHewan())){
+    //     throw noHewanInv();
+    // }
 
     string slot_inventory, slot_peternakan, nama_hewan;
     Item* item;
@@ -48,7 +48,7 @@ void ternak(Pemain* p){
     // Cetak peternakan
     cout << "Pilih petak tanah yang akan ditinggali" << endl;
     peternak->getPeternakan().CetakPeternakan();
-    Hewan* hewan = dynamic_cast<Hewan*>(item);
+    Hewan* hewan = static_cast<Hewan*>(item);
 
     while (true) {
         cout << "Petak tanah: ";
