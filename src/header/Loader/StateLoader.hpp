@@ -42,21 +42,27 @@ public:
             if (role == "Petani"){
                 pemain = make_shared<Petani>(username, uang, berat);
                 // Load inventory
-                pemain->setInventory(loadInventory(iss));
+                cout << "Loading inventory petaniiiii" << endl; // debug
+                cout << "sekarang line: " << line << endl; // debug
+                pemain->setInventory(loadInventory(file));
+                cout << "Loading inventory petani selesai" << endl; // debug
                 // Load state ladang
-                loadLadang(iss, dynamic_pointer_cast<Petani>(pemain));
+                loadLadang(file, dynamic_pointer_cast<Petani>(pemain));
             } else if (role == "Peternak"){
                 pemain = make_shared<Peternak>(username, uang, berat);
                 // Load inventory
-                pemain->setInventory(loadInventory(iss));
+                cout << "Loading inventory peternakkkkk" << endl; // debug
+                cout << "sekarang line: " << line << endl; // debug
+                pemain->setInventory(loadInventory(file));
+                cout << "Loading inventory peternak selesai" << endl; // debug
                 // load state peternakan
-                loadPeternakan(iss, dynamic_pointer_cast<Peternak>(pemain));
+                loadPeternakan(file, dynamic_pointer_cast<Peternak>(pemain));
             } else if (role == "Walikota"){
                 // buat instance walikota
                 pemain = std::shared_ptr<Pemain>(Walikota::getInstance(username));
                 dynamic_pointer_cast<Walikota>(pemain)->initialize(username, uang, berat);
                 // Load inventory
-                pemain->setInventory(loadInventory(iss));
+                pemain->setInventory(loadInventory(file));
             }
 
             list_pemain.add_Pemain(pemain.get());
@@ -66,39 +72,60 @@ public:
     }
 
 private:
-    static Inventory loadInventory(istringstream& iss){
+    static Inventory loadInventory(ifstream& file){
         Inventory inventory;
+        string line;
+        getline(file, line);
+        istringstream iss2(line);
         int jumlah_item;
-        iss >> jumlah_item;
+        cout << "line: " << line << endl; // debug
+        iss2 >> jumlah_item;
+        cout << "sekarang line: " << line << endl; // debug
+        cout << "heyy" << jumlah_item << endl; // debug
         for (int j = 0; j < jumlah_item; j++){
+            getline(file, line);
+            istringstream iss3(line);
             string item_name;
-            iss >> item_name;
+            cout << "sekarang line: " << line << endl; // debug
+            iss3 >> item_name;
+            cout << "Sekarang line: " << line << endl; // debug
+            cout << "UUUUUUUUUUUUU" << item_name << endl; // debug
             Item* item = createItemByName(item_name);
             inventory.SimpanBarang(item);
         }
         return inventory;
     }
 
-    static void loadLadang(istringstream& iss, shared_ptr<Petani> petani){
+    static void loadLadang(ifstream& file, shared_ptr<Petani> petani){
         int jumlah_tanaman;
-        iss >> jumlah_tanaman;
+        string line;
+        getline(file, line);
+        istringstream iss4(line);
+        iss4 >> jumlah_tanaman;
         for (int k = 0; k < jumlah_tanaman; k++){
+            getline(file, line);
+            istringstream iss5(line);
             string lokasi, nama_tanaman;
             int umur;
-            iss >> lokasi >> nama_tanaman >> umur;
+            iss5 >> lokasi >> nama_tanaman >> umur;
             Tanaman* tanaman = dynamic_cast<Tanaman*>(createItemByName(nama_tanaman));
             tanaman->set_umur(umur);
             petani->tanam(tanaman, lokasi);
         }
     }
 
-    static void loadPeternakan(istringstream& iss, shared_ptr<Peternak> peternak){
+    static void loadPeternakan(ifstream& file, shared_ptr<Peternak> peternak){
         int jumlah_hewan;
-        iss >> jumlah_hewan;
-        for (int k = 0; k < jumlah_hewan; k++) {
+        string line;
+        getline(file, line);
+        istringstream iss6(line);
+        iss6 >> jumlah_hewan;
+        for (int k = 0; k < jumlah_hewan; k++){
+            getline(file, line);
+            istringstream iss7(line);
             string lokasi, nama_hewan;
             int berat;
-            iss >> lokasi >> nama_hewan >> berat;
+            iss7 >> lokasi >> nama_hewan >> berat;
             Hewan* hewan = dynamic_cast<Hewan*>(createItemByName(nama_hewan));
             hewan->set_actualweight(berat);
             peternak->ternak(hewan, lokasi);
@@ -106,6 +133,7 @@ private:
     }
 
     static void loadTokoState(ifstream& file, Toko& toko){
+        cout << "hello from toko state" << endl; // debug
         int banyak_item;
         file >> banyak_item;
         for (int l = 0; l < banyak_item; l++) {
@@ -120,6 +148,8 @@ private:
     static Item* createItemByName(const string& itemName){
         ConfigLoader& config = ConfigLoader::getInstance();
         string itemType = config.getItemType(itemName);
+        cout << "item name: " << itemName << endl; // debug
+        cout << "Item type: " << itemType << endl; // debug
         if (itemType == "Tanaman"){
             return new Tanaman(itemName);
         } else if (itemType == "HERBIVORE"){
