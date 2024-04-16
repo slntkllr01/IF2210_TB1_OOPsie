@@ -30,11 +30,16 @@
 
 ## Setting Up 🍀
 - Clone this repository on your terminal `https://github.com/slntkllr01/IF2210_TB1_OOPsie.git`
+- Make sure you have C++ code compiler like GCC
 
 ## How to Run 🌿
-
+- Type on your terminal 'make all' to compile
 
 ## How to Use 🪄
-
+- Choose how to initialiaze the game according to the available options
+- Type 'COMMAND' to see a selection of commands that can be used
+- Play the game in rotation for each player with goals according to the configuration listed
+- To see which players are currently having a turn type "CHECK_STATUS"
+- Game will finish when a player become a winner
 
 ## Thankyou for trying our program :>
