@@ -31,7 +31,7 @@ vector<string> getInput(string input) {
     return items;
 }
 
-void jual(Pemain* p, Toko toko){
+void jual(Pemain* p, Toko& toko){
     if(!p->getInventory().isEmpty()) {
         while (true) {
             cout << "Berikut merupakan penyimpanan Anda" << endl;
