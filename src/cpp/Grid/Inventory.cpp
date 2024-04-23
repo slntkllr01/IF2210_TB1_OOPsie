@@ -229,24 +229,17 @@ string Inventory::CekJenis(string lokasi){
 }
 
 bool Inventory::isThereMakanan(string tipeHewan){
-    cout << "masuk sini" << endl; // debug
-    cout << tipeHewan << endl; // debug
     bool thereAre = false;
     if(!this->isEmpty()){
         for (const auto &it:this->getElMap()){
-            cout << "dalam for" << endl; // debug
             if(it.second->getItemType() == "Produk"){
-                cout << "iya produk" << endl; // debug
                 Produk* p = static_cast<Produk*>(it.second);
-                cout << "dynamic cast <3" << endl; // debug
                 string tipeProduk = p->getType();
-                cout << "tipe produk: " << tipeProduk << endl; // debug
                 string checker;
                 if(tipeHewan == "HERBIVORE" && tipeProduk.find("PRODUCT_FRUIT_PLANT")!= string::npos){
                     thereAre = true;
                 }
                 else if(tipeHewan == "CARNIVORE" && tipeProduk.find("PRODUCT_ANIMAL") != string::npos){
-                    cout << "eyyy" << endl; // debug
                     thereAre = true;
                 }
                 else if (tipeHewan == "OMNIVORE" && (tipeProduk.find("PRODUCT_ANIMAL") != string::npos || tipeProduk.find("PRODUCT_FRUIT_PLANT") != string::npos)){

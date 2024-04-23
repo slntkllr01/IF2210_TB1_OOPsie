@@ -74,8 +74,8 @@ void beli(Pemain* pemain, Toko& toko){
                             cout << "Pilihan Slot: ";
                             cin >> pilihanSlot;
                         }
-                        Item* tempItem = new Item(it.first->getItemType(), it.first->getID(), it.first->getCode(), it.first->getName(), it.first->getPrice());
-                        pemain->simpanItem(tempItem, pilihanSlot);
+                        // Item* tempItem = new Item(it.first->getItemType(), it.first->getID(), it.first->getCode(), it.first->getName(), it.first->getPrice());
+                        pemain->simpanItem(it.first, pilihanSlot);
                     }
                     cout << "Barang berhasil disimpan!" << endl;
                 }
