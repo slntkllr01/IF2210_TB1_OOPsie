@@ -65,8 +65,9 @@ void beli(Pemain* pemain, Toko& toko){
                         cout << "Pilihan Slot: ";
                         string pilihanSlot;
                         cin >> pilihanSlot;
-                        if (!pemain->getInventory().isLokasiValid(pilihanSlot)){
-                            throw InputSlotInvalid();
+                        while (!pemain->getInventory().isLokasiValid(pilihanSlot)){
+                            cout << "Input slot tidak valid! Masukkan slot yang benar: ";
+                            cin >> pilihanSlot;
                         }
                         while (pemain->getInventory().isPresent(pilihanSlot)){
                             cout << "Slot sudah terisi! Pilih slot lain!" << endl;
@@ -113,8 +114,9 @@ void beli(Pemain* pemain, Toko& toko){
                 cout << "Pilihan Slot: ";
                 string pilihanSlot;
                 cin >> pilihanSlot;
-                if (!pemain->getInventory().isLokasiValid(pilihanSlot)){
-                    throw InputSlotInvalid();
+                while (!pemain->getInventory().isLokasiValid(pilihanSlot)){
+                    cout << "Input slot tidak valid! Masukkan slot yang benar: ";
+                    cin >> pilihanSlot;
                 }
                 while (pemain->getInventory().isPresent(pilihanSlot)){
                     cout << "Slot sudah terisi! Pilih slot lain!" << endl;
@@ -156,8 +158,9 @@ void beli(Pemain* pemain, Toko& toko){
                 cout << "Pilihan Slot: ";
                 string pilihanSlot;
                 cin >> pilihanSlot;
-                if (!pemain->getInventory().isLokasiValid(pilihanSlot)){
-                    throw InputSlotInvalid();
+                while (!pemain->getInventory().isLokasiValid(pilihanSlot)){
+                    cout << "Input slot tidak valid! Masukkan slot yang benar: ";
+                    cin >> pilihanSlot;
                 }
                 while (pemain->getInventory().isPresent(pilihanSlot)){
                     cout << "Slot sudah terisi! Pilih slot lain!" << endl;
