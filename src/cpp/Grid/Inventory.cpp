@@ -104,7 +104,7 @@ bool Inventory::IsMakanan(string lokasi){
     if(t->getItemType() == "Produk"){
         Produk* p = dynamic_cast<Produk*>(t);
         string tipeItem = p->getType();
-        if(tipeItem.find(cek2) == string::npos && tipeItem.find(cek1) != string::npos){
+        if(tipeItem == "PRODUCT_FRUIT_PLANT" || tipeItem =="PRODUCT_ANIMAL"){
             is = true;
         }
     }
@@ -233,7 +233,7 @@ bool Inventory::isThereMakanan(string tipeHewan){
     if(!this->isEmpty()){
         for (const auto &it:this->getElMap()){
             if(it.second->getItemType() == "Produk"){
-                Produk* p = dynamic_cast<Produk*>(it.second);
+                Produk* p = static_cast<Produk*>(it.second);
                 string tipeProduk = p->getType();
                 string checker;
                 if(tipeHewan == "HERBIVORE" && tipeProduk.find("PRODUCT_FRUIT_PLANT")!= string::npos){
