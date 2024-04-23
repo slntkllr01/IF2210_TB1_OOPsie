@@ -25,7 +25,7 @@ int Toko::InvLength() const {
 }
 
 void Toko::transaksiBeli(Pemain* pemain, const Item* item, int kuantitas) {
-    if (item->getItemType() != "Hewan" || item->getItemType() != "Tanaman") {
+    if (item->getItemType() != "Hewan" && item->getItemType() != "Tanaman") {
         for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
             if (itr->first.getName() == item->getName()) {
                 if (itr->second - kuantitas > 0) {
@@ -33,6 +33,7 @@ void Toko::transaksiBeli(Pemain* pemain, const Item* item, int kuantitas) {
                 } else {
                     inventory.erase(itr);
                 }
+                break;
             }
         }
     }
