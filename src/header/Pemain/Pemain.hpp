@@ -53,7 +53,7 @@ class Pemain {
         /* Membeli barang */
         void beli(const Item* item, int kuantitas);
         /* Menjual barang */
-        void jual(Item* item, int kuantitas);
+        void jual(const Item* item, int kuantitas);
         /* Mengecek apakah pemain memenuhi kondisi menang */
         bool isMenang();
         /* Operator == untuk membandingkan pointer pemain */

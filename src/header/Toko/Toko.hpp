@@ -27,7 +27,7 @@ class Toko {
         vector<Tanaman> getInvTanaman() const;
         int InvLength() const;
         void transaksiBeli(Pemain* pemain, const Item* item, int kuantitas);
-        void transaksiJual(Pemain* pemain, Item* item, int kuantitas);
+        void transaksiJual(Pemain* pemain, const Item* item, int kuantitas);
         void showInventory();
         int getStock(Item* item);
         void addBarang(Item* item, int jumlah);

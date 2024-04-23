@@ -26,7 +26,7 @@ class Walikota : public Pemain {
         /* Menagih pajak */
         void tagihPajak(ListPemain& list_pemain);
         /* Membangun bangunan */
-        void bangunBangunan(Bangunan bangunan);
+        void bangunBangunan(Bangunan* bangunan);
         /* Menambah pemain */
         void tambahPemain(string username, string peran, ListPemain& list_pemain);
 };

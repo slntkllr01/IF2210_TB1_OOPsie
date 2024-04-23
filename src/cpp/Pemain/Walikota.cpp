@@ -48,16 +48,15 @@ void Walikota::tagihPajak(ListPemain& list_pemain){
 }
 
 /* Membangun bangunan */
-void Walikota::bangunBangunan(Bangunan bangunan){
+void Walikota::bangunBangunan(Bangunan* bangunan){
     map<Item*, pair<int, vector<string>>> item = Inventory::listBahanBangunan(this->getInventory().getElMap());
-
     for (const auto& it : item) {
         for (int i = 0; i < it.second.second.size(); i++) {
             this->ambilItem(it.second.second[i]);
         }
     }
 
-    this->simpanItemAuto(&bangunan);
+    this->simpanItemAuto(bangunan);
 }
 
 /* Menambah pemain */

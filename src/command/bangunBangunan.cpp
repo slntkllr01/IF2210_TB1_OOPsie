@@ -12,17 +12,6 @@ void bangunBangunan(Pemain* pemain){
         throw InvalidRole();
     }
 
-    // else {
-    //     Walikota* walikota = dynamic_cast<Walikota*>(pemain);
-    //     if (walikota) {
-    //         Produk* dummy1 = new produkTumbuhan(1);
-    //         Produk* dummy2 = new produkTumbuhan(2);
-    //         walikota->simpanItem(dummy1, "A01");
-    //         walikota->simpanItem(dummy2, "A02");
-            
-    //     }
-    // }
-
     cout << "Resep bangunan yang ada adalah sebagai berikut." << endl;
     ConfigLoader& configLoader = ConfigLoader::getInstance();
     for (const auto& entry : configLoader.bangunanConfigs) {
@@ -109,11 +98,11 @@ void bangunBangunan(Pemain* pemain){
 
         cout << chosenConfig->name << " berhasil dibangun dan telah menjadi hak milik walikota!" << endl;
         
-        Bangunan newBangunan(chosenBangunanID);
+        Bangunan* newbangunan = new Bangunan(chosenBangunanID);
 
-        Walikota* walikota = dynamic_cast<Walikota*>(pemain);
+        Walikota* walikota = static_cast<Walikota*>(pemain);
 
-        walikota->bangunBangunan(newBangunan);
+        walikota->bangunBangunan(newbangunan);
                 
         break;       
     }

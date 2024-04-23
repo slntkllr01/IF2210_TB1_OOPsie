@@ -93,7 +93,7 @@ void Pemain::beli(const Item* item, int kuantitas){
 }
 
 /* Menjual barang */
-void Pemain::jual(Item* item, int kuantitas){
+void Pemain::jual(const Item* item, int kuantitas){
     uang += item->getPrice() * kuantitas;
 }
 

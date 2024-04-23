@@ -40,7 +40,7 @@ void Toko::transaksiBeli(Pemain* pemain, const Item* item, int kuantitas) {
     pemain->beli(item, kuantitas);
 }
 
-void Toko::transaksiJual(Pemain* pemain, Item* item, int kuantitas) {
+void Toko::transaksiJual(Pemain* pemain, const Item* item, int kuantitas) {
     if (item->getItemType() != "Hewan" || item->getItemType() != "Tanaman") {
         bool found = false;
 

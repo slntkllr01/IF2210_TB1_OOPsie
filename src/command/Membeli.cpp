@@ -26,7 +26,7 @@ void beli(Pemain* pemain, Toko& toko){
         cout << "Input tidak valid! Masukkan pilihan yang benar: ";
         cin >> pilihanItem;
     }
-    if (pilihanItem == 1){
+    if (pilihanItem == 1 && toko.InvLength() != 0){
         cout << "Berikut merupakan bangunan dan produk yang dapat Anda beli:" << endl;
         toko.showInventory();
         cout << "Pilihan: ";
@@ -171,5 +171,8 @@ void beli(Pemain* pemain, Toko& toko){
             }
             cout << "Barang berhasil disimpan!" << endl;
         }
+    }
+    else {
+        cout << "Produk dan Bangunan Kosong!" << endl;
     }
 }
