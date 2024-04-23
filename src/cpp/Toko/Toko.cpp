@@ -31,7 +31,7 @@ void Toko::transaksiBeli(Pemain* pemain, Item* item, int kuantitas) {
                 if (itr->second - kuantitas > 0) {
                     itr->second -= kuantitas;
                 } else {
-                    addBarang(item, 0);
+                    inventory.erase(itr);
                 }
                 break;
             }
