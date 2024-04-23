@@ -8,7 +8,7 @@ Toko::Toko() {
 
 Toko::~Toko() {}
 
-map<Item, int> Toko::getInventory() const {
+map<Item*, int> Toko::getInventory() const {
     return this->inventory;
 }
 
@@ -24,14 +24,14 @@ int Toko::InvLength() const {
     return this->inventory.size();
 }
 
-void Toko::transaksiBeli(Pemain* pemain, const Item* item, int kuantitas) {
+void Toko::transaksiBeli(Pemain* pemain, Item* item, int kuantitas) {
     if (item->getItemType() != "Hewan" && item->getItemType() != "Tanaman") {
         for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-            if (itr->first.getName() == item->getName()) {
+            if (itr->first->getName() == item->getName()) {
                 if (itr->second - kuantitas > 0) {
                     itr->second -= kuantitas;
                 } else {
-                    inventory.erase(itr);
+                    addBarang(item, 0);
                 }
                 break;
             }
@@ -40,21 +40,9 @@ void Toko::transaksiBeli(Pemain* pemain, const Item* item, int kuantitas) {
     pemain->beli(item, kuantitas);
 }
 
-void Toko::transaksiJual(Pemain* pemain, const Item* item, int kuantitas) {
+void Toko::transaksiJual(Pemain* pemain, Item* item, int kuantitas) {
     if (item->getItemType() != "Hewan" || item->getItemType() != "Tanaman") {
-        bool found = false;
-
-        for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-            if (itr->first.getName() == item->getName()) {
-                itr->second += kuantitas;
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
-            inventory.insert({*item, 0});
-        }   
+        addBarang(item, kuantitas);
     }
     pemain->jual(item, kuantitas);
 }
@@ -63,7 +51,7 @@ void Toko::showInventory() {
     cout << "-- BANGUNAN DAN PRODUK --" << endl;
     int i = 0;
     for (const auto& itr : inventory){
-        cout << "["<< i + 1 << "] " << itr.first.getName() << " - " << itr.first.getPrice() << " (Stok: " << itr.second << ")" << endl;
+        cout << "["<< i + 1 << "] " << itr.first->getName() << " - " << itr.first->getPrice() << " (Stok: " << itr.second << ")" << endl;
         i++;
         // if (itr.first.getItemType() != "Hewan" && itr.first.getItemType() != "Tanaman"){
         //     cout << "["<< i + 1 << "] " << itr.first.getName() << " - " << itr.first.getPrice() << " (Stok: " << itr.second << ")" << endl;
@@ -74,9 +62,9 @@ void Toko::showInventory() {
 }
 
 int Toko::getStock(Item* item) {
-    for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-        if (itr->first.getName() == item->getName()) {
-            return itr->second;
+    for (const auto& itr : getInventory()) {
+        if (itr.first->getName() == item->getName()) {
+            return itr.second;
         }
     }
     return 0;
@@ -84,16 +72,16 @@ int Toko::getStock(Item* item) {
 
 void Toko::addBarang(Item* item, int jumlah){
     bool found = false;
-    for (auto itr = inventory.begin(); itr != inventory.end(); ++itr) {
-        if (itr->first.getName() == item->getName()) {
-            itr->second += jumlah;
+    for (auto& itr : getInventory()) {
+        if (itr.first->getName() == item->getName()) {
+            itr.second += jumlah;
             found = true;
             break;
         }
     }
 
     if (!found) {
-        inventory.insert({*item, jumlah});
+        inventory.insert({item, jumlah});
     }
 }
 

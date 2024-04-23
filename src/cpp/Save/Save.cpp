@@ -39,7 +39,7 @@ void Save::saveState(ListPemain listPemain, Toko toko, string fileName) {
     tempFile << toko.InvLength() << endl;
     
     for (auto const& itr : toko.getInventory()) {
-        tempFile << itr.first.getName() << " " << itr.second << endl;
+        tempFile << itr.first->getName() << " " << itr.second << endl;
     }
 
     tempFile.close();

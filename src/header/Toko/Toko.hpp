@@ -16,18 +16,18 @@ using namespace std;
 
 class Toko {
     private:
-        map<Item, int> inventory;
+        map<Item*, int> inventory;
         vector<Hewan*> invHewan;
         vector<Tanaman> invTanaman;
     public:
         Toko();
         ~Toko();
-        map<Item, int> getInventory() const;
+        map<Item*, int> getInventory() const;
         vector<Hewan*> getInvHewan() const;
         vector<Tanaman> getInvTanaman() const;
         int InvLength() const;
-        void transaksiBeli(Pemain* pemain, const Item* item, int kuantitas);
-        void transaksiJual(Pemain* pemain, const Item* item, int kuantitas);
+        void transaksiBeli(Pemain* pemain, Item* item, int kuantitas);
+        void transaksiJual(Pemain* pemain, Item* item, int kuantitas);
         void showInventory();
         int getStock(Item* item);
         void addBarang(Item* item, int jumlah);

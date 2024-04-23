@@ -40,7 +40,7 @@ void beli(Pemain* pemain, Toko& toko){
         int i = 1;
         for (const auto &it : toko.getInventory()){
             if (i == pilihanToko){
-                if (pemain->getPeran() == "Walikota" && it.first.getItemType() == "Bangunan"){
+                if (pemain->getPeran() == "Walikota" && it.first->getItemType() == "Bangunan"){
                     cout << "Kamu tidak bisa membeli bangunan. Beli yang lain!" << endl;
                     break;
                 }
@@ -54,11 +54,11 @@ void beli(Pemain* pemain, Toko& toko){
                 }
                 if ((pemain->getInventory().SlotTersisa() < kuantitas) || (pemain->getInventory().isFull())){
                     throw PenyimpananTidakCukup();
-                } else if (!pemain->isUangCukup(it.first.getPrice() * kuantitas)){
+                } else if (!pemain->isUangCukup(it.first->getPrice() * kuantitas)){
                     throw NoMoney();
                 } else {
-                    toko.transaksiBeli(pemain, &it.first, kuantitas);
-                    cout << "Selamat Anda berhasil membeli " << kuantitas << " " << it.first.getName() << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
+                    toko.transaksiBeli(pemain, it.first, kuantitas);
+                    cout << "Selamat Anda berhasil membeli " << kuantitas << " " << it.first->getName() << ". Uang Anda tersisa " << pemain->getUang() << "." << endl;
                     cout << "Pilih slot untuk menyimpan barang yang Anda beli!" << endl;
                     pemain->getInventory().CetakPenyimpanan();
                     for (int i = 0; i < kuantitas; i++){
@@ -74,7 +74,7 @@ void beli(Pemain* pemain, Toko& toko){
                             cout << "Pilihan Slot: ";
                             cin >> pilihanSlot;
                         }
-                        Item* tempItem = new Item(it.first.getItemType(), it.first.getID(), it.first.getCode(), it.first.getName(), it.first.getPrice());
+                        Item* tempItem = new Item(it.first->getItemType(), it.first->getID(), it.first->getCode(), it.first->getName(), it.first->getPrice());
                         pemain->simpanItem(tempItem, pilihanSlot);
                     }
                     cout << "Barang berhasil disimpan!" << endl;

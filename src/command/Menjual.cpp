@@ -66,6 +66,7 @@ void jual(Pemain* p, Toko toko){
             if (allPresent) {
                 for (const auto& item : temp) {
                     Item* barang = p->ambilItem(item);
+                    cout << barang->getName() << endl; // debug
                     toko.transaksiJual(p, barang, 1);
                     totalHargaJual += barang->getPrice();
                 }
